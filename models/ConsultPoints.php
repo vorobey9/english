@@ -5,7 +5,7 @@
  * Date: 14.03.2016
  * Time: 19:23
  */
-class ConsultPoint {
+class ConsultPoints {
     private function checkIdTeacher($id) {
         $id = intval($id);
         if(isset($id)) {
@@ -138,7 +138,9 @@ class ConsultPoint {
 
     private function checkDayPoint($idTeacher, $dayStamp) {
         $db = Db::getConnection();
-        $resQuery = $db->query("SELECT * FROM `consultPoint` WHERE idTeacher='$idTeacher' AND dayStamp='$dayStamp'");
+        $resQuery = $db->query("SELECT * FROM `consultpoints` WHERE idTeacher='$idTeacher' AND dayStamp='$dayStamp'");
+        $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+        $resQuery = $resQuery->fetch();
         if($resQuery) {
             return true;
         }
@@ -154,7 +156,7 @@ class ConsultPoint {
             return false;
     }
 
-    public function testDate() {
+    public function test() {
         var_dump($this->updateParameter('beginTime', "09:09:09", 8));
     }
 }
