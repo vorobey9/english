@@ -6,12 +6,11 @@
  * Time: 19:23
  */
 class ConsultPoint {
-
     private function checkIdTeacher($id) {
         $id = intval($id);
         if(isset($id)) {
             $db = Db::getConnection();
-            $resQuery = $db->query("SELECT * FROM `teacher` WHERE id='$id'");
+            $resQuery = $db->query("SELECT * FROM `teachers` WHERE id='$id'");
             if($resQuery) {
                 return true;
             }
@@ -37,11 +36,19 @@ class ConsultPoint {
                                 $description = $array['description'];
                                 $room = $array['room'];
 
-                                ////////////////////////////////////
                                 //////DATA BASE/////////////////////
-                                ////////////////////////////////////
+                                $db = Db::getConnection();
+                                $result = $db->query("INSERT INTO `consultpoints` (idTeacher, beginTime, endTime, dayStamp, description, room) VALUES ('$idTeacher', '$beginTime', '$endTime', '$dayStamp', '$description', '$room')");
 
-                                return true;
+                                if($result) {
+                                    return true;
+                                }
+                                else {
+                                    return false;
+                                }
+                            }
+                            else {
+                                return false;
                             }
                         }
                         else {
@@ -65,6 +72,70 @@ class ConsultPoint {
         }
     }
 
+    public function getAll() {
+        $db = Db::getConnection();
+        $resQuery = $db->query("SELECT * FROM `consultpoints`");
+
+        $result = array();
+        if($resQuery) {
+            $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+            $i = 0;
+            while($row = $resQuery->fetch()) {
+                $result[$i]['id'] = $row['id'];
+                $result[$i]['idTeacher'] = $row['idTeacher'];
+                $result[$i]['beginTime'] = $row['beginTime'];
+                $result[$i]['endTime'] = $row['endTime'];
+                $result[$i]['dayStamp'] = $row['dayStamp'];
+                $result[$i]['description'] = $row['description'];
+                $result[$i]['room'] = $row['room'];
+                $i++;
+            }
+            return $result;
+        }
+        return false;
+    }
+
+    public function getById($id) {
+        $id = intval($id);
+        if(isset($id)) {
+            $db = Db::getConnection();
+            $result = $db->query("SELECT * FROM `consultpoints` WHERE id='$id'");
+            if($result) {
+                $result->setFetchMode(PDO::FETCH_ASSOC);
+                $result = $result->fetch();
+                return $result;
+            }
+        }
+        return false;
+    }
+
+    public function deleteById($id) {
+        $id = intval($id);
+        if(isset($id)) {
+            $db = Db::getConnection();
+            $resQuery = $db->query('DELETE FROM `consultpoints` WHERE id='.$id);
+            if($resQuery) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function updateParameter($parameterName, $newValue, $id) {
+        $id = intval($id);
+        if(isset($id)) {
+            if ($parameterName == 'id') {
+                return false;
+            }
+            $db = Db::getConnection();
+            $resQuery = $db->query("UPDATE `consultpoints` SET $parameterName='$newValue' WHERE id='$id'");
+            if($resQuery) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private function checkDayPoint($idTeacher, $dayStamp) {
         $db = Db::getConnection();
         $resQuery = $db->query("SELECT * FROM `consultPoint` WHERE idTeacher='$idTeacher' AND dayStamp='$dayStamp'");
@@ -84,19 +155,6 @@ class ConsultPoint {
     }
 
     public function testDate() {
-        $date = '14:05:05';
-//        $date = date('H:i:s', $date);
-//        $date = date('H:i:s', $date);
-//        echo $date.'<br>';
-
-//        $db = Db::getConnection();
-//        $result = $db->query("INSERT INTO `consultpoints` (idTeacher, beginTime, endTime, dayStamp, description, room) VALUES ('9', '$date', '$date', '1', 'abc', '4205')");
-//        if($result) {
-//            echo "AAAAA";
-//        }
-//        else {
-//            echo "BBBBB";
-//        }
-        echo $this->checkTimeFormat("23:11:01");
+        var_dump($this->updateParameter('beginTime', "09:09:09", 8));
     }
 }
