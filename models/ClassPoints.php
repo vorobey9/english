@@ -25,24 +25,13 @@ class ClassPoints {
     }
 
     public function add($array) {
-        $i = 0;
         if(isset($array)) {
-            echo "i = ".$i.'<br>';
-            $i++;
             $idTeacher = intval($array['idTeacher']);
             $dayStamp = intval($array['dayStamp']);
             if($this->checkIdTeacher($idTeacher)) {
-                echo "i = ".$i.'<br>';
-                $i++;
                 if($dayStamp < 8 && $dayStamp > 0) {
-                    echo "i = ".$i.'<br>';
-                    $i++;
                     if(is_numeric($dayStamp) && !$this->checkDayPoint($idTeacher, $dayStamp)) {
-                        echo "i = ".$i.'<br>';
-                        $i++;
                             if(isset($array['room'])) {
-                                echo "i = ".$i.'<br>';
-                                $i++;
                                 $numLesson = $array['numLesson'];
                                 $numeratorGroup = $array['numeratorGroup'];
                                 $denominatorGroup = $array['denominatorGroup'];
