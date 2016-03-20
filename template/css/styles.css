@@ -1,0 +1,382 @@
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgba(222, 222, 222, 0.9);
+}
+
+.boxSize {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.borderRadius5px {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.transition3s {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.imgCircle {
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+}
+
+.leftMenu {
+    background: rgba(70, 3, 3, 0.9);
+    padding: 0 5px;
+    height: auto;
+    overflow-y: hidden;
+}
+
+
+.leftMenu .avatar {
+    width: 125px;
+    height: 125px;
+    margin: 20px auto 10px auto;
+    cursor: pointer;
+}
+
+.leftMenu .user {
+    margin: 10px 0;
+    width: 100%;
+    position: relative;
+    float: left;
+}
+
+.leftMenu .user p {
+    font-size: 1em;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+
+}
+
+.leftMenu .avatar img, .content .article .articleThumb img, .content .article .mediaArea ul li a img , .content .facultArticle .mediaArea ul li a img,.content .facultativesSingle  .mediaArea ul li a img{
+    width: 100%;
+    height: 100%;
+}
+
+.auth, .register {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.auth input, .register input {
+    margin: 10px auto;
+    color: #b9b9b9;
+}
+
+.auth .submitBtn, .authBtn, .register .submitBtn {
+    width: 100%;
+    margin: 10px auto 5px auto;
+    text-decoration: none;
+    border: 1px solid #300303;
+    color: #dedede;
+    background: rgba(48, 3, 3, 0.9);
+
+}
+
+.auth .submitBtn:hover, .auth .submitBtn:focus, .auth .submitBtn:active, .authBtn:hover, .authBtn:focus {
+    background: rgba(88, 3, 3, 0.9);
+    color: #dedede;
+    border: 1px solid #300303;
+
+}
+
+.modal-title {
+    font-size: 1.3em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.leftMenu .leftNavbar {
+    margin: 10px 0;
+    padding: 0;
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+.leftMenu .leftNavbar ul li {
+    padding: 5px;
+    background: transparent;
+    border-bottom: 1px solid rgba(124, 3, 3, 0.9);
+}
+
+.leftMenu .leftNavbar ul li:last-child {
+    border-bottom: none;
+}
+
+.leftMenu .leftNavbar li a {
+    font-size: 1.1em;
+    text-transform: uppercase;
+    color: #989898;
+    text-decoration: none;
+}
+
+.leftMenu .leftNavbar li a i {
+    float: left;
+    margin-top: 3px;
+    margin-right: 10px;
+    color: #7d7d7d;
+    font-size: 1.2em;
+
+}
+
+.leftNavbar ul li:hover {
+    background: rgba(61, 3, 3, 0.9);
+}
+
+.leftNavbar ul li:hover a, .leftNavbar ul li:hover i {
+    color: #dedede;
+    font-size: 1.3em;
+
+}
+
+.leftMenu .time {
+    font-size: 4em;
+    color: #dedede;
+}
+
+/*
+
+The styles to the right part
+
+*/
+.content {
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
+
+.content .title {
+    font-size: 2.4em;
+    margin: 40px auto 20px auto;
+}
+
+.content h3 {
+    font-size: 1.3em;
+    margin: 10px 0;
+    color: #581919;
+}
+.content .quote{
+    position: relative;
+    display: block;
+    float: left;
+    margin: 20px auto;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.content .mainSlider{
+    position: relative;
+    display: block;
+    float: left;
+    margin: 40px auto 20px auto;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.content .mainSlider .carousel-inner img, .content .mainSlider .carousel-inner .item{
+    width: 100%;
+    height: 300px;
+}
+
+.content .facultArticle {
+    padding: 20px!important;
+}
+.content .article, .content .facultArticle {
+    margin: 20px 0;
+    float: left;
+    position: relative;
+    padding:40px 20px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+
+
+
+.content .article .articleThumb {
+    width: 30%;
+    height: 100%;
+    float: left;
+    margin-top: 10px;
+}
+
+.content .article .text {
+    margin: 5px 20px;
+    color: #000000;
+    width: 65%;
+    float: left;
+}
+
+.content .article .plainText, .content  .facultArticle .text, .content .facultativesSingle .text{
+    font-size: 1.2em;
+    margin:10px 0;
+    color: #000000;
+    float: left;
+
+}
+
+.content .facultArticle .articleThumb {
+    width: 80%;
+    margin:10px auto;
+}
+
+.content .facultativesSingle .articleThumb{
+    margin: 20px auto;
+    float: left;
+    width: 70%;
+}
+
+.content .article .more, .content .facultArticle .more{
+    margin:20px auto;
+}
+
+.content .article .more a, .content .facultArticle .more a{
+    font-size: 1.3em;
+    text-decoration: none;
+    color: #6c6c6c;
+}
+
+.content .facultArticle .more a{
+    font-size: 1.1em;
+}
+
+.content .article .more:hover a, .content .facultArticle .more:hover a{
+    color: #000000;
+
+}
+
+.content .modalArticle .modalText p{
+    color: #000000;
+    font-size: 1.2em;
+    text-align: justify;
+}
+
+.content .date{
+    font-size: 1.3em;
+    margin:10px 5px;
+    font-weight: 600;
+    float: left;
+}
+
+.content .modal-footer .date{
+    margin: 0;
+}
+
+.content .modalArticle{
+    padding: 10px;
+}
+
+.content .modalArticle .modalThumb{
+    float: none;
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.content .modalArticle .modalThumb img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+.content .article .text p {
+    margin: 0;
+    font-size: 1.2em;
+
+}
+
+.content .article .signature {
+    background: rgb(152, 69, 69);
+    padding: 8px 10px;
+    display: block;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+    color: #dedede;
+    font-size: 1em;
+}
+
+.content .article .signature:hover {
+    background: #581919;
+}
+
+.content .article .text h2 {
+    font-size: 1.4em;
+    text-align: center;
+    margin: 5px 0 10px 0;
+
+}
+
+.content .article .text a {
+    font-size: 0.98em;
+    color: #581919;
+    margin-left: 3px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.content .article .text a:hover {
+    color: #151515;
+    text-decoration: none;
+}
+
+.content .article .mediaArea, .content .facultArticle .mediaArea,.content .facultativesSingle  .mediaArea {
+    margin: 10px auto;
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+.content .article .mediaArea ul li, .content .facultArticle .mediaArea ul li, .content .facultativesSingle  .mediaArea ul li{
+    float: left;
+    margin: 5px 6%;
+    width: 20%;
+    border-radius: 100%;
+    color: #000000;
+    border: 1px solid #fff;
+}
+.content .facultativesSingle  .mediaArea ul li{
+    float: none;
+    margin: 5% 2%;
+}
+
+
+
+
+.content .article .mediaArea ul li:hover, .content .facultArticle .mediaArea ul li:hover, .content .facultativesSingle  .mediaArea ul li:hover {
+    border-color: rgba(70, 3, 3, 0.9);
+
+}
+
+.content .article .mediaArea ul li a img,  .content .facultArticle .mediaArea ul li a img, .content .facultativesSingle  .mediaArea ul li a img
+{
+    padding: 10px;
+    fill: #999;
+}
+
+.content .article .mediaArea ul, .content .facultArticle .mediaArea ul , .content .facultativesSingle  .mediaArea ul {
+    width: 100%;
+    float: left;
+    text-align: center;
+}
