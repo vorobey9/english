@@ -2,21 +2,35 @@
 /**
  * Created by PhpStorm.
  * User: User
- * Date: 20.03.2016
- * Time: 14:56
+ * Date: 21.03.2016
+ * Time: 20:31
  */
+class Puzzle {
+    private function checkIdFolder($id) {
+        $id = intval($id);
+        if(isset($id)) {
+            $db = Db::getConnection();
+            $resQuery = $db->query("SELECT * FROM `folders` WHERE id='$id'");
+            if($resQuery) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
 
-class Folders {
     public function add($array) {
         if(isset($array)) {
-            $title = $array['title'];
-            $description = $array['description'];
-            if($array['typeExercise'] == 'puzzle' || $array['typeExercise'] == 'inscribe' || $array['typeExercise'] == 'test') {
-                $typeExercise = $array['typeExercise'];
-                $countInBlank = intval($array['countInBlank']);
-                if($countInBlank > 0 && is_numeric($countInBlank)) {
+            $idFolder = intval($array['idFolder']);
+            if($this->checkIdFolder($idFolder)) {
+                if(isset($array['textPuzzle'])) {
+                    $textPuzzle = $array['textPuzzle'];
                     $db = Db::getConnection();
-                    $result = $db->query("INSERT INTO `folders` (title, description, typeExercise, countInBlank) VALUES ('$title', '$description', '$typeExercise', '$countInBlank')");
+                    $result = $db->query("INSERT INTO `puzzles` (idFolder, textPuzzle) VALUES ('$idFolder', '$textPuzzle')");
                     if($result) {
                         return true;
                     }
@@ -39,7 +53,7 @@ class Folders {
 
     public function getAll() {
         $db = Db::getConnection();
-        $resQuery = $db->query("SELECT * FROM `folders`");
+        $resQuery = $db->query("SELECT * FROM `puzzles`");
 
         $result = array();
         if($resQuery) {
@@ -47,10 +61,8 @@ class Folders {
             $i = 0;
             while($row = $resQuery->fetch()) {
                 $result[$i]['id'] = $row['id'];
-                $result[$i]['title'] = $row['title'];
-                $result[$i]['description'] = $row['description'];
-                $result[$i]['typeExercise'] = $row['typeExercise'];
-                $result[$i]['countInBlank'] = $row['countInBlank'];
+                $result[$i]['idFolder'] = $row['idFolder'];
+                $result[$i]['textPuzzle'] = $row['textPuzzle'];
                 $i++;
             }
             return $result;
@@ -62,7 +74,7 @@ class Folders {
         $id = intval($id);
         if(isset($id)) {
             $db = Db::getConnection();
-            $result = $db->query("SELECT * FROM `folders` WHERE id='$id'");
+            $result = $db->query("SELECT * FROM `puzzles` WHERE id='$id'");
             if($result) {
                 $result->setFetchMode(PDO::FETCH_ASSOC);
                 $result = $result->fetch();
@@ -76,7 +88,7 @@ class Folders {
         $id = intval($id);
         if(isset($id)) {
             $db = Db::getConnection();
-            $resQuery = $db->query('DELETE FROM `folders` WHERE id='.$id);
+            $resQuery = $db->query('DELETE FROM `puzzles` WHERE id='.$id);
             if($resQuery) {
                 return true;
             }
@@ -91,7 +103,7 @@ class Folders {
                 return false;
             }
             $db = Db::getConnection();
-            $resQuery = $db->query("UPDATE `folders` SET $parameterName='$newValue' WHERE id='$id'");
+            $resQuery = $db->query("UPDATE `puzzles` SET $parameterName='$newValue' WHERE id='$id'");
             if($resQuery) {
                 return true;
             }
@@ -99,12 +111,12 @@ class Folders {
         return false;
     }
 
+
     public function test() {
-        $arr = array();
-        $arr['title'] = 'theeee';
-        $arr['description'] = 'abc';
-        $arr['typeExercise'] = 'test';
-        $arr['countInBlank'] = 9;
-        var_dump($this->add($arr));
+//        $arr = array();
+//        $arr['idFolder'] = 1;
+//        $arr['textPuzzle'] = '123abc';
+
+        var_dump($this->updateParameter('textPuzzle','testtext',5));
     }
 }
