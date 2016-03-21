@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7e1cf85-5c02-44be-a26f-7773bb4ac00d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/Training.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/TestController.php" afterPath="$PROJECT_DIR$/controllers/TestController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Folders.php" afterPath="$PROJECT_DIR$/models/Folders.php" />
     </list>
     <ignored path="27.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,8 +49,8 @@
           <file leaf-file-name="TestController.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/controllers/TestController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-7.1923075">
-                  <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+                <state vertical-scroll-proportion="-7.8461537">
+                  <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -76,11 +73,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Puzzle.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Puzzle.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/models/Puzzle.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="3.4183123">
-                  <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+                <state vertical-scroll-proportion="-12.923077">
+                  <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="120" selection-end-column="5" />
                   <folding>
                     <marker date="1458587221511" expanded="true" signature="271:309" placeholder="SELECT * FRO..folders..." />
                     <marker date="1458587221511" expanded="true" signature="874:954" placeholder="INSERT INTO `puzzles`..." />
@@ -93,6 +90,23 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="Inscribe.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/models/Inscribe.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.6337522">
+                  <caret line="110" column="13" selection-start-line="110" selection-start-column="13" selection-end-line="110" selection-end-column="13" />
+                  <folding>
+                    <marker date="1458590661174" expanded="true" signature="273:311" placeholder="SELECT * FRO..folders..." />
+                    <marker date="1458590661174" expanded="true" signature="1011:1103" placeholder="INSERT INTO `inscribe`..." />
+                    <marker date="1458590661174" expanded="true" signature="1756:1780" placeholder="SELECT * FRO..inscribe..." />
+                    <marker date="1458590661174" expanded="true" signature="2441:2480" placeholder="SELECT * FRO..inscribe..." />
+                    <marker date="1458590661174" expanded="true" signature="2861:2893" placeholder="DELETE FROM ..." />
+                    <marker date="1458590661174" expanded="true" signature="3294:3357" placeholder="UPDATE `insc..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -100,8 +114,8 @@
           <file leaf-file-name="ClassPoints.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/models/ClassPoints.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.30520648">
-                  <caret line="132" column="4" selection-start-line="132" selection-start-column="4" selection-end-line="146" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.21364452">
+                  <caret line="132" column="4" selection-start-line="132" selection-start-column="4" selection-end-line="145" selection-end-column="5" />
                   <folding>
                     <element signature="e#6#86#0#PHP" expanded="true" />
                     <element signature="n#checkDayPoint#0;n#ClassPoints#0;n#!!top" expanded="false" />
@@ -164,8 +178,9 @@
         <option value="$PROJECT_DIR$/models/ConsultPoints.php" />
         <option value="$PROJECT_DIR$/models/ClassPoints.php" />
         <option value="$PROJECT_DIR$/models/Folders.php" />
-        <option value="$PROJECT_DIR$/controllers/TestController.php" />
         <option value="$PROJECT_DIR$/models/Puzzle.php" />
+        <option value="$PROJECT_DIR$/controllers/TestController.php" />
+        <option value="$PROJECT_DIR$/models/Inscribe.php" />
       </list>
     </option>
   </component>
@@ -779,16 +794,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/TestController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Puzzle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.923077">
+          <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="120" selection-end-column="5" />
+          <folding>
+            <marker date="1458587221511" expanded="true" signature="271:309" placeholder="SELECT * FRO..folders..." />
+            <marker date="1458587221511" expanded="true" signature="874:954" placeholder="INSERT INTO `puzzles`..." />
+            <marker date="1458587221511" expanded="true" signature="1474:1497" placeholder="SELECT * FRO..puzzles..." />
+            <marker date="1458587221511" expanded="true" signature="2110:2148" placeholder="SELECT * FRO..puzzles..." />
+            <marker date="1458587221511" expanded="true" signature="2529:2560" placeholder="DELETE FROM ..." />
+            <marker date="1458587221511" expanded="true" signature="2961:3023" placeholder="UPDATE `puzz..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/ClassPoints.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30520648">
-          <caret line="132" column="4" selection-start-line="132" selection-start-column="4" selection-end-line="146" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.21364452">
+          <caret line="132" column="4" selection-start-line="132" selection-start-column="4" selection-end-line="145" selection-end-column="5" />
           <folding>
             <element signature="e#6#86#0#PHP" expanded="true" />
             <element signature="n#checkDayPoint#0;n#ClassPoints#0;n#!!top" expanded="false" />
@@ -803,17 +833,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/Puzzle.php">
+    <entry file="file://$PROJECT_DIR$/models/Inscribe.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.4183123">
-          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6337522">
+          <caret line="110" column="13" selection-start-line="110" selection-start-column="13" selection-end-line="110" selection-end-column="13" />
           <folding>
-            <marker date="1458587221511" expanded="true" signature="271:309" placeholder="SELECT * FRO..folders..." />
-            <marker date="1458587221511" expanded="true" signature="874:954" placeholder="INSERT INTO `puzzles`..." />
-            <marker date="1458587221511" expanded="true" signature="1474:1497" placeholder="SELECT * FRO..puzzles..." />
-            <marker date="1458587221511" expanded="true" signature="2110:2148" placeholder="SELECT * FRO..puzzles..." />
-            <marker date="1458587221511" expanded="true" signature="2529:2560" placeholder="DELETE FROM ..." />
-            <marker date="1458587221511" expanded="true" signature="2961:3023" placeholder="UPDATE `puzz..." />
+            <marker date="1458590661174" expanded="true" signature="273:311" placeholder="SELECT * FRO..folders..." />
+            <marker date="1458590661174" expanded="true" signature="1011:1103" placeholder="INSERT INTO `inscribe`..." />
+            <marker date="1458590661174" expanded="true" signature="1756:1780" placeholder="SELECT * FRO..inscribe..." />
+            <marker date="1458590661174" expanded="true" signature="2441:2480" placeholder="SELECT * FRO..inscribe..." />
+            <marker date="1458590661174" expanded="true" signature="2861:2893" placeholder="DELETE FROM ..." />
+            <marker date="1458590661174" expanded="true" signature="3294:3357" placeholder="UPDATE `insc..." />
           </folding>
         </state>
       </provider>
