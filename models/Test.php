@@ -2,16 +2,13 @@
 
 class Test {
     private function checkIdFolder($id) {
-
-        echo __METHOD__.'<br>';
-
         $id = intval($id);
         if(isset($id)) {
             $db = Db::getConnection();
-            $resQuery = $db->query("SELECT * FROM `folders` WHERE id='$id'");
-            if($resQuery) {
-
-                echo __METHOD__.' true '.'<br>';
+            $result = $db->query("SELECT * FROM `folders` WHERE id='$id'");
+            $result->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $result->fetch();
+            if($result) {
                 return true;
             }
             else {
@@ -25,18 +22,9 @@ class Test {
 
     public function add($array) {
         if(isset($array)) {
-
-            echo __METHOD__.' true isset array'.'<br>';
-
             $idFolder = intval($array['idFolder']);
             if($this->checkIdFolder($idFolder)) {
-
-                echo __METHOD__.' true checkIdFolder'.'<br>';
-
                 if(isset($array['text'])) {
-
-                    echo __METHOD__.' true isset text'.'<br>';
-
                     $text = $array['text'];
                     $A = $array['answerA'];
                     $B = $array['answerB'];
@@ -44,19 +32,10 @@ class Test {
                     $D = $array['answerD'];
                     $right = $array['answerRight'];
                     if(isset($A) && isset($B) && isset($C) && isset($D) && isset($right)) {
-
-                        echo __METHOD__.' true isset A B C D right'.'<br>';
-
                         if(strcmp($right, $A) == 0 || strcmp($right, $B) == 0 || strcmp($right, $C) == 0 || strcmp($right, $D) == 0) {
-
-                            echo __METHOD__.' true strcmp'.'<br>';
-
                             $db = Db::getConnection();
                             $result = $db->query("INSERT INTO `test` (idFolder, text, answerA, answerB, answerC, answerD, answerRight) VALUES ('$idFolder', '$text', '$A', '$B', '$C', '$D', '$right')");
                             if($result) {
-
-                                echo __METHOD__.' true result'.'<br>';
-
                                 return true;
                             }
                             else {

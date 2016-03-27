@@ -2,15 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: User
- * Date: 21.03.2016
- * Time: 20:31
+ * Date: 27.03.2016
+ * Time: 20:26
  */
-class Puzzles {
-    private function checkIdFolder($id) {
+class News {
+    private function checkIdElective($id) {
         $id = intval($id);
         if(isset($id)) {
             $db = Db::getConnection();
-            $result = $db->query("SELECT * FROM `folders` WHERE id='$id'");
+            $result = $db->query("SELECT * FROM `elective` WHERE id='$id'");
             $result->setFetchMode(PDO::FETCH_ASSOC);
             $result = $result->fetch();
             if($result) {
@@ -27,12 +27,13 @@ class Puzzles {
 
     public function add($array) {
         if(isset($array)) {
-            $idFolder = intval($array['idFolder']);
-            if($this->checkIdFolder($idFolder)) {
-                if(isset($array['textPuzzle'])) {
-                    $textPuzzle = $array['textPuzzle'];
+            $idElective = intval($array['idElective']);
+            if($this->checkIdElective($idElective)) {
+                $title = $array['title'];
+                $description = $array['description'];
+                if(isset($title) && isset($description)) {
                     $db = Db::getConnection();
-                    $result = $db->query("INSERT INTO `puzzles` (idFolder, textPuzzle) VALUES ('$idFolder', '$textPuzzle')");
+                    $result = $db->query("INSERT INTO `news` (title, description, idElective) VALUES ('$title', '$description', '$idElective')");
                     if($result) {
                         return true;
                     }
@@ -55,7 +56,7 @@ class Puzzles {
 
     public function getAll() {
         $db = Db::getConnection();
-        $resQuery = $db->query("SELECT * FROM `puzzles`");
+        $resQuery = $db->query("SELECT * FROM `news`");
 
         $result = array();
         if($resQuery) {
@@ -63,8 +64,10 @@ class Puzzles {
             $i = 0;
             while($row = $resQuery->fetch()) {
                 $result[$i]['id'] = $row['id'];
-                $result[$i]['idFolder'] = $row['idFolder'];
-                $result[$i]['textPuzzle'] = $row['textPuzzle'];
+                $result[$i]['title'] = $row['title'];
+                $result[$i]['description'] = $row['description'];
+                $result[$i]['tempDate'] = $row['tempDate'];
+                $result[$i]['idElective'] = $row['idElective'];
                 $i++;
             }
             return $result;
@@ -76,7 +79,7 @@ class Puzzles {
         $id = intval($id);
         if(isset($id)) {
             $db = Db::getConnection();
-            $result = $db->query("SELECT * FROM `puzzles` WHERE id='$id'");
+            $result = $db->query("SELECT * FROM `news` WHERE id='$id'");
             if($result) {
                 $result->setFetchMode(PDO::FETCH_ASSOC);
                 $result = $result->fetch();
@@ -90,7 +93,7 @@ class Puzzles {
         $id = intval($id);
         if(isset($id)) {
             $db = Db::getConnection();
-            $resQuery = $db->query('DELETE FROM `puzzles` WHERE id='.$id);
+            $resQuery = $db->query('DELETE FROM `news` WHERE id='.$id);
             if($resQuery) {
                 return true;
             }
@@ -105,7 +108,7 @@ class Puzzles {
                 return false;
             }
             $db = Db::getConnection();
-            $resQuery = $db->query("UPDATE `puzzles` SET $parameterName='$newValue' WHERE id='$id'");
+            $resQuery = $db->query("UPDATE `news` SET $parameterName='$newValue' WHERE id='$id'");
             if($resQuery) {
                 return true;
             }
@@ -113,12 +116,12 @@ class Puzzles {
         return false;
     }
 
+    public function testWTF() {
+        $arr = array();
+        $arr['title'] = 'MAIN';
+        $arr['description'] = 'vasiy afaeg gsrgs sgrs ggfh';
+        $arr['idElective'] = 1;
 
-    public function test() {
-//        $arr = array();
-//        $arr['idFolder'] = 1;
-//        $arr['textPuzzle'] = '123abc';
-
-        var_dump($this->updateParameter('textPuzzle','testtext',5));
+        var_dump($this->updateParameter('description', 'aaa', 3));
     }
 }

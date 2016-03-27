@@ -5,8 +5,10 @@ class StatisticsExercise {
         $id = intval($id);
         if(isset($id)) {
             $db = Db::getConnection();
-            $resQuery = $db->query("SELECT * FROM `folders` WHERE id='$id'");
-            if($resQuery) {
+            $result = $db->query("SELECT * FROM `folders` WHERE id='$id'");
+            $result->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $result->fetch();
+            if($result) {
                 return true;
             }
             else {
@@ -22,8 +24,10 @@ class StatisticsExercise {
         $id = intval($id);
         if(isset($id)) {
             $db = Db::getConnection();
-            $resQuery = $db->query("SELECT * FROM `users` WHERE id='$id'");
-            if($resQuery) {
+            $result = $db->query("SELECT * FROM `users` WHERE id='$id'");
+            $result->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $result->fetch();
+            if($result) {
                 return true;
             }
             else {

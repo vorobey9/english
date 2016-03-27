@@ -11,8 +11,10 @@ class ClassPoints {
         $id = intval($id);
         if(isset($id)) {
             $db = Db::getConnection();
-            $resQuery = $db->query("SELECT * FROM `teachers` WHERE id='$id'");
-            if($resQuery) {
+            $result = $db->query("SELECT * FROM `teachers` WHERE id='$id'");
+            $result->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $result->fetch();
+            if($result) {
                 return true;
             }
             else {
