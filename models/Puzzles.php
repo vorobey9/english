@@ -5,7 +5,7 @@
  * Date: 21.03.2016
  * Time: 20:31
  */
-class Puzzle {
+class Puzzles {
     private function checkIdFolder($id) {
         $id = intval($id);
         if(isset($id)) {

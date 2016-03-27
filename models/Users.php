@@ -5,7 +5,7 @@
  * Date: 08.03.2016
  * Time: 19:34
  */
-class User {
+class Users {
     public function add($array) {
         if(isset($array)) {
 

@@ -5,7 +5,7 @@
  * Date: 07.03.2016
  * Time: 20:31
  */
-class Teacher {
+class Teachers {
     public function getById($id) {
         $id = intval($id);
         if(isset($id)) {
