@@ -5,7 +5,7 @@
  * Date: 14.03.2016
  * Time: 19:39
  */
-include_once ROOT . '/models/News.php';
+//include_once ROOT . '/models/News.php';
 
 class TestController {
     public function actionTest() {

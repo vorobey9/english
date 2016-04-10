@@ -122,6 +122,6 @@ class News {
         $arr['description'] = 'vasiy afaeg gsrgs sgrs ggfh';
         $arr['idElective'] = 1;
 
-        var_dump($this->updateParameter('description', 'aaa', 3));
+        var_dump($this->getAll());
     }
 }

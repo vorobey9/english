@@ -6,6 +6,24 @@
  * Time: 19:34
  */
 class Users {
+    public function checkName($name) {
+        if(isset($name) && strlen($name) > 1) {
+                return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function checkPassword($password) {
+        if(isset($password) && strlen($password) > 5) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public function add($array) {
         if(isset($array)) {
 
@@ -37,8 +55,7 @@ class Users {
         return false;
     }
 
-    private function checkMail($mail) {
-//        echo 'In CHECK'.'<br>';
+    public function checkMail($mail) {
         $mail = strtolower($mail);
         $db = Db::getConnection();
         $res = $db->query("SELECT * FROM users WHERE mail='$mail'");
@@ -182,6 +199,8 @@ class Users {
             //тут меняю существующий, чтоб он потом зашел
             $db = Db::getConnection();
             $resQuery = $db->query("UPDATE `users` SET password='$newPassword' WHERE mail='$mail'");
+            $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+            $resQuery = $resQuery->fetch();
             if($resQuery) {
 
                 //тут отправляю новый пароль на почту чуваку

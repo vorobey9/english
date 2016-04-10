@@ -10,7 +10,8 @@ return array(
 //    'addTeacher' => 'teachers/teachers/test',
     //'addUser' => 'user/user/test',
     'test' => 'test/test/test',
-    //'' => 'main/main/view',
+    'registration' => 'user/user/register',
+    '' => 'main/main/view',
 //    'news/([a-z]+)/([0-9]+)' => 'news/view/$1/$2',
 //    'news/([0-9]+)' => 'news/view/$1',
 //    'news' => 'news/index', // actionIndex в NewsController
