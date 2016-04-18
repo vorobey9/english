@@ -3,6 +3,21 @@
     <div class="col-md-2 leftMenu">
 
 
+        <?php $User = new Users();
+              if($User->isGuest()): ?>
+        <div>
+            <a href="/login/">Войти</a>
+        </div>
+        <?php else: ?>
+        <div>
+            <a href="/logout/">Выйти</a>
+        </div>
+        <?php endif; ?>
+
+        <div>
+            <a href="/registration/">Регистрация</a>
+        </div>
+<!--
         <div class="authBtn transition3s btn" id="auth"
              data-toggle="modal" data-target="#AuthForm">
             Войти
@@ -45,7 +60,10 @@
                         </button>
                     </div>
                 </div>
+-->
+
                 <!-- /.modal-content -->
+<!--
             </div>
         </div>
 
@@ -104,10 +122,13 @@
                         </button>
                     </div>
                 </div>
+-->
                 <!-- /.modal-content -->
+
+<!--
             </div>
         </div>
-
+-->
         <h1 class="time text-center">19:23</h1>
 
         <div class="userCard">

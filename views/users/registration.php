@@ -1,8 +1,5 @@
-<html>
-<head>
+<?php include ROOT . '/views/header.php'; ?>
 
-</head>
-<body>
 <div>
     <form action="#" method="post">
         <label for="firstName">firstName</label>
@@ -39,5 +36,4 @@
     </form>
 </div>
 
-</body>
-</html>
+<?php include ROOT . '/views/footer.php'; ?>

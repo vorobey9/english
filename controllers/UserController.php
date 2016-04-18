@@ -94,6 +94,56 @@ class UserController {
     }
 
     public function actionLogin() {
+        $User = new Users();
+        $email = '';
+        $password = '';
 
+        $errors = array();
+        $errors['email'] = '';
+        $errors['password'] = '';
+        $errors['all'] = '';
+
+        $ok = true;
+
+        if(isset($_POST['submit'])) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            /*
+            if($User->checkMail($email)) {
+                $errors['email'] = 'Пользователь с такой почтой уже существует';;
+            }
+            */
+            if(!$User->checkPassword($password)) {
+                $errors['password'] = 'Слишком короткий пароль';
+            }
+
+            foreach ($errors as $error) {
+                if($error != '') {
+                    $ok = false;
+                }
+            }
+
+            $userId = $User->checkLogin($email, $password);
+
+            if($userId == false) {
+                $errors['all'] = 'Неправильная почта или пароль';
+            }
+            else {
+                //User - Auth
+                $User->auth($userId);
+
+                header("Location: /cabinet/");
+            }
+
+        }
+
+        require_once(ROOT . '/views/users/login.php');
+        return true;
+    }
+
+    public function actionLogout() {
+        unset($_SESSION['user']);
+        header("Location: /");
     }
 }

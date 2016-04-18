@@ -248,13 +248,13 @@ class Users {
         $password = strtolower($password);
         if($this->checkMail($mail)) {
             $db = Db::getConnection();
-            $resQuery = $db->query("SELECT password FROM `users` WHERE mail='$mail'");
+            $resQuery = $db->query("SELECT * FROM `users` WHERE mail='$mail'");
             if($resQuery) {
                 $resQuery->setFetchMode(PDO::FETCH_ASSOC);
                 $resQuery = $resQuery->fetch();
                 $tempPassword = $resQuery['password'];
                 if(md5($password) == $tempPassword) {
-                    return true;
+                    return $resQuery['id'];
                 }
                 else {
                     return false;
@@ -267,6 +267,25 @@ class Users {
         else {
             return false;
         }
+    }
 
+    public function auth($userId) {
+        $_SESSION['user'] = $userId;
+    }
+
+    public function checkLogged() {
+        if(isset($_SESSION['user'])) {
+            return $_SESSION['user'];
+        }
+
+        header("Location: /login/");
+        return true;
+    }
+
+    public function isGuest() {
+        if(isset($_SESSION['user'])) {
+            return false;
+        }
+        return true;
     }
 }
