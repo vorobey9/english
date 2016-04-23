@@ -76,8 +76,8 @@ class Router
 
                 //$result = $controllerObject->$actionName($parameters);
 
-                //$result = call_user_func_array(array($controllerObject, $actionName), $parameters);
-                $result = $controllerObject->$actionName();
+                $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
+                //$result = $controllerObject->$actionName();
 
                 if($result != null) {
                     break;

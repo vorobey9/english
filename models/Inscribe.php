@@ -79,6 +79,34 @@ class Inscribe {
         return false;
     }
 
+    public function getAllByIdFolder($idFolder) {
+        $idFolder = intval($idFolder);
+        if(isset($idFolder)) {
+            $db = Db::getConnection();
+            $resQuery = $db->query("SELECT * FROM `inscribe` WHERE idFolder='$idFolder'");
+
+            $result = array();
+            if($resQuery) {
+                $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+                $i = 0;
+                while($row = $resQuery->fetch()) {
+                    $result[$i]['id'] = $row['id'];
+                    $result[$i]['idFolder'] = $row['idFolder'];
+                    $result[$i]['text'] = $row['text'];
+                    $result[$i]['skipWord'] = $row['skipWord'];
+                    $i++;
+                }
+                return $result;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
     public function getById($id) {
         $id = intval($id);
         if(isset($id)) {
@@ -118,6 +146,10 @@ class Inscribe {
             }
         }
         return false;
+    }
+
+    public function transformText($text, $skipWord) {
+          return str_replace($skipWord, "(___?___)", $text);
     }
 
     public function test() {

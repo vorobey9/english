@@ -101,6 +101,38 @@ class Test {
         return false;
     }
 
+    public function getAllByIdFolder($idFolder) {
+        $idFolder = intval($idFolder);
+        if(isset($idFolder)) {
+            $db = Db::getConnection();
+            $resQuery = $db->query("SELECT * FROM `test` WHERE idFolder='$idFolder'");
+
+            $result = array();
+            if($resQuery) {
+                $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+                $i = 0;
+                while($row = $resQuery->fetch()) {
+                    $result[$i]['id'] = $row['id'];
+                    $result[$i]['idFolder'] = $row['idFolder'];
+                    $result[$i]['text'] = $row['text'];
+                    $result[$i]['answerA'] = $row['answerA'];
+                    $result[$i]['answerB'] = $row['answerB'];
+                    $result[$i]['answerC'] = $row['answerC'];
+                    $result[$i]['answerD'] = $row['answerD'];
+                    $result[$i]['answerRight'] = $row['answerRight'];
+                    $i++;
+                }
+                return $result;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
     public function deleteById($id) {
         $id = intval($id);
         if(isset($id)) {
@@ -138,5 +170,24 @@ class Test {
         $arr['answerD'] = 'aaa';
         $arr['answerRight'] = 'g';
         var_dump($this->updateParameter('answerA','aaa', 9));
+    }
+
+    public function checkUserAnswer($idFolder, $data) {
+        $testData = $this->getAllByIdFolder($idFolder);
+        $countAllTest = count($testData);
+        $rightUserTest = 0;
+        foreach($testData as $test) {
+            $idTest = $test['id'];
+            $rightAns = $test['answerRight'];
+            foreach ($data as $item) {
+                if($item->id == $idTest) {
+                    if($item->value == $rightAns) {
+                        $rightUserTest++;
+                    }
+                }
+            }
+        }
+        $result = $rightUserTest*100/$countAllTest;
+        return $result;
     }
 }
