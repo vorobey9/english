@@ -48,9 +48,10 @@ class StatisticsExercise {
                     $allItem = intval($array['allItem']);
                     $sucItem = intval($array['sucItem']);
                     if(isset($allItem) && isset($sucItem) && $allItem > 0) {
-                        if($allItem > $sucItem) {
-                            $mark = ($sucItem*100)/$allItem;
+                        if($allItem >= $sucItem) {
+                            $mark = $array['mark'];
                             $mark = floatval($mark);
+                            $mark = round($mark, 2);
                             $db = Db::getConnection();
                             $result = $db->query("INSERT INTO `statisticsexercise` (idUser, idFolder, mark, allItem, sucItem) VALUES ('$idUser', '$idFolder', '$mark', '$allItem', '$sucItem')");
                             if($result) {

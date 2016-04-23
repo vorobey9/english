@@ -12,9 +12,22 @@ class TestController {
 
     public function actionAjaxCheckTest() {
         $Test = new Test();
+        $User = new Users();
+        $StatExercise = new StatisticsExercise();
+
+        $idUser = $User->checkLogged();
         $idFolder = $_POST['idFolder'];
         $inputData = json_decode($_POST['inputData']);
         $result = $Test->checkUserAnswer($idFolder, $inputData);
+
+        $arr = array();
+        $arr['idFolder'] = $idFolder;
+        $arr['idUser'] = $idUser;
+        $arr['allItem'] = $result['countAll'];
+        $arr['sucItem'] = $result['countRight'];
+        $arr['mark'] = $result['res'];
+        $StatExercise->add($arr);
+
         echo json_encode($result);
     }
 }

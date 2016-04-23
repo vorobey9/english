@@ -14,8 +14,11 @@ function doItTest() {
                 inputData: inputData
             },
             success: function(tempData) {
-                var value = parseInt($.parseJSON(tempData));
-                setValueInResArea(value+'% правильних відповідей');
+                var value = $.parseJSON(tempData);
+                var all = value['countAll'];
+                var right = value['countRight'];
+                var res = parseFloat(value['res']).toFixed(2);
+                setValueInResArea(res+'% правильних відповідей. ' + '('+right+' із '+all+')');
             }
         });
     }

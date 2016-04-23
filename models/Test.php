@@ -188,6 +188,10 @@ class Test {
             }
         }
         $result = $rightUserTest*100/$countAllTest;
-        return $result;
+        return array(
+            "res" => $result,
+            "countRight" => $rightUserTest,
+            "countAll" => $countAllTest
+        );
     }
 }
