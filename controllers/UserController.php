@@ -8,19 +8,21 @@
 include_once ROOT . '/models/Users.php';
 
 class UserController {
-//    public function actionTest() {
-//        $User = new Users();
-//        $arr = array();
-//        $arr['firstName'] = "Remy";
-//        $arr['middleName'] = "Fuck";
-//        $arr['lastName'] = "Lebo";
-//        $arr['mail'] = "lebo111@gmail.com";
-//        $arr['password'] = "jvu2brwz";
-//        $arr['idPic'] = NULL;
-//       // $res = $User->checkMailAndPassword("lebo111@gmail.com", "jvu2brwz");
-//       // var_dump($res);
-//       // return $res;
-//    }
+    public function actionTest() {
+        $User = new Users();
+        $arr = array();
+        $arr['firstName'] = "Катерина";
+        $arr['middleName'] = "Михайлівна";
+        $arr['lastName'] = "Перерва";
+        $arr['mail'] = "pererva@gmail.com";
+        $arr['password'] = "pererva";
+        $arr['post'] = "старший викладач";
+        $arr['idPic'] = 4;
+        $arr['description'] = "afwa afesgesg segsgsgs segsg sgse srgsrg srg  sgs gsrg sgs gsrg sg";
+        $res = $User->addTeacher($arr);
+       // var_dump($res);
+        return $res;
+    }
 
     public function actionRegister() {
 

@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 08.03.2016
- * Time: 19:34
- */
+
 class Users {
     public function checkName($name) {
         if(isset($name) && strlen($name) > 1) {
@@ -69,13 +64,18 @@ class Users {
             $password = strtolower($password);
             $password = md5($password);
 
-            $post = $array['mail'] || '';
+            $post = $array['post'];
 
-            $description = $array['description'] || '';
+            $description = $array['description'];
 
             $role = 'teacher';
 
-            $idPic = $array['idPic'] || 1;
+            if(isset($array['idPic'])) {
+                $idPic = $array['idPic'];
+            }
+            else {
+                $idPic = 1000000;
+            }
 
             if($this->checkMail($mail) == true) {
                 return false;
@@ -168,6 +168,34 @@ class Users {
                 $result[$i]['password'] = $row['password'];
                 $result[$i]['idPic'] = $row['idPic'];
                 $result[$i]['role'] = $row['role'];
+                $result[$i]['post'] = $row['post'];
+                $result[$i]['description'] = $row['description'];
+                $i++;
+            }
+            return $result;
+        }
+        return false;
+    }
+
+    public function getAllTeachers() {
+        $db = Db::getConnection();
+        $result = array();
+        $role = 'teacher';
+        $resQuery = $db->query("SELECT * FROM `users` WHERE role='$role'");
+        if($resQuery) {
+            $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+            $i = 0;
+            while($row = $resQuery->fetch()) {
+                $result[$i]['id'] = $row['id'];
+                $result[$i]['firstName'] = $row['firstName'];
+                $result[$i]['middleName'] = $row['middleName'];
+                $result[$i]['lastName'] = $row['lastName'];
+                $result[$i]['mail'] = $row['mail'];
+                $result[$i]['password'] = $row['password'];
+                $result[$i]['idPic'] = $row['idPic'];
+                $result[$i]['role'] = $row['role'];
+                $result[$i]['post'] = $row['post'];
+                $result[$i]['description'] = $row['description'];
                 $i++;
             }
             return $result;

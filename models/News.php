@@ -91,16 +91,12 @@ class News {
         return false;
     }
 
-    public function getAllByIdElective($idElective, $limit) {
+    public function getAllByIdElective($idElective, $importance) {
         $idElective = intval($idElective);
-        if(isset($idElective)) {
+        $importance = intval($importance);
+        if(isset($idElective) && isset($importance)) {
             $db = Db::getConnection();
-            if(isset($limit)) {
-                $resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' ORDER BY ASC LIMIT '$limit'");
-            }
-            else{
-                $resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective'");
-            }
+            $resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' AND importance='$importance'");
             $result = array();
             if($resQuery) {
                 $resQuery->setFetchMode(PDO::FETCH_ASSOC);

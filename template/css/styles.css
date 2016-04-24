@@ -31,7 +31,7 @@ h3{
 }
 
 h4{
-    font-size: 1.8em;
+    font-size: 1.5em;
 }
 
 h5{
@@ -307,7 +307,7 @@ width: 100%;
 }
 
 .title{
-    margin: 30px 0;
+    margin: 20px 0;
     outline: none!important;
     color: #333;
 }
@@ -377,7 +377,7 @@ a.title,a:hover,a:focus, a:active, .title:hover,.title:focus,.title:active{
     padding: 20px ;
 }
 .teacher .info-block .text .name{
-    font-size: 2em;
+    font-size: 1.6em;
     font-weight: 700;
     color: #0197ce;
     margin: 10px 0;
@@ -399,7 +399,7 @@ a.title,a:hover,a:focus, a:active, .title:hover,.title:focus,.title:active{
 }
 
 .teacher .info-block .text span{
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #fff;
 }
 
@@ -452,7 +452,7 @@ a.title,a:hover,a:focus, a:active, .title:hover,.title:focus,.title:active{
     overflow: hidden;
 }
 
-.book-library .pic img{
+.book-library .pic img, .teachers-block .pic img{
     margin: 10px auto;
 }
  .black{
@@ -582,6 +582,194 @@ width: 100%;
 
 /*Auth    */
 
+
+/*Facultative list*/
+
+.facult-list .header,.about-facultative, .single-news{
+    padding: 20px 0;
+}
+ .facultative .description, .news-list .news .text{
+    padding: 10px 20px;
+    height: 220px ;
+    overflow: hidden;
+}
+
+.facult-list .header .description,.about-facultative .description{
+    padding: 10px 20px;
+}
+.facult-list .facultative{
+    display: block;
+    padding:0 0 10px 0;
+    float: left;
+    overflow: hidden;
+    max-height: 500px;
+    height: 500px;
+    /* border: 1px solid; */
+    margin:25px 30px 50px 30px;
+    box-shadow: 0 0 1px 1px #333;
+}
+
+
+
+.facultative h4{
+    font-size: 1.3em;
+}
+
+.facultative h2{
+    text-align: center;
+}
+
+.facultative .login-btn{
+    padding: 12px 15px;
+    font-size: 1.2em;
+}
+
+.facultative .title{
+    margin:0 0 20px 0;
+    background: #333;
+    height: 150px;
+    max-height: 160px;
+    position: relative;
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+.facultative .title a h2{
+    color: #ddd;
+    font-size: 2em;
+    padding: 20px 10px;
+}
+
+.facultative .btn-container{
+    margin: 20px 0;
+}
+
+.facult-list .facultative:hover, .facult-list .facultative:focus,.facult-list .facultative:active{
+    box-shadow: 0 0 1px 1px #29bbff;
+}
+
+.facult-list .facultative .title a h2:hover{
+    color: #29bbff;
+}
+
+/*Facultative list*/
+
+
+/*Facultative news list*/
+
+.news-list{
+    position: relative;
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.news-list .news{
+    height: 760px;
+    padding:  20px ;
+    display: block;
+    margin:30px;
+    border: 1px solid #B4ABB4;
+}
+
+.news-list .news .pic{
+    padding: 0;
+    margin: 0 0 10px 0;
+    width: 100%;
+    height:250px;
+    overflow: hidden;
+}
+
+.news-list .news .pic img, .single-news .pic img{
+    height: 100%;
+    margin: 0 auto;
+}
+
+.news-list .news .pic img:hover{
+    transform: scale(1.1);
+}
+
+.news-list .news .media-block{
+    width: 100%;
+    display: block;
+    margin: 20px 0;
+    float: left;
+}
+
+
+.news-list .news .media-block ul{
+    width: 70%;
+    margin: 10px 15%;
+    float: left;
+}
+.news-list .news .media-block ul li{
+    float: left;
+}
+
+.news-list .news .media-block ul li a,.single-news .media-block ul li a{
+    color: #333;
+    padding: 10px 20px;
+    margin: 5px 10px;
+}
+.news-list .news a h2{
+    font-size:2em;
+}
+
+.news-list .news .media-block ul li a i, .single-news .media-block ul li a i{
+  font-size: 3em;
+}
+.news-list .news .media-block ul li a:hover i , .single-news .media-block ul li a:hover i{
+    color: #29bbff;
+
+}
+
+.news-list .news .date, .single-news .date {
+    float: left;
+    width: 100%;
+    margin: 10px 0;
+}
+.news-list .news .date span, .single-news .date span{
+    margin: 0 3px;
+    font-size: 1.2em;
+
+}
+
+.news-list .news .text{
+    padding: 0;
+    float: left;
+    height: 160px;
+    overflow: hidden;
+}
+
+/*Facultative news list*/
+
+/*Single news of facultative*/
+
+.single-news .pic {
+    width: 80%;
+    height: 250px;
+    float: left;
+    padding: 20px;
+}
+
+.single-news .media-block {
+    float: right;
+    width: 20%;
+}
+
+.single-news .media-block ul li {
+    float: none;
+}
+
+
+.single-news .text {
+    width: 100%;
+    float: none;
+    margin: 10px 0  ;
+}
+
+/*Single news of facultative*/
 
 
 

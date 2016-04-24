@@ -1,4 +1,4 @@
-<?php include ROOT . '/views/header1.php'; ?>
+<?php include ROOT . '/views/header.php'; ?>
 
 <div id="testArea" data-idFolder="<?php echo $idFolder; ?>">
     <div class="headTest">

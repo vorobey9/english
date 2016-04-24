@@ -16,7 +16,7 @@ return array(
     'inscribe/ajaxGetDataByFolder' => 'inscribe/inscribe/ajaxGetDataByFolder',
     'training/puzzle/([0-9]+)' => 'puzzle/puzzle/viewPuzzle/$1',
     'puzzle/ajaxGetDataByFolder' => 'puzzle/puzzle/ajaxGetDataByFolder',
-    //'test' => 'test/test/test',
+    'test' => 'user/user/test',
     'registration' => 'user/user/register',
     'cabinet' => 'cabinet/cabinet/index',
     'login' => 'user/user/login',

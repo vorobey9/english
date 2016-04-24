@@ -6,18 +6,7 @@
             <div class="col-md-6 col-xs-12">
                 <div class="text-block fadeInLeft animated wow">
                     <a href="#"><h2>Наша кафедра</h2></a>
-                    <p>
-                        Кафедра активно принимает участие в разнообразных международных проектах (Ливия, Иран, Франция,
-                        Канада), ведёт подготовку студентов _V-тых курсов по французскому языку для прохождения
-                        стажировки в Школе Управления и Бизнеса (ЕЖС) Сен-Назера (Франция) под руководством доц.
-                        Пустовойт Н.И. Студенты этого французского заведения ежегодно приезжают в ДИИТ на стажировку по
-                        разным дисциплинам. Преподаватели кафедры активно принимают участие в украинских и международных
-                        конференциях. Публикуют свои научные работы в международных изданиях.
-                        Кафедра, во главе с заведующей Власовой Т.И., организовала семинары по управлению предприятиями
-                        на английском языке - ежегодно университет Западного Онтарио (Канада) проводит семинар для
-                        студентов и сотрудников. Сейчас кафедра проводит большую работу по привлечению студентов к
-                        изучению иностранного языка.
-                    </p>
+                    <p><?php echo $aboutDepartmen['description']; ?></p>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12 pic fadeInRight animated wow">
@@ -33,17 +22,22 @@
         <a href="#"><h2 class="title">Важливі новини </h2></a>
 
         <div class="row fadeInUp animated wow" data-wow-offset="200">
+
+            <?php
+            for($i = 0; $i < 4; $i++):?>
             <div class="col-md-3 col-sm-6 block transition3s">
                 <div class="pic">
                     <img src="/template/images/study1.jpg" class="img-responsive" alt="">
                 </div>
 
                 <div class="info">
-                    <h2>Сьогодні засідання кафедри у 12:00</h2>
-                    <span class="time">28.02.16</span>
+                    <h2><?php echo $impNews[$i]['title']; ?></h2>
+                    <span class="time"><?php echo $impNews[$i]['tempDate'];?></span>
                 </div>
             </div>
 
+            <?php endfor; ?>
+            <!--
             <div class="col-md-3 col-sm-6  block transition3s">
                 <div class="pic">
                     <img src="/template/images/study2.jpg" class="img-responsive" alt="">
@@ -78,7 +72,7 @@
                     <span class="time">28.02.16</span>
                 </div>
             </div>
-
+            -->
 
         </div>
 
@@ -126,19 +120,21 @@
         <a href="#"><h2 class="title">Викладачі</h2></a>
 
         <div class="row fadeInUp animated wow" data-wow-offset="200">
-
+            <?php for($i = 0; $i < 4; $i++): ?>
             <div class="col-md-3 col-xs-12 col-sm-6 teacher block transition3s">
                 <div class="pic">
-                    <a href="#"><img src="/template/images/teacher1.jpg" class="img-responsive" alt=""></a>
+                    <a href="#"><img src="/template/images/<?php echo $i+1;?>.jpg" class="img-responsive" alt=""></a>
                 </div>
                 <div class="info-block animated transition3s">
                     <div class="text">
-                        <h2 class="name">Власова Т.И</h2>
-                        <span class="post">преподаватель</span>
+                        <h2 class="name"><?php echo $teachers[$i]['lastName'] . ' ' .  $teachers[$i]['firstName'] . ' ' . $teachers[$i]['middleName']?></h2>
+                        <span class="post"><?php echo $teachers[$i]['post']; ?></span>
                     </div>
                 </div>
             </div>
+            <?php endfor; ?>
 
+            <!--
             <div class="col-md-3 col-xs-12 col-sm-6 teacher block transition3s">
                 <div class="pic">
                     <a href="#"><img src="/template/images/teacher2.jpg" class="img-responsive" alt=""></a>
@@ -174,7 +170,7 @@
                     </div>
                 </div>
             </div>
-
+            -->
 
 
         </div>
