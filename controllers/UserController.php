@@ -31,6 +31,7 @@ class UserController {
         $lastName = '';
         $email = '';
         $password = '';
+        $passwordR = '';
 
         $errors = array();
         $errors['firstName'] = '';
@@ -38,6 +39,8 @@ class UserController {
         $errors['lastName'] = '';
         $errors['email'] = '';
         $errors['password'] = '';
+        $errors['passwordR'] = '';
+        $errors['all'] = '';
 
         if(isset($_POST['submit'])) {
             $firstName = $_POST['firstName'];
@@ -45,23 +48,28 @@ class UserController {
             $lastName = $_POST['lastName'];
             $email = $_POST['email'];
             $password = $_POST['password'];
+            $passwordR = $_POST['passwordR'];
+
 
             $ok = true;
 
             if(!$User->checkName($firstName)) {
-                $errors['firstName'] = 'Слишком короткое имя';
+                $errors['firstName'] = "Занадто коротке ім'я";
             }
             if(!$User->checkName($middleName)) {
-                $errors['middleName'] = 'Слишком короткое отчество';
+                $errors['middleName'] = "Занадто коротке призвище";
             }
             if(!$User->checkName($lastName)) {
-                $errors['lastName'] = 'Слишком короткая фамилия';
+                $errors['lastName'] = "Занадто коротке по-батькові";
             }
             if($User->checkMail($email)) {
-                $errors['email'] = 'Пользователь с такой почтой уже существует';;
+                $errors['email'] = "Користувач із такою поштою вже існує";
             }
             if(!$User->checkPassword($password)) {
-                $errors['password'] = 'Слишком короткий пароль';
+                $errors['password'] = "Занадто короткий пароль";
+            }
+            if($password != $password) {
+                $errors['passwordR'] = 'Різні паролі';
             }
 
             foreach ($errors as $error) {
@@ -84,12 +92,12 @@ class UserController {
                     header("Location: /");
                 }
                 else {
-                    echo '<br>NO<br>';
+                    $errors['all'] = "Помилка під час відправки";
                 }
             }
         }
 
-        require_once(ROOT . '/views/users/registration.php');
+        require_once(ROOT . '/views/users/register.php');
         return true;
     }
 
@@ -138,7 +146,7 @@ class UserController {
 
         }
 
-        require_once(ROOT . '/views/users/login.php');
+        require_once(ROOT . '/views/users/auth.php');
         return true;
     }
 

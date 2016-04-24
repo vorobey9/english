@@ -1,20 +1,42 @@
 $(document).ready(function(){
 
-    var windHeight = $(window).height();
+    $('.navbar-toggle').on('click',function(){
+        $('#main-nav').toggleClass('open');
 
-    $('.leftMenu').height(windHeight);
-    $('.content').height(windHeight);
-
-    $('.leftMenu').mCustomScrollbar({
-        theme: 'leftnav',
-        autoHideScrollbar: true
     });
 
-    $('#auth').on('click',function(){
-       $('.auth').slideToggle(600);
+    new WOW().init();
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.nav-block').addClass('navbar-fixed-top');
+        } else {
+            $('.nav-block').removeClass('navbar-fixed-top');
+        }
+
     });
 
-    $('#register').on('click',function(){
-        $('.register').slideToggle(800);
+
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 400) {
+
+            $('.up').fadeIn();
+        } else {
+            $('.up').fadeOut();
+        }
     });
+
+
+
+    $('.up').click(function(){
+        $('body').animate({
+            scrollTop: 0
+        },1000);
+        return false;
+    });
+if( $(window).width >800) {
+    var topBlockHeight = $('.cathedra-block').height() + $('.nav-block').height();
+    var wind = $(window).height();
+    $('.auth-block').height(wind - topBlockHeight - '50');
+}
 });

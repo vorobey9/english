@@ -1,20 +1,18 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 27.02.2016
- * Time: 19:21
- */
 
-include_once ROOT.'/views/header.php';
+//include_once ROOT . '/views/header.php';
 
 class MainController
 {
     public function actionView()
     {
-        require_once(ROOT.'/views/main.php');
+        $DescriptionSection = new DescOfSiteSection();
+        $textAbout = $DescriptionSection->getByName('mainAbout');
+
+        //require_once(ROOT.'/views/header.php');
+        require_once(ROOT.'/views/index.php');
         return true;
     }
 }
 
-include_once ROOT.'/views/footer.php';
+//include_once ROOT . '/views/footer1.php';

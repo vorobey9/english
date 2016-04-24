@@ -55,6 +55,43 @@ class Users {
         return false;
     }
 
+    public function addTeacher($array) {
+        if(isset($array)) {
+
+            $firstName = $array['firstName'];
+            $middleName = $array['middleName'];
+            $lastName = $array['lastName'];
+
+            $mail = $array['mail'];
+            $mail = strtolower($mail);
+
+            $password = $array['password'];
+            $password = strtolower($password);
+            $password = md5($password);
+
+            $post = $array['mail'] || '';
+
+            $description = $array['description'] || '';
+
+            $role = 'teacher';
+
+            $idPic = $array['idPic'] || 1;
+
+            if($this->checkMail($mail) == true) {
+                return false;
+            }
+            if (is_numeric($firstName) || is_numeric($middleName) || is_numeric($lastName)) {
+                return false;
+            }
+            $db = Db::getConnection();
+            $result = $db->query("INSERT INTO users (firstName, middleName, lastName, mail, password, post, description, idPic, role) VALUES ('$firstName', '$middleName', '$lastName', '$mail', '$password', '$post', '$description', '$idPic', '$role')");
+            if($result) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function checkMail($mail) {
         $mail = strtolower($mail);
         $db = Db::getConnection();

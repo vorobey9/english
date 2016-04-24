@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 10 2016 г., 16:43
+-- Время создания: Апр 24 2016 г., 18:10
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -62,13 +62,6 @@ CREATE TABLE IF NOT EXISTS `classpoints` (
   KEY `idTeacher` (`idTeacher`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
 
---
--- Дамп данных таблицы `classpoints`
---
-
-INSERT INTO `classpoints` (`id`, `idTeacher`, `numLesson`, `dayStamp`, `numeratorGroup`, `denominatorGroup`, `room`) VALUES
-(2, 9, 2, 3, '941', '911', '5411');
-
 -- --------------------------------------------------------
 
 --
@@ -98,7 +91,14 @@ CREATE TABLE IF NOT EXISTS `descofsitesection` (
   `nameSection` tinytext COLLATE utf8_bin NOT NULL,
   `description` text COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `descofsitesection`
+--
+
+INSERT INTO `descofsitesection` (`id`, `nameSection`, `description`) VALUES
+(1, 'mainAbout', 'Кафедра іноземних мов Дніпропетровського національного університету залізничного транспорту була заснована 9 січня 1933 року. У той час студенти вивчали німецьку та англійську мови, пізніше почала викладатися французька. Ці три мови викладаються на кафедрі по теперішній час.');
 
 -- --------------------------------------------------------
 
@@ -125,14 +125,14 @@ CREATE TABLE IF NOT EXISTS `elective` (
   `title` tinytext COLLATE utf8_bin NOT NULL,
   `description` text COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
 
 --
 -- Дамп данных таблицы `elective`
 --
 
 INSERT INTO `elective` (`id`, `title`, `description`) VALUES
-(1, 'FUCK', 'vasiy afaeg gsrgs sgrs ggfh');
+(2, 'departmen', '');
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `folders` (
 --
 
 INSERT INTO `folders` (`id`, `title`, `description`, `typeExercise`, `countInBlank`) VALUES
-(1, 'theeee', 'abc', 'test', 9);
+(1, 'Название папки с заданием', 'Текст, который подсказывает, что нужно сделать пользователю в данной папке с заданиями, т.е. условия задания', 'test', 9);
 
 -- --------------------------------------------------------
 
@@ -185,14 +185,15 @@ CREATE TABLE IF NOT EXISTS `inscribe` (
   `skipWord` varchar(20) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idFolder` (`idFolder`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
 
 --
 -- Дамп данных таблицы `inscribe`
 --
 
 INSERT INTO `inscribe` (`id`, `idFolder`, `text`, `skipWord`) VALUES
-(2, 1, 'andrey lusa ggg', 'andrey');
+(2, 1, 'andrey lusa ggg', 'andrey'),
+(3, 1, 'This is why we play', 'play');
 
 -- --------------------------------------------------------
 
@@ -206,16 +207,17 @@ CREATE TABLE IF NOT EXISTS `news` (
   `description` text COLLATE utf8_bin NOT NULL,
   `tempDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `idElective` int(10) unsigned NOT NULL,
+  `importance` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `idElective` (`idElective`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `news`
 --
 
-INSERT INTO `news` (`id`, `title`, `description`, `tempDate`, `idElective`) VALUES
-(3, 'MAIN', 'aaa', '2016-03-27 17:52:17', 1);
+INSERT INTO `news` (`id`, `title`, `description`, `tempDate`, `idElective`, `importance`) VALUES
+(4, 'Собрание кафедры', 'Сегодня состоится собрание кафедры в 14.20 в ауд.420', '2016-04-24 14:06:46', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -255,8 +257,8 @@ CREATE TABLE IF NOT EXISTS `puzzles` (
 --
 
 INSERT INTO `puzzles` (`id`, `idFolder`, `textPuzzle`) VALUES
-(1, 1, '123abc'),
-(5, 1, 'testtext');
+(1, 1, 'это просто текст для пазла'),
+(5, 1, 'А здесь еще текст для пазла');
 
 -- --------------------------------------------------------
 
@@ -274,14 +276,6 @@ CREATE TABLE IF NOT EXISTS `statisticsdownloadbook` (
   KEY `idUser` (`idUser`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_bin AUTO_INCREMENT=3 ;
 
---
--- Дамп данных таблицы `statisticsdownloadbook`
---
-
-INSERT INTO `statisticsdownloadbook` (`id`, `idBook`, `idUser`, `tampDate`) VALUES
-(1, 2, 13, '2016-03-27 16:36:53'),
-(2, 2, 13, '2016-03-27 16:38:32');
-
 -- --------------------------------------------------------
 
 --
@@ -292,21 +286,14 @@ CREATE TABLE IF NOT EXISTS `statisticsexercise` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idFolder` int(10) unsigned NOT NULL,
   `idUser` int(10) unsigned NOT NULL,
-  `mark` float unsigned NOT NULL,
+  `mark` int(10) unsigned NOT NULL,
   `allItem` int(10) unsigned NOT NULL,
   `sucItem` int(10) unsigned NOT NULL,
   `thisDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `idFolder` (`idFolder`),
   KEY `idUser` (`idUser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
-
---
--- Дамп данных таблицы `statisticsexercise`
---
-
-INSERT INTO `statisticsexercise` (`id`, `idFolder`, `idUser`, `mark`, `allItem`, `sucItem`, `thisDate`) VALUES
-(4, 1, 13, 30, 10, 3, '2016-03-27 12:52:40');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=17 ;
 
 -- --------------------------------------------------------
 
@@ -326,13 +313,6 @@ CREATE TABLE IF NOT EXISTS `teachers` (
   KEY `idPic` (`idPic`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=10 ;
 
---
--- Дамп данных таблицы `teachers`
---
-
-INSERT INTO `teachers` (`id`, `firstName`, `middleName`, `lastName`, `post`, `description`, `idPic`) VALUES
-(9, 'Fuck', 'Alexandrovich', 'Sapozhnikov', 'decan', 'he is very smart, long and big', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -350,14 +330,16 @@ CREATE TABLE IF NOT EXISTS `test` (
   `answerRight` varchar(20) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idFolder` (`idFolder`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=12 ;
 
 --
 -- Дамп данных таблицы `test`
 --
 
 INSERT INTO `test` (`id`, `idFolder`, `text`, `answerA`, `answerB`, `answerC`, `answerD`, `answerRight`) VALUES
-(9, 1, 'andrey lusa ggg aaa', 'aaa', 'lusa', 'ggg', 'aaa', 'ggg');
+(9, 1, 'andrey lusa ggg aaa', 'aaa', 'lusa', 'ggg', 'aaa', 'ggg'),
+(10, 1, 'bl aa bb ll', 'aa', 'bb', 'bl', 'll', 'aa'),
+(11, 1, 'How are you?', 'How', 'are', 'you', 'are', 'you');
 
 -- --------------------------------------------------------
 
@@ -372,19 +354,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `lastName` varchar(20) COLLATE utf8_bin NOT NULL,
   `mail` varchar(50) COLLATE utf8_bin NOT NULL,
   `password` varchar(32) COLLATE utf8_bin NOT NULL,
+  `post` varchar(20) COLLATE utf8_bin NOT NULL DEFAULT 'student',
+  `description` text COLLATE utf8_bin,
   `idPic` int(10) unsigned DEFAULT NULL,
-  `role` varchar(5) COLLATE utf8_bin NOT NULL DEFAULT 'user',
+  `role` varchar(7) COLLATE utf8_bin NOT NULL DEFAULT 'user',
   PRIMARY KEY (`id`),
   KEY `idPic` (`idPic`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=22 ;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `firstName`, `middleName`, `lastName`, `mail`, `password`, `idPic`, `role`) VALUES
-(1, 'admin', 'admin', 'admin', 'admin', 'admin', 1, 'admin'),
-(13, 'Remy', 'Fuck', 'Lebo', 'lebo111@gmail.com', 'b94bed3fbb15a169a7fa31df69822d7f', 1, 'user');
+INSERT INTO `users` (`id`, `firstName`, `middleName`, `lastName`, `mail`, `password`, `post`, `description`, `idPic`, `role`) VALUES
+(21, 'dima', 'serg', 'vetrov', 'dima123@gmail.com', '70c9dc2d09299d9d21583266acc7681c', 'student', NULL, 1, 'user');
 
 -- --------------------------------------------------------
 

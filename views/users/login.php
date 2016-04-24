@@ -1,4 +1,4 @@
-<?php include ROOT . '/views/header.php'; ?>
+<?php include ROOT . '/views/header1.php'; ?>
 
 <div>
     <form action="#" method="post">
@@ -19,4 +19,4 @@
     </form>
 </div>
 
-<?php include ROOT . '/views/footer.php'; ?>
+<?php include ROOT . '/views/footer1.php'; ?>

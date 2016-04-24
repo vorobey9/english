@@ -31,9 +31,10 @@ class News {
             if($this->checkIdElective($idElective)) {
                 $title = $array['title'];
                 $description = $array['description'];
+                $importance = $array['importance'] || 0;
                 if(isset($title) && isset($description)) {
                     $db = Db::getConnection();
-                    $result = $db->query("INSERT INTO `news` (title, description, idElective) VALUES ('$title', '$description', '$idElective')");
+                    $result = $db->query("INSERT INTO `news` (title, description, idElective, importance) VALUES ('$title', '$description', '$idElective', '$importance')");
                     if($result) {
                         return true;
                     }
@@ -68,6 +69,7 @@ class News {
                 $result[$i]['description'] = $row['description'];
                 $result[$i]['tempDate'] = $row['tempDate'];
                 $result[$i]['idElective'] = $row['idElective'];
+                $result[$i]['importance'] = $row['importance'];
                 $i++;
             }
             return $result;
@@ -88,6 +90,38 @@ class News {
         }
         return false;
     }
+
+    public function getAllByIdElective($idElective, $limit) {
+        $idElective = intval($idElective);
+        if(isset($idElective)) {
+            $db = Db::getConnection();
+            if(isset($limit)) {
+                $resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' ORDER BY ASC LIMIT '$limit'");
+            }
+            else{
+                $resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective'");
+            }
+            $result = array();
+            if($resQuery) {
+                $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+                $i = 0;
+                while($row = $resQuery->fetch()) {
+                    $result[$i]['id'] = $row['id'];
+                    $result[$i]['title'] = $row['title'];
+                    $result[$i]['description'] = $row['description'];
+                    $result[$i]['tempDate'] = $row['tempDate'];
+                    $result[$i]['idElective'] = $row['idElective'];
+                    $result[$i]['importance'] = $row['importance'];
+                    $i++;
+                }
+                return $result;
+            }
+        }
+        return false;
+    }
+
+//"SELECT * FROM `" . DB_PREFIX . "corresponds` WHERE `id_r`='3' AND `id_s`='2' ORDER BY `date` ASC LIMIT 5";
+
 
     public function deleteById($id) {
         $id = intval($id);
