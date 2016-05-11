@@ -33,7 +33,7 @@ class Users {
             $password = strtolower($password);
             $password = md5($password);
 
-            $idPic = $array['idPic'] || 1;
+            $urlImage = $array['urlImage'];
 
             if($this->checkMail($mail) == true) {
                 return false;
@@ -42,7 +42,7 @@ class Users {
                 return false;
             }
             $db = Db::getConnection();
-            $result = $db->query("INSERT INTO users (firstName, middleName, lastName, mail, password, idPic) VALUES ('$firstName', '$middleName', '$lastName', '$mail', '$password', '$idPic')");
+            $result = $db->query("INSERT INTO users (firstName, middleName, lastName, mail, password, urlImage) VALUES ('$firstName', '$middleName', '$lastName', '$mail', '$password', '$urlImage')");
             if($result) {
                 return true;
             }
@@ -70,12 +70,7 @@ class Users {
 
             $role = 'teacher';
 
-            if(isset($array['idPic'])) {
-                $idPic = $array['idPic'];
-            }
-            else {
-                $idPic = 1000000;
-            }
+            $urlImage = $array['urlImage'];
 
             if($this->checkMail($mail) == true) {
                 return false;
@@ -84,7 +79,7 @@ class Users {
                 return false;
             }
             $db = Db::getConnection();
-            $result = $db->query("INSERT INTO users (firstName, middleName, lastName, mail, password, post, description, idPic, role) VALUES ('$firstName', '$middleName', '$lastName', '$mail', '$password', '$post', '$description', '$idPic', '$role')");
+            $result = $db->query("INSERT INTO users (firstName, middleName, lastName, mail, password, post, description, urlImage, role) VALUES ('$firstName', '$middleName', '$lastName', '$mail', '$password', '$post', '$description', '$urlImage', '$role')");
             if($result) {
                 return true;
             }
@@ -166,7 +161,7 @@ class Users {
                 $result[$i]['lastName'] = $row['lastName'];
                 $result[$i]['mail'] = $row['mail'];
                 $result[$i]['password'] = $row['password'];
-                $result[$i]['idPic'] = $row['idPic'];
+                $result[$i]['urlImage'] = $row['urlImage'];
                 $result[$i]['role'] = $row['role'];
                 $result[$i]['post'] = $row['post'];
                 $result[$i]['description'] = $row['description'];
@@ -192,7 +187,7 @@ class Users {
                 $result[$i]['lastName'] = $row['lastName'];
                 $result[$i]['mail'] = $row['mail'];
                 $result[$i]['password'] = $row['password'];
-                $result[$i]['idPic'] = $row['idPic'];
+                $result[$i]['urlImage'] = $row['urlImage'];
                 $result[$i]['role'] = $row['role'];
                 $result[$i]['post'] = $row['post'];
                 $result[$i]['description'] = $row['description'];

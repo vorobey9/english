@@ -9,6 +9,7 @@ return array(
 //    'training' => 'training/training/view',
 //    'addTeacher' => 'teachers/teachers/test',
     //'addUser' => 'user/user/test',
+    'zhopa' => 'article/article/test',
     'training/test/([0-9]+)' => 'test/test/viewTest/$1',
     'test/ajaxCheckTest' => 'test/test/ajaxCheckTest',
 

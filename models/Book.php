@@ -10,17 +10,17 @@ class Book {
     public function add($array) {
         if(isset($array)) {
 
-            echo 'In isset'.'<br>';
+//            echo 'In isset'.'<br>';
                 $title = $array['title'];
                 $author = $array['author'];
                 $yearBegin = $array['yearBegin'];
                 $description = $array['description'];
                 $url = $array['url'];
 
-            echo 'title = '.$title.'<br>';
-            echo 'author = '.$author.'<br>';
-            echo 'description = '.$description.'<br>';
-            echo 'url = '.$url.'<br>';
+//            echo 'title = '.$title.'<br>';
+//            echo 'author = '.$author.'<br>';
+//            echo 'description = '.$description.'<br>';
+//            echo 'url = '.$url.'<br>';
 
                 $db = Db::getConnection();
                 $result = $db->query("INSERT INTO `book` (title, author, yearBegin, description, url) VALUES ('$title', '$author', '$yearBegin', '$description', '$url')");
@@ -52,6 +52,7 @@ class Book {
                 $result[$i]['description'] = $row['description'];
                 $result[$i]['url'] = $row['url'];
                 $result[$i]['countDownload'] = $row['countDownload'];
+                $result[$i]['uploadDate'] = $row['uploadDate'];
                 $i++;
             }
             return $result;
@@ -71,6 +72,36 @@ class Book {
             }
         }
         return false;
+    }
+
+    public function getLastBooks($limit) {
+        $limit = (string) $limit;
+        if(isset($limit) && intval($limit) > 0) {
+            $db = Db::getConnection();
+            $resQuery = $db->query("SELECT * FROM `book` ORDER BY uploadDate DESC LIMIT 0, $limit");
+
+            $result = array();
+            if($resQuery) {
+                $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+                $i = 0;
+                while($row = $resQuery->fetch()) {
+                    $result[$i]['id'] = $row['id'];
+                    $result[$i]['title'] = $row['title'];
+                    $result[$i]['author'] = $row['author'];
+                    $result[$i]['yearBegin'] = $row['yearBegin'];
+                    $result[$i]['description'] = $row['description'];
+                    $result[$i]['url'] = $row['url'];
+                    $result[$i]['countDownload'] = $row['countDownload'];
+                    $result[$i]['uploadDate'] = $row['uploadDate'];
+                    $i++;
+                }
+                return $result;
+            }
+            return false;
+        }
+        else {
+            return false;
+        }
     }
 
     public function deleteById($id) {

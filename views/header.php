@@ -1,4 +1,3 @@
-<!Doctype html>
 <html>
 <head>
     <title>Main Page</title>
@@ -7,12 +6,29 @@
     <link rel="stylesheet" href="/template/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/template/css/animate.css"/>
     <link rel="stylesheet" href="/template/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/template/css/owl.carousel.css"/>
     <link rel="stylesheet" href="/template/css/styles.css"/>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab&subset=latin,cyrillic' rel='stylesheet'
           type='text/css'>
 </head>
 
 <body>
+
+<!--Preloader Вставь на все страницы в header !-->
+<div class="preloader">
+    <div class="logo-container">
+        <img src="/template/images/preolader.svg">
+    </div>
+
+    <div class="loader-container">
+                <span class="loader">
+                    <span class="loader-inner">
+                    </span>
+                </span>
+    </div>
+</div>
+
+<!--Preloader Вставь на все страницы в header !-->
 
 <div class="up transition3s animated bounce">
     <i class="fa-angle-up  fa"></i>
@@ -24,7 +40,7 @@
 
             <div class="col-md-7 col-xs-12">
                 <div class="ico">
-                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <a href="main.html"> <i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
                 </div>
                 <div class="title"><h1>Кафедра Іноземної Мови</h1>
                 <span>Дніпропетровський Національний Університет імені академіка В.А.Лазаряна
@@ -38,11 +54,12 @@
                 <div class="btn-container pull-right">
                     <?php $User = new Users();
                     if($User->isGuest()): ?>
-                    <a href="/login" class="btn btn-default login-btn transition3s">Увійти</a>
+                        <a href="/login" class="btn btn-default login-btn transition3s">Увійти</a>
+                        <a href="/registration" class="btn btn-default login-btn transition3s">Регістрація</a>
                     <?php else: ?>
-                    <a href="/logout" class="btn btn-default login-btn transition3s">Вийти</a>
+                        <a href="/logout" class="btn btn-default login-btn transition3s">Вийти</a>
+                        <a href="#" class="btn btn-default login-btn transition3s">Мій кабінет</a>
                     <?php endif; ?>
-                    <a href="/registration" class="btn btn-default login-btn transition3s">Регістрація</a>
                 </div>
             </div>
 
@@ -66,7 +83,7 @@
 
             <div id="main-nav">
                 <ul class="nav navbar-nav transition3s">
-                    <li class="active"><a href="/">Головна</a></li>
+                    <li class="active"><a href="#">Головна</a></li>
                     <li><a href="#">Розклад</a></li>
                     <li><a href="#">Біблиотека</a></li>
                     <li><a href="#">Завдання</a></li>
@@ -76,7 +93,7 @@
                                 class="caret"></span></a>
                         <ul class="dropdown-menu ">
                             <li><a href="#">Новини</a></li>
-                            <li><a href="#">Факультативи</a></li>
+                            <li><a href="facultList.html">Факультативи</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Медіа</a></li>

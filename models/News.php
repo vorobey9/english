@@ -32,9 +32,19 @@ class News {
                 $title = $array['title'];
                 $description = $array['description'];
                 $importance = $array['importance'] || 0;
+                $idAuthor = $array['idAuthor'];
+                $urlImage = $array['urlImage'];
+                if(!isset($urlImage)) {
+                    if($importance == 1) {
+                        $urlImage = '/newsImg/emptyImportance.jpg';
+                    }
+                    else {
+                        $urlImage = '/newsImg/empty.jpg';
+                    }
+                }
                 if(isset($title) && isset($description)) {
                     $db = Db::getConnection();
-                    $result = $db->query("INSERT INTO `news` (title, description, idElective, importance) VALUES ('$title', '$description', '$idElective', '$importance')");
+                    $result = $db->query("INSERT INTO `news` (title, description, idElective, importance, idAuthor, urlImage) VALUES ('$title', '$description', '$idElective', '$importance', '$idAuthor', '$urlImage')");
                     if($result) {
                         return true;
                     }
@@ -70,6 +80,8 @@ class News {
                 $result[$i]['tempDate'] = $row['tempDate'];
                 $result[$i]['idElective'] = $row['idElective'];
                 $result[$i]['importance'] = $row['importance'];
+                $result[$i]['idAuthor'] = $row['idAuthor'];
+                $result[$i]['urlImage'] = $row['urlImage'];
                 $i++;
             }
             return $result;
@@ -108,12 +120,50 @@ class News {
                     $result[$i]['tempDate'] = $row['tempDate'];
                     $result[$i]['idElective'] = $row['idElective'];
                     $result[$i]['importance'] = $row['importance'];
+                    $result[$i]['idAuthor'] = $row['idAuthor'];
+                    $result[$i]['urlImage'] = $row['urlImage'];
                     $i++;
                 }
                 return $result;
             }
         }
         return false;
+    }
+
+    public function getLastNewsByIdElective($idElective, $importance, $limit) {
+        $idElective = intval($idElective);
+        $importance = intval($importance);
+        //$limit = intval($limit);
+        $limit = (string) $limit;
+        //echo '<br>'.'idElective = '.$idElective.' ; importance = '.$importance.' ; limit = '.$limit.'<br>';
+        if(isset($idElective) && isset($importance) && isset($limit) && intval($limit) > 0) {
+            $db = Db::getConnection();
+            $resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' AND importance='$importance' ORDER BY tempDate DESC LIMIT 0,$limit");
+            //$resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' AND importance='$importance' ORDER BY tempDate DESC LIMIT 0, '$limit'");
+            $result = array();
+            if($resQuery) {
+                $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+                $i = 0;
+                while($row = $resQuery->fetch()) {
+                    $result[$i]['id'] = $row['id'];
+                    $result[$i]['title'] = $row['title'];
+                    $result[$i]['description'] = $row['description'];
+                    $result[$i]['tempDate'] = $row['tempDate'];
+                    $result[$i]['idElective'] = $row['idElective'];
+                    $result[$i]['importance'] = $row['importance'];
+                    $result[$i]['idAuthor'] = $row['idAuthor'];
+                    $result[$i]['urlImage'] = $row['urlImage'];
+                    $i++;
+                }
+                return $result;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
     }
 
 //"SELECT * FROM `" . DB_PREFIX . "corresponds` WHERE `id_r`='3' AND `id_s`='2' ORDER BY `date` ASC LIMIT 5";

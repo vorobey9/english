@@ -10,20 +10,21 @@ class MainController
         $News = new News();
         $Elective = new Elective();
         $User = new Users();
+        $Book = new Book();
 
         $dataElective = $Elective->getByTitle('departmen');
         $idElective = $dataElective['id'];
 
+        $importanceNews = $News->getLastNewsByIdElective($idElective, 1, 4);
+        $otherNews = $News->getLastNewsByIdElective($idElective, 0, 6);
+
         $aboutDepartmen = $DescriptionSection->getByName('mainAbout');
 
-        $impNews = $News->getAllByIdElective($idElective, 1);
-        $otherNews = $News->getAllByIdElective($idElective, 0);
         $teachers = $User->getAllTeachers();
 
-        //var_dump($teachers);
+        $dataBooks = $Book->getLastBooks(3);
 
-        //require_once(ROOT.'/views/header.php');
-        require_once(ROOT.'/views/index.php');
+        require_once(ROOT.'/views/main.php');
         return true;
     }
 }
