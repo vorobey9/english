@@ -33,6 +33,15 @@
                 </div>
                 <div class="info">
                     <h2><?php echo $news['title']; ?></h2>
+                     <span class="author"><i class="fa fa-user" aria-hidden="true"></i>
+                         <?php
+                         foreach($teachers as $teacher) {
+                             if($teacher['id'] == $news['idAuthor']) {
+                                 echo $teacher['lastName'].' '.$teacher['firstName'].' '.$teacher['middleName'];
+                             }
+                         }
+                         ?>
+                                </span>
                     <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $news['tempDate']; ?></span>
                     <a href="#" class="btn btn-default more transition3s">Дізнатися більше <i class="fa fa-angle-right"
                                                                                               aria-hidden="true"></i>
@@ -212,7 +221,7 @@
             </div>
             <div class="col-md-3 col-xs-12  pull-right">
                 <div class="number">
-                    <span>тел: +38092123456</span>
+                    <span>тел: +38(056) 373 15 24</span>
                 </div>
             </div>
 

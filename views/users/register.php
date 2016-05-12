@@ -1,76 +1,36 @@
 <?php include ROOT . '/views/header.php'; ?>
 
-
 <section class="auth-block box-size">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 auth">
+            <div class="col-md-10 col-md-offset-1 auth">
                 <h1>Регистрация пользователя</h1>
                 <h4>Дніпропетровський Національний Університет імені академіка В.А.Лазаряна</h4>
             </div>
 
-            <div class="col-md-6 register transition3s">
+            <div class="col-md-10 col-md-offset-1 register transition3s">
                 <form action="#" method="post">
-                    <div>
-                        <input type="text"  id="firstName" name="firstName" placeholder="Им'я:" value="<?php echo $firstName; ?>">
-                        <label for="firstName"><?php echo $errors['firstName']; ?></label>
+                    <div class="col-md-6 col-xs-12  pull-left">
+                        <input type="text" id="lastName" name="lastName" class="<?php if($errors['lastName']) echo 'failed'; ?>" placeholder="Призвище:" value="<?php echo $lastName; ?>">
+                        <input type="text" id="firstName" name="firstName" class="<?php if($errors['firstName']) echo 'failed'; ?>" placeholder="Им'я:" value="<?php echo $firstName; ?>">
+                        <input type="text" id="middleName" name="middleName" class="<?php if($errors['middleName']) echo 'failed'; ?>" placeholder="По-батькові:" value="<?php echo $middleName; ?>">
+                        <input type="email" id="email" name="email" class="<?php if($errors['email']) echo 'failed'; ?>" placeholder="Email:" value="<?php echo $email; ?>">
+                        <input type="password" id="password" name="password" class="<?php if($errors['password']) echo 'failed'; ?>" placeholder="Пароль:" value="<?php echo $password; ?>">
+                        <input type="password" id="passwordR" name="passwordR" class="<?php if($errors['passwordR']) echo 'failed'; ?>" placeholder="Повторіть пароль:" value="<?php echo $passwordR; ?>">
                     </div>
-                    <div>
-                        <input type="email"  id="email" name="email" placeholder="Email:" value="<?php echo $email; ?>">
-                        <label for="email"><?php echo $errors['email']; ?></label>
-                    </div>
-                    <div>
-                        <input type="text"  id="middleName" name="middleName" placeholder="По-батькові:" value="<?php echo $middleName; ?>">
-                        <label for="middleName"><?php echo $errors['middleName']; ?></label>
-                    </div>
-                    <div>
-                        <input type="password" id="password" name="password" placeholder="Пароль:" value="<?php echo $password; ?>">
-                        <label for="password"><?php echo $errors['password']; ?></label>
-                    </div>
-                    <div>
-                        <input type="text"  id="lastName" name="lastName" placeholder="Призвище:" value="<?php echo $lastName; ?>">
+                    <div class="pull-right col-md-6 col-xs-12 ">
                         <label for="lastName"><?php echo $errors['lastName']; ?></label>
-                    </div>
-
-                    <div>
-                        <input type="password" id="passwordR" name="passwordR" placeholder="Повторіть пароль:" value="<?php echo $passwordR; ?>">
+                        <label for="firstName"><?php echo $errors['firstName']; ?></label>
+                        <label for="middleName"><?php echo $errors['middleName']; ?></label>
+                        <label for="email"><?php echo $errors['email']; ?></label>
+                        <label for="password"><?php echo $errors['password']; ?></label>
                         <label for="passwordR"><?php echo $errors['passwordR']; ?></label>
+
                     </div>
-                    <div class="btn-container pull-left">
-                        <label><?php echo $errors['all']; ?></label>
-                        <input class="btn btn-default login-btn" type="submit" name="submit" id="sendLog" value="Зареєструватися">
-                    </div>
+                    <input class="btn btn-default login-btn" type="submit" name="submit" id="sendLog" value="Зареєструватися">
                 </form>
             </div>
         </div>
     </div>
 </section>
-
-
-<header class="cathedra-block hidden-sm hidden-xs black box-size fixed">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-xs-12">
-                <div class="ico">
-                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                </div>
-                <div class="title"><h1>Кафедра Іноземної Мови</h1> <span>Дніпропетровський Національний Університет імені академіка В.А.Лазаряна
-                </span></div>
-            </div>
-            <div class="col-md-3 col-xs-12  pull-right">
-                <div class="number">
-                    <span>тел: +38092123456</span>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-</header>
-
-<script src="/template/js/jquery.min.js"></script>
-<script src="/template/js/bootstrap.min.js"></script>
-<script src="/template/js/wow.min.js"></script>
-<script src="/template/js/script.js"></script>
-</body>
-</html>
+<?php include ROOT . '/views/footer.php'; ?>

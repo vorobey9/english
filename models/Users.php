@@ -33,7 +33,13 @@ class Users {
             $password = strtolower($password);
             $password = md5($password);
 
-            $urlImage = $array['urlImage'];
+
+            if(isset($array['urlImage'])) {
+                $urlImage = $array['urlImage'];
+            }
+            else {
+                $urlImage = '/users/defaultFace.jpg';
+            }
 
             if($this->checkMail($mail) == true) {
                 return false;

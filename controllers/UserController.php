@@ -70,7 +70,7 @@ class UserController {
             if(!$User->checkPassword($password)) {
                 $errors['password'] = "Занадто короткий пароль";
             }
-            if($password != $password) {
+            if($password != $passwordR) {
                 $errors['passwordR'] = 'Різні паролі';
             }
 

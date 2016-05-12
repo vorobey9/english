@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Main Page</title>
+    <title></title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="/template/css/bootstrap.min.css"/>
@@ -40,7 +40,7 @@
 
             <div class="col-md-7 col-xs-12">
                 <div class="ico">
-                    <a href="main.html"> <i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
+                    <a href="/"> <i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
                 </div>
                 <div class="title"><h1>Кафедра Іноземної Мови</h1>
                 <span>Дніпропетровський Національний Університет імені академіка В.А.Лазаряна
@@ -49,7 +49,7 @@
             </div>
             <div class="col-md-5 col-xs-12">
                 <div class="number">
-                    <span>тел: +38092123456</span>
+                    <span>тел: +38(056) 373 15 24</span>
                 </div>
                 <div class="btn-container pull-right">
                     <?php $User = new Users();
@@ -58,7 +58,7 @@
                         <a href="/registration" class="btn btn-default login-btn transition3s">Регістрація</a>
                     <?php else: ?>
                         <a href="/logout" class="btn btn-default login-btn transition3s">Вийти</a>
-                        <a href="#" class="btn btn-default login-btn transition3s">Мій кабінет</a>
+                        <a href="/cabinet" class="btn btn-default login-btn transition3s">Мій кабінет</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -83,7 +83,7 @@
 
             <div id="main-nav">
                 <ul class="nav navbar-nav transition3s">
-                    <li class="active"><a href="#">Головна</a></li>
+                    <li class="active"><a href="/">Головна</a></li>
                     <li><a href="#">Розклад</a></li>
                     <li><a href="#">Біблиотека</a></li>
                     <li><a href="#">Завдання</a></li>
@@ -92,7 +92,7 @@
                            aria-haspopup="true" aria-expanded="false">Події кафедри<span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu ">
-                            <li><a href="#">Новини</a></li>
+                            <li><a href="/news">Новини</a></li>
                             <li><a href="facultList.html">Факультативи</a></li>
                         </ul>
                     </li>

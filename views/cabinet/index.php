@@ -1,5 +1,10 @@
-<?php include ROOT . '/views/header1.php'; ?>
+<?php include ROOT . '/views/header.php'; ?>
 
 <h1>CABINET</h1>
 
-<?php include ROOT . '/views/footer1.php'; ?>
+<script src="/template/js/jquery.min.js"></script>
+<script src="/template/js/bootstrap.min.js"></script>
+<script src="/template/js/wow.min.js"></script>
+<script src="/template/js/script.js"></script>
+</body>
+</html>

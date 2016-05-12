@@ -65,81 +65,27 @@ class News {
         }
     }
 
-    public function getAll() {
-        $db = Db::getConnection();
-        $resQuery = $db->query("SELECT * FROM `news`");
-
-        $result = array();
-        if($resQuery) {
-            $resQuery->setFetchMode(PDO::FETCH_ASSOC);
-            $i = 0;
-            while($row = $resQuery->fetch()) {
-                $result[$i]['id'] = $row['id'];
-                $result[$i]['title'] = $row['title'];
-                $result[$i]['description'] = $row['description'];
-                $result[$i]['tempDate'] = $row['tempDate'];
-                $result[$i]['idElective'] = $row['idElective'];
-                $result[$i]['importance'] = $row['importance'];
-                $result[$i]['idAuthor'] = $row['idAuthor'];
-                $result[$i]['urlImage'] = $row['urlImage'];
-                $i++;
-            }
-            return $result;
-        }
-        return false;
-    }
-
-    public function getById($id) {
-        $id = intval($id);
-        if(isset($id)) {
-            $db = Db::getConnection();
-            $result = $db->query("SELECT * FROM `news` WHERE id='$id'");
-            if($result) {
-                $result->setFetchMode(PDO::FETCH_ASSOC);
-                $result = $result->fetch();
-                return $result;
-            }
-        }
-        return false;
-    }
-
-    public function getAllByIdElective($idElective, $importance) {
+    public function getAll($idElective, $importance, $limit, $begin) {
         $idElective = intval($idElective);
         $importance = intval($importance);
-        if(isset($idElective) && isset($importance)) {
-            $db = Db::getConnection();
-            $resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' AND importance='$importance'");
-            $result = array();
-            if($resQuery) {
-                $resQuery->setFetchMode(PDO::FETCH_ASSOC);
-                $i = 0;
-                while($row = $resQuery->fetch()) {
-                    $result[$i]['id'] = $row['id'];
-                    $result[$i]['title'] = $row['title'];
-                    $result[$i]['description'] = $row['description'];
-                    $result[$i]['tempDate'] = $row['tempDate'];
-                    $result[$i]['idElective'] = $row['idElective'];
-                    $result[$i]['importance'] = $row['importance'];
-                    $result[$i]['idAuthor'] = $row['idAuthor'];
-                    $result[$i]['urlImage'] = $row['urlImage'];
-                    $i++;
-                }
-                return $result;
-            }
-        }
-        return false;
-    }
-
-    public function getLastNewsByIdElective($idElective, $importance, $limit) {
-        $idElective = intval($idElective);
-        $importance = intval($importance);
-        //$limit = intval($limit);
         $limit = (string) $limit;
-        //echo '<br>'.'idElective = '.$idElective.' ; importance = '.$importance.' ; limit = '.$limit.'<br>';
-        if(isset($idElective) && isset($importance) && isset($limit) && intval($limit) > 0) {
-            $db = Db::getConnection();
-            $resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' AND importance='$importance' ORDER BY tempDate DESC LIMIT 0,$limit");
-            //$resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' AND importance='$importance' ORDER BY tempDate DESC LIMIT 0, '$limit'");
+        $begin = (string) $begin;
+        if(isset($importance) && ($importance == 0 || $importance == 1)) {
+            if(isset($limit) && intval($limit) > 0) {
+                if(isset($begin) && intval($begin) > 0) {
+                    $db = Db::getConnection();
+                    $resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' AND importance='$importance' ORDER BY tempDate DESC LIMIT $begin,$limit");
+                }
+                else {
+                    $db = Db::getConnection();
+                    $resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' AND importance='$importance' ORDER BY tempDate DESC LIMIT 0,$limit");
+                }
+            }
+            else {
+                $db = Db::getConnection();
+                $resQuery = $db->query("SELECT * FROM `news` WHERE importance='$importance' ORDER BY tempDate DESC");
+            }
+
             $result = array();
             if($resQuery) {
                 $resQuery->setFetchMode(PDO::FETCH_ASSOC);
@@ -164,7 +110,85 @@ class News {
         else {
             return false;
         }
+
     }
+
+    public function getById($id) {
+        $id = intval($id);
+        if(isset($id)) {
+            $db = Db::getConnection();
+            $result = $db->query("SELECT * FROM `news` WHERE id='$id'");
+            if($result) {
+                $result->setFetchMode(PDO::FETCH_ASSOC);
+                $result = $result->fetch();
+                return $result;
+            }
+        }
+        return false;
+    }
+
+//    public function getAllByIdElective($idElective, $importance) {
+//        $idElective = intval($idElective);
+//        $importance = intval($importance);
+//        if(isset($idElective) && isset($importance)) {
+//            $db = Db::getConnection();
+//            $resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' AND importance='$importance'");
+//            $result = array();
+//            if($resQuery) {
+//                $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+//                $i = 0;
+//                while($row = $resQuery->fetch()) {
+//                    $result[$i]['id'] = $row['id'];
+//                    $result[$i]['title'] = $row['title'];
+//                    $result[$i]['description'] = $row['description'];
+//                    $result[$i]['tempDate'] = $row['tempDate'];
+//                    $result[$i]['idElective'] = $row['idElective'];
+//                    $result[$i]['importance'] = $row['importance'];
+//                    $result[$i]['idAuthor'] = $row['idAuthor'];
+//                    $result[$i]['urlImage'] = $row['urlImage'];
+//                    $i++;
+//                }
+//                return $result;
+//            }
+//        }
+//        return false;
+//    }
+
+//    public function getLastNewsByIdElective($idElective, $importance, $limit) {
+//        $idElective = intval($idElective);
+//        $importance = intval($importance);
+//        //$limit = intval($limit);
+//        $limit = (string) $limit;
+//        //echo '<br>'.'idElective = '.$idElective.' ; importance = '.$importance.' ; limit = '.$limit.'<br>';
+//        if(isset($idElective) && isset($importance) && isset($limit) && intval($limit) > 0) {
+//            $db = Db::getConnection();
+//            $resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' AND importance='$importance' ORDER BY tempDate DESC LIMIT 0,$limit");
+//            //$resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' AND importance='$importance' ORDER BY tempDate DESC LIMIT 0, '$limit'");
+//            $result = array();
+//            if($resQuery) {
+//                $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+//                $i = 0;
+//                while($row = $resQuery->fetch()) {
+//                    $result[$i]['id'] = $row['id'];
+//                    $result[$i]['title'] = $row['title'];
+//                    $result[$i]['description'] = $row['description'];
+//                    $result[$i]['tempDate'] = $row['tempDate'];
+//                    $result[$i]['idElective'] = $row['idElective'];
+//                    $result[$i]['importance'] = $row['importance'];
+//                    $result[$i]['idAuthor'] = $row['idAuthor'];
+//                    $result[$i]['urlImage'] = $row['urlImage'];
+//                    $i++;
+//                }
+//                return $result;
+//            }
+//            else {
+//                return false;
+//            }
+//        }
+//        else {
+//            return false;
+//        }
+//    }
 
 //"SELECT * FROM `" . DB_PREFIX . "corresponds` WHERE `id_r`='3' AND `id_s`='2' ORDER BY `date` ASC LIMIT 5";
 

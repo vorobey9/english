@@ -15,8 +15,11 @@ class MainController
         $dataElective = $Elective->getByTitle('departmen');
         $idElective = $dataElective['id'];
 
-        $importanceNews = $News->getLastNewsByIdElective($idElective, 1, 4);
-        $otherNews = $News->getLastNewsByIdElective($idElective, 0, 6);
+//        $importanceNews = $News->getLastNewsByIdElectiv($idElective, 1, 4);
+        $importanceNews = $News->getAll($idElective, 1, 4, false);
+
+//        $otherNews = $News->getLastNewsByIdElective($idElective, 0, 6);
+        $otherNews = $News->getAll($idElective, 0, 6, false);
 
         $aboutDepartmen = $DescriptionSection->getByName('mainAbout');
 
