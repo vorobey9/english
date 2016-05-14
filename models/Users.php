@@ -2,7 +2,7 @@
 
 class Users {
     public function checkName($name) {
-        if(isset($name) && strlen($name) > 1) {
+        if(isset($name) && strlen($name) > 1 && !is_numeric($name)) {
                 return true;
         }
         else {

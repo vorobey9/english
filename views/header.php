@@ -93,7 +93,7 @@
                                 class="caret"></span></a>
                         <ul class="dropdown-menu ">
                             <li><a href="/news">Новини</a></li>
-                            <li><a href="facultList.html">Факультативи</a></li>
+                            <li><a href="/elective">Факультативи</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Медіа</a></li>

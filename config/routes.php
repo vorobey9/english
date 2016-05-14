@@ -10,8 +10,14 @@ return array(
 //    'addTeacher' => 'teachers/teachers/test',
     //'addUser' => 'user/user/test',
 
+    'elective/([0-9]+)' => 'elective/elective/itemElective/$1',
+    'elective/news/([0-9]+)' => 'elective/elective/itemNews/$1',
+    'elective' => 'elective/elective/view',
+
     'news/([0-9]+)' => 'news/news/item/$1',
     'news' => 'news/news/view',
+
+
 
     'zhopa' => 'article/article/test',
     'training/test/([0-9]+)' => 'test/test/viewTest/$1',

@@ -56,13 +56,13 @@ class UserController {
             $ok = true;
 
             if(!$User->checkName($firstName)) {
-                $errors['firstName'] = "Занадто коротке ім'я";
+                $errors['firstName'] = "Занадто коротке ім'я або присутні цифри";
             }
             if(!$User->checkName($middleName)) {
-                $errors['middleName'] = "Занадто коротке призвище";
+                $errors['middleName'] = "Занадто коротке призвище або присутні цифри";
             }
             if(!$User->checkName($lastName)) {
-                $errors['lastName'] = "Занадто коротке по-батькові";
+                $errors['lastName'] = "Занадто коротке по-батькові або присутні цифри";
             }
             if($User->checkMail($email)) {
                 $errors['email'] = "Користувач із такою поштою вже існує";

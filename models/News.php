@@ -83,7 +83,7 @@ class News {
             }
             else {
                 $db = Db::getConnection();
-                $resQuery = $db->query("SELECT * FROM `news` WHERE importance='$importance' ORDER BY tempDate DESC");
+                $resQuery = $db->query("SELECT * FROM `news` WHERE idElective='$idElective' AND importance='$importance' ORDER BY tempDate DESC");
             }
 
             $result = array();
