@@ -1,7 +1,5 @@
 <?php
 
-//include_once ROOT . '/views/header.php';
-
 class MainController
 {
     public function actionView()
@@ -15,21 +13,17 @@ class MainController
         $dataElective = $Elective->getByTitle('departmen');
         $idElective = $dataElective['id'];
 
-//        $importanceNews = $News->getLastNewsByIdElectiv($idElective, 1, 4);
         $importanceNews = $News->getAll($idElective, 1, 4, false);
 
-//        $otherNews = $News->getLastNewsByIdElective($idElective, 0, 6);
         $otherNews = $News->getAll($idElective, 0, 6, false);
 
         $aboutDepartmen = $DescriptionSection->getByName('mainAbout');
 
         $teachers = $User->getAllTeachers();
 
-        $dataBooks = $Book->getLastBooks(3);
+        $dataBooks = $Book->getAll(3, false);
 
-        require_once(ROOT.'/views/main.php');
+        require_once(ROOT . '/views/main.php');
         return true;
     }
 }
-
-//include_once ROOT . '/views/footer1.php';

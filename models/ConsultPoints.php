@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 14.03.2016
- * Time: 19:23
- */
+
 class ConsultPoints {
     private function checkIdTeacher($id) {
         $id = intval($id);
@@ -111,6 +106,32 @@ class ConsultPoints {
         return false;
     }
 
+    public function getByIdTeacher($idTeacher) {
+        $idTeacher = intval($idTeacher);
+        if(isset($idTeacher)) {
+            $db = Db::getConnection();
+            $resQuery = $db->query("SELECT * FROM `consultpoints` WHERE idTeacher='$idTeacher' ORDER BY dayStamp ASC");
+
+            $result = array();
+            if($resQuery) {
+                $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+                $i = 0;
+                while($row = $resQuery->fetch()) {
+                    $result[$i]['id'] = $row['id'];
+                    $result[$i]['idTeacher'] = $row['idTeacher'];
+                    $result[$i]['beginTime'] = $row['beginTime'];
+                    $result[$i]['endTime'] = $row['endTime'];
+                    $result[$i]['dayStamp'] = $row['dayStamp'];
+                    $result[$i]['description'] = $row['description'];
+                    $result[$i]['room'] = $row['room'];
+                    $i++;
+                }
+                return $result;
+            }
+            return false;
+        }
+    }
+
     public function deleteById($id) {
         $id = intval($id);
         if(isset($id)) {
@@ -158,7 +179,4 @@ class ConsultPoints {
             return false;
     }
 
-    public function test() {
-        var_dump($this->updateParameter('beginTime', "09:09:09", 8));
-    }
 }

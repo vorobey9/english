@@ -4,12 +4,12 @@
 
 <section class="top-block">
     <div class="title-block wow animated fadeIn">
-        <h1 class=" text-center">Факультативы</h1>
+        <h1 class=" text-center">Факультативи</h1>
         <div class="col-md-8 col-md-offset-2">
             <div class="description">
-                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat.</h4>
+                <h4>
+                    <?php echo $aboutElectives['description']; ?>
+                </h4>
             </div></div>
     </div>
 </section>
@@ -53,7 +53,7 @@
                             </div>
                             <div class="btn-container text-center">
 
-                                <a href="<?php echo '/elective/'.$elective['id']; ?>" class="btn btn-default login-btn ">Узнать больше</a>
+                                <a href="<?php echo '/elective/'.$elective['id']; ?>" class="btn btn-default news-btn ">Узнать больше</a>
                             </div>
                         </div>
                     </div>

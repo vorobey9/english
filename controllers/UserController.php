@@ -8,6 +8,13 @@
 include_once ROOT . '/models/Users.php';
 
 class UserController {
+
+    public function actionAjaxGetById() {
+        $idTeacher = $_POST['idTeacher'];
+        $User = new Users();
+        echo json_encode($User->getById($idTeacher));
+    }
+
     public function actionTest() {
         $User = new Users();
         $arr = array();

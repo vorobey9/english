@@ -21,43 +21,38 @@
 
 <section class="news-block important-news">
     <div class="container-fluid">
-        <a href="#"><h2 class="title main wow animated fadeInLeft">Важливі новини </h2></a>
+
+
+        <a href="/news"><h2 class="title main wow animated fadeIn">Важливі новини</h2></a>
+
 
         <div class="row fadeInUp animated wow" data-wow-offset="200">
 
+
             <?php foreach($importanceNews as $news): ?>
 
-            <div class="col-md-6 col-sm-6 block transition3s">
-                <div class="pic">
-                    <img src="<?php echo '/template/images'.$news['urlImage']; ?>" class="img-responsive" alt="">
+                <div class="col-md-6 col-sm-6 block transition3s">
+                    <div class="pic">
+                        <a href="<?php echo '/news/'.$news['id']; ?>">
+                            <img src="<?php echo '/template/images'.$news['urlImage']; ?>" class="img-responsive" alt=""></a>
+                    </div>
+                    <div class="info">
+                        <a href="<?php echo '/news/'.$news['id']; ?>"> <h2><?php echo $news['title']; ?></h2></a>
+                        <div class="data">
+                            <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $news['tempDate']; ?></span>
+                        </div>
+                        <a href="<?php echo '/news/'.$news['id']; ?>" class="btn btn-default more transition3s">Дізнатися більше <i class="fa fa-angle-right"
+                                                                                                  aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="info">
-                    <h2><?php echo $news['title']; ?></h2>
-                     <span class="author"><i class="fa fa-user" aria-hidden="true"></i>
-                         <?php
-                         foreach($teachers as $teacher) {
-                             if($teacher['id'] == $news['idAuthor']) {
-                                 echo $teacher['lastName'].' '.$teacher['firstName'].' '.$teacher['middleName'];
-                             }
-                         }
-                         ?>
-                                </span>
-                    <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $news['tempDate']; ?></span>
-                    <a href="#" class="btn btn-default more transition3s">Дізнатися більше <i class="fa fa-angle-right"
-                                                                                              aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
 
-            <?php
-            endforeach;
-            ?>
-
+                <?php endforeach; ?>
         </div>
 
         <div class="col-md-4 col-md-offset-4 fadeIn animated wow more-block col-xs-offset-0 col-xs-12"
              data-wow-offset="200">
-            <a href="#" class="btn btn-default more transition3s">Дізнатися більше</a>
+            <a href="/news" class="btn btn-default more transition3s">Дізнатися більше</a>
         </div>
     </div>
 </section>
@@ -101,26 +96,29 @@
 
 
             <div class="teachers fadeInUpBig animated wow" data-wow-offset="100">
+                <div class=" owl-theme owl-loaded teacher-owl">
 
-                <?php for($i = 0; $i < 4; $i++): ?>
-                    <div class="teacher block  transition3s">
-                        <div class="pic col-md-5 col-xs-12">
-                            <a href="#"><img src="<?php echo '/template/images'.$teachers[$i]['urlImage']; ?>" class="img-responsive" alt=""></a>
-                        </div>
-                        <div class="info-block  col-md-6 col-xs-12  transition3s">
-                            <div class="text">
-                                <h2 class="name"><?php echo $teachers[$i]['lastName'].' '.$teachers[$i]['firstName'].' '.$teachers[$i]['middleName']; ?></h2>
-                                <span class="post"><?php echo $teachers[$i]['post']; ?></span>
-                                <p class="description">
-                                    <?php echo $teachers[$i]['description']; ?>
-                                </p>
+
+                    <?php for($i = 0; $i < 4; $i++): ?>
+
+                        <div class="teacher block transition3s">
+                            <div class="pic  ">
+                                <a href="#"><img src="<?php echo '/template/images'.$teachers[$i]['urlImage']; ?>" class="img-responsive" alt=""></a>
                             </div>
+                            <div class="info-block     transition3s">
+                                <div class="text">
+                                    <h2 class="name"><?php echo $teachers[$i]['lastName'].' '.$teachers[$i]['firstName'].' '.$teachers[$i]['middleName']; ?></h2>
+                                    <span class="post"><?php echo $teachers[$i]['post']; ?></span>
+                                </div>
+                            </div>
+
                         </div>
 
-                    </div>
-                <?php endfor; ?>
-            </div>
+                    <?php endfor; ?>
 
+                </div>
+            </div>
+        </div>
 
         <div class="col-md-4 col-md-offset-4 fadeIn animated wow more-block col-xs-offset-0 col-xs-12"
              data-wow-offset="200">
@@ -131,7 +129,7 @@
 
 <section class="news-block latest">
     <div class="container">
-        <a href="#"><h2 class="title main wow animated fadeIn">Новини кафедри</h2></a>
+        <a href="/news"><h2 class="title main wow animated fadeIn">Новини кафедри</h2></a>
 
         <div class="row fadeInUp animated wow" data-wow-offset="200">
 
@@ -141,22 +139,24 @@
 
                     <div class=" block transition3s">
                         <div class="pic">
-                            <img src="<?php echo '/template/images'.$news['urlImage']; ?>" class="img-responsive" alt="">
+                            <a href="#">
+                                <img src="<?php echo '/template/images'.$news['urlImage']; ?>" class="img-responsive" alt=""></a>
                         </div>
 
                         <div class="info">
                             <a href="#"><h2><?php echo $news['title']; ?></h2></a>
-                            <span class="author"><i class="fa fa-user" aria-hidden="true"></i>
-                                <?php
+                            <div class="data">
+                                <span class="author"><i class="fa fa-user" aria-hidden="true"></i>
+                                    <?php
                                     foreach($teachers as $teacher) {
                                         if($teacher['id'] == $news['idAuthor']) {
                                             echo $teacher['lastName'].' '.$teacher['firstName'].' '.$teacher['middleName'];
                                         }
                                     }
-                                ?>
-                            </span>
-                            <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $news['tempDate']; ?></span>
-
+                                    ?>
+                                </span>
+                                <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $news['tempDate']; ?></span>
+                            </div>
                             <a href="#" class="btn btn-default more transition3s">Дізнатися більше <i
                                     class="fa fa-angle-right" aria-hidden="true"></i>
                             </a>
@@ -168,10 +168,9 @@
             </div>
             <div class="col-md-4 col-md-offset-4 fadeIn animated wow more-block col-xs-offset-0 col-xs-12"
                  data-wow-offset="200">
-                <a href="#" class="btn btn-default more transition3s">Дізнатися більше</a>
+                <a href="/news" class="btn btn-default more transition3s">Дізнатися більше</a>
             </div>
         </div>
-
 
     </div>
 </section>
@@ -179,7 +178,7 @@
 
 <section class="book-library">
     <div class="container">
-        <a href="#"><h2 class="title main wow animated fadeIn">Учбовий матеріал</h2></a>
+        <a href="/library"><h2 class="title main wow animated fadeIn">Новинки Учбового матеріалу</h2></a>
 
         <div class="row fadeInUp animated wow" data-wow-offset="200">
 
@@ -188,22 +187,22 @@
                 <article>
                     <div class="col-md-4 col-xs-12 block transition3s">
 
-                        <a href="#">
+                        <a href="<?php echo $book['url']; ?>">
                             <div class="header ">
                                 <h3><?php echo $book['title']; ?></h3>
                                 <h4><?php echo $book['author']; ?></h4>
                                 <h4><?php echo $book['yearBegin']; ?></h4>
                             </div>
-
                         </a>
                     </div>
                 </article>
 
             <?php endforeach; ?>
+
         </div>
         <div class="col-md-4 col-md-offset-4 fadeIn animated wow more-block col-xs-offset-0 col-xs-12"
              data-wow-offset="200">
-            <a href="#" class="btn btn-default more transition3s">Дізнатися більше</a>
+            <a href="/library" class="btn btn-default more transition3s">Дізнатися більше</a>
         </div>
     </div>
 </section>

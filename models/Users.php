@@ -339,13 +339,19 @@ class Users {
         $_SESSION['user'] = $userId;
     }
 
+//    public function checkLogged() {
+//        if(isset($_SESSION['user'])) {
+//            return $_SESSION['user'];
+//        }
+//
+//        header("Location: /login/");
+//        return true;
+//    }
     public function checkLogged() {
         if(isset($_SESSION['user'])) {
             return $_SESSION['user'];
         }
-
-        header("Location: /login/");
-        return true;
+        return false;
     }
 
     public function isGuest() {

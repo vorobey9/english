@@ -8,14 +8,12 @@
                     <h2 class="text-center"><?php echo $news['title']; ?></h2>
                     <div class="pic radius5px">
                         <img src="<?php echo '/template/images'.$news['urlImage']; ?>" class="img-responsive" alt="">
-                        <div class="data-block">
+                    </div>
+
                             <div class="data">
                                 <span class="author"><i class="fa fa-user" aria-hidden="true"></i><?php echo $teacher['lastName'].' '.$teacher['firstName'].' '.$teacher['middleName']; ?></span>
                                 <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $news['tempDate']; ?></span>
                             </div>
-
-                        </div>
-                    </div>
 
                     <div class="text">
                         <p><?php echo $news['description']; ?></p>

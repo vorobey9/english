@@ -14,23 +14,20 @@
 </section>
 
 <section class="news-list box-size" id="facultative">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row masonry" data-columns>
 
             <?php foreach($news as $item): ?>
-
                 <div class="news box-size transition3s item ">
                     <div class="pic ">
                         <a href="<?php echo '/elective/news/'.$item['id']; ?>"><img class="img-responsive transition3s" src="<?php echo '/template/images'.$item['urlImage']; ?>" alt="The title of the picture"></a>
 
-                        <div class="data-block ">
-                            <div class="data">
-                                <span class="author"><i class="fa fa-user" aria-hidden="true"></i><?php echo $teacher['lastName'].' '.$teacher['firstName'].' '.$teacher['middleName']; ?></span>
-                                <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $item['tempDate']; ?></span>
-                            </div>
-                            <div class="media-link ">
-                                <a href="#" class="transition5s"><span><i class="fa fa-camera-retro" aria-hidden="true"></i></span><h4 class="text-center">Медіафайли</h4></a>
-                            </div>
+                        <div class="media-links">
+                            <ul class="list-unstyled text-center">
+                                <li><a href="#" class="transition5s"><span><i class="fa fa-camera-retro" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#" class="transition5s"><span><i class="fa fa-video-camera" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#" class="transition5s"><span><i class="fa fa-file-text" aria-hidden="true"></i></span></a></li>
+                            </ul>
                         </div>
 
                     </div>
@@ -38,17 +35,20 @@
                     <div class="info">
                         <a href="<?php echo '/elective/news/'.$item['id']; ?>"><h2 class="title"><?php echo $item['title']; ?></h2></a>
 
-
-
                         <div class="text">
-                            <p>
-                                <?php echo mb_substr($item['description'],0,299).'...'; ?>
-                            </p>
+                            <p><?php echo mb_substr($item['description'],0,398).'...'; ?></p>
+
                         </div>
-                        <div class="btn-container text-center">
+                        <div class="data">
+                            <span class="author"><i class="fa fa-user" aria-hidden="true"></i><?php echo $teacher['lastName'].' '.$teacher['firstName'].' '.$teacher['middleName']; ?></span>
+                            <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $item['tempDate']; ?></span>
+                        </div>
+                        <div class="btn-container text-center ">
                             <a href="<?php echo '/elective/news/'.$item['id']; ?>" class="btn btn-default news-btn">Читать полностью</a>
                         </div>
                     </div>
+
+
 
                 </div>
             <?php endforeach; ?>

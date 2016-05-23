@@ -82,6 +82,9 @@ class Router
                 if($result != null) {
                     break;
                 }
+
+                //СВОЁ
+                break;
             }
         }
     }

@@ -11,22 +11,25 @@
 
                 <?php foreach($otherNews as $news): ?>
                     <div class="block item transition3s radius5px">
+                            <a href="<?php echo '/news/'.$news['id'];?>">
                             <div class="pic radius5px">
-                                <a href="#"> <img src="<?php echo '/template/images'.$news['urlImage']; ?>" class="img-responsive " alt=""></a>
+                                 <img src="<?php echo '/template/images'.$news['urlImage']; ?>" class="img-responsive " alt="">
                             </div>
+                            </a>
                             <div class="info">
-                                <h2><a href="<?php echo '/news/'.$news['id'];?>"> <?php echo $news['title']; ?></a></h2>
-                                <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $news['tempDate']; ?></span>
-                                <span class="author"><i class="fa fa-user" aria-hidden="true"></i>
-                                    <?php
-                                    foreach($teachers as $teacher) {
-                                        if($teacher['id'] == $news['idAuthor']) {
-                                            echo $teacher['lastName'].' '.$teacher['firstName'].' '.$teacher['middleName'];
+                                <a href="<?php echo '/news/'.$news['id'];?>"> <h2><?php echo $news['title']; ?></h2></a>
+                                <div class="data">
+                                    <span class="author"><i class="fa fa-user" aria-hidden="true"></i>
+                                        <?php
+                                        foreach($teachers as $teacher) {
+                                            if($teacher['id'] == $news['idAuthor']) {
+                                                echo $teacher['lastName'].' '.$teacher['firstName'].' '.$teacher['middleName'];
+                                            }
                                         }
-                                    }
-                                    ?>
-                                </span>
-
+                                        ?>
+                                    </span>
+                                    <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $news['tempDate']; ?></span>
+                                </div>
                             </div>
                     </div>
                 <?php endforeach; ?>

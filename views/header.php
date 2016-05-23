@@ -15,6 +15,7 @@
 <body>
 
 <!--Preloader Вставь на все страницы в header !-->
+<!--
 <div class="preloader">
     <div class="logo-container">
         <img src="/template/images/preolader.svg">
@@ -27,6 +28,7 @@
                 </span>
     </div>
 </div>
+-->
 
 <!--Preloader Вставь на все страницы в header !-->
 
@@ -38,7 +40,7 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-7 col-xs-12">
+            <div class="col-md-6 col-lg-7 col-xs-12">
                 <div class="ico">
                     <a href="/"> <i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
                 </div>
@@ -47,7 +49,7 @@
                 </span>
                 </div>
             </div>
-            <div class="col-md-5 col-xs-12">
+            <div class="col-md-6 col-lg-5 col-xs-12">
                 <div class="number">
                     <span>тел: +38(056) 373 15 24</span>
                 </div>
@@ -83,23 +85,14 @@
 
             <div id="main-nav">
                 <ul class="nav navbar-nav transition3s">
-                    <li class="active"><a href="/">Головна</a></li>
-                    <li><a href="#">Розклад</a></li>
-                    <li><a href="#">Біблиотека</a></li>
+                    <li class="active"><a href="#">Головна</a></li>
+                    <li><a href="/schedule">Розклад</a></li>
+                    <li><a href="/library">Біблиотека</a></li>
                     <li><a href="#">Завдання</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false">Події кафедри<span
-                                class="caret"></span></a>
-                        <ul class="dropdown-menu ">
-                            <li><a href="/news">Новини</a></li>
-                            <li><a href="/elective">Факультативи</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="/news">Новини</a></li>
+                    <li><a href="/elective">Факультативи</a></li>
                     <li><a href="#">Медіа</a></li>
-                    <li><a href="#">Дисципліни</a></li>
                     <li><a href="#">Про кафедру</a></li>
-
                 </ul>
             </div>
         </div>

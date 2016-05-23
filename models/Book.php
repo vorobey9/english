@@ -6,22 +6,15 @@
  * Time: 16:01
  */
 
+
 class Book {
     public function add($array) {
         if(isset($array)) {
-
-//            echo 'In isset'.'<br>';
                 $title = $array['title'];
                 $author = $array['author'];
                 $yearBegin = $array['yearBegin'];
                 $description = $array['description'];
                 $url = $array['url'];
-
-//            echo 'title = '.$title.'<br>';
-//            echo 'author = '.$author.'<br>';
-//            echo 'description = '.$description.'<br>';
-//            echo 'url = '.$url.'<br>';
-
                 $db = Db::getConnection();
                 $result = $db->query("INSERT INTO `book` (title, author, yearBegin, description, url) VALUES ('$title', '$author', '$yearBegin', '$description', '$url')");
                 if($result) {
@@ -36,10 +29,23 @@ class Book {
         }
     }
 
-    public function getAll() {
-        $db = Db::getConnection();
-        $resQuery = $db->query("SELECT * FROM `book`");
-
+    public function getAll($limit, $begin) {
+        $resQuery = false;
+        if($limit == false) {
+            $db = Db::getConnection();
+            $resQuery = $db->query("SELECT * FROM `book` ORDER BY uploadDate DESC");
+        }
+        else if($begin == false && intval($limit) > 0) {
+            $limit = (string) $limit;
+            $db = Db::getConnection();
+            $resQuery = $db->query("SELECT * FROM `book` ORDER BY uploadDate DESC LIMIT 0, $limit");
+        }
+        else if(intval($limit) > 0 && intval($begin) > 0) {
+            $begin = (string) $begin;
+            $limit = (string) $limit;
+            $db = Db::getConnection();
+            $resQuery = $db->query("SELECT * FROM `book` ORDER BY uploadDate DESC LIMIT $begin, $limit");
+        }
         $result = array();
         if($resQuery) {
             $resQuery->setFetchMode(PDO::FETCH_ASSOC);
@@ -74,12 +80,26 @@ class Book {
         return false;
     }
 
-    public function getLastBooks($limit) {
-        $limit = (string) $limit;
-        if(isset($limit) && intval($limit) > 0) {
-            $db = Db::getConnection();
-            $resQuery = $db->query("SELECT * FROM `book` ORDER BY uploadDate DESC LIMIT 0, $limit");
-
+    public function getBySearch($type, $val) {
+        if(isset($type) && isset($val)) {
+            switch($type) {
+                case 'title':
+                    $db = Db::getConnection();
+                    $resQuery = $db->query("SELECT * FROM `book` WHERE title LIKE '%$val%'");
+                    break;
+                case 'author':
+                    $db = Db::getConnection();
+                    $resQuery = $db->query("SELECT * FROM `book` WHERE author LIKE '%$val%'");
+                    break;
+                case 'year':
+                    $db = Db::getConnection();
+                    $resQuery = $db->query("SELECT * FROM `book` WHERE yearBegin LIKE '%$val%'");
+                    break;
+                case 'description':
+                    $db = Db::getConnection();
+                    $resQuery = $db->query("SELECT * FROM `book` WHERE description LIKE '%$val%'");
+                    break;
+            }
             $result = array();
             if($resQuery) {
                 $resQuery->setFetchMode(PDO::FETCH_ASSOC);
@@ -97,7 +117,9 @@ class Book {
                 }
                 return $result;
             }
-            return false;
+            else {
+                return false;
+            }
         }
         else {
             return false;

@@ -120,6 +120,30 @@ class ClassPoints {
         return false;
     }
 
+    public function getByIdTeacher($idTeacher) {
+        $idTeacher = intval($idTeacher);
+        $db = Db::getConnection();
+        $resQuery = $db->query("SELECT * FROM `classpoints` WHERE idTeacher='$idTeacher' ORDER BY dayStamp ASC");
+
+        $result = array();
+        if($resQuery) {
+            $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+            $i = 0;
+            while($row = $resQuery->fetch()) {
+                $result[$i]['id'] = $row['id'];
+                $result[$i]['idTeacher'] = $row['idTeacher'];
+                $result[$i]['numLesson'] = $row['numLesson'];
+                $result[$i]['dayStamp'] = $row['dayStamp'];
+                $result[$i]['numeratorGroup'] = $row['numeratorGroup'];
+                $result[$i]['denominatorGroup'] = $row['denominatorGroup'];
+                $result[$i]['room'] = $row['room'];
+                $i++;
+            }
+            return $result;
+        }
+        return false;
+    }
+
     public function deleteById($id) {
         $id = intval($id);
         if(isset($id)) {
