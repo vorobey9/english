@@ -81,11 +81,13 @@ class Book {
     }
 
     public function getBySearch($type, $val) {
+        $valLC = mb_strtolower($val);
+        $valFUC =  ucfirst($val);
         if(isset($type) && isset($val)) {
             switch($type) {
                 case 'title':
                     $db = Db::getConnection();
-                    $resQuery = $db->query("SELECT * FROM `book` WHERE title LIKE '%$val%'");
+                    $resQuery = $db->query("SELECT * FROM `book` WHERE title LIKE '%$val%' OR title LIKE '%$valFUC%' OR title LIKE '%$valLC%'");
                     break;
                 case 'author':
                     $db = Db::getConnection();
@@ -100,6 +102,7 @@ class Book {
                     $resQuery = $db->query("SELECT * FROM `book` WHERE description LIKE '%$val%'");
                     break;
             }
+
             $result = array();
             if($resQuery) {
                 $resQuery->setFetchMode(PDO::FETCH_ASSOC);

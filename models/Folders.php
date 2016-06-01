@@ -13,20 +13,14 @@ class Folders {
             $description = $array['description'];
             if($array['typeExercise'] == 'puzzle' || $array['typeExercise'] == 'inscribe' || $array['typeExercise'] == 'test') {
                 $typeExercise = $array['typeExercise'];
-                $countInBlank = intval($array['countInBlank']);
-                if($countInBlank > 0 && is_numeric($countInBlank)) {
                     $db = Db::getConnection();
-                    $result = $db->query("INSERT INTO `folders` (title, description, typeExercise, countInBlank) VALUES ('$title', '$description', '$typeExercise', '$countInBlank')");
+                    $result = $db->query("INSERT INTO `folders` (title, description, typeExercise) VALUES ('$title', '$description', '$typeExercise')");
                     if($result) {
                         return true;
                     }
                     else {
                         return false;
                     }
-                }
-                else {
-                    return false;
-                }
             }
             else {
                 return false;
@@ -37,9 +31,9 @@ class Folders {
         }
     }
 
-    public function getAll() {
+    public function getAll($type) {
         $db = Db::getConnection();
-        $resQuery = $db->query("SELECT * FROM `folders`");
+        $resQuery = $db->query("SELECT * FROM `folders` WHERE typeExercise='$type'");
 
         $result = array();
         if($resQuery) {
@@ -50,7 +44,6 @@ class Folders {
                 $result[$i]['title'] = $row['title'];
                 $result[$i]['description'] = $row['description'];
                 $result[$i]['typeExercise'] = $row['typeExercise'];
-                $result[$i]['countInBlank'] = $row['countInBlank'];
                 $i++;
             }
             return $result;

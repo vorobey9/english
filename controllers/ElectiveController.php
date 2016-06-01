@@ -15,6 +15,18 @@ class ElectiveController
         return true;
     }
 
+    public function actionViewMedia($idNews) {
+        $News = new News();
+        $Image = new Image();
+
+        $title = $News->getById($idNews);
+        $title = $title['title'];
+        $images = $Image->getByIdNews($idNews);
+
+        require_once(ROOT.'/views/elective/media.php');
+        return true;
+    }
+
     public function actionItemElective($idElective) {
         $Elective = new Elective();
         $Teacher = new Users();

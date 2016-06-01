@@ -29,22 +29,16 @@ class Test {
                     $A = $array['answerA'];
                     $B = $array['answerB'];
                     $C = $array['answerC'];
-                    $D = $array['answerD'];
                     $right = $array['answerRight'];
-                    if(isset($A) && isset($B) && isset($C) && isset($D) && isset($right)) {
-                        if(strcmp($right, $A) == 0 || strcmp($right, $B) == 0 || strcmp($right, $C) == 0 || strcmp($right, $D) == 0) {
+                    if(isset($A) && isset($B) && isset($C) && isset($right)) {
                             $db = Db::getConnection();
-                            $result = $db->query("INSERT INTO `test` (idFolder, text, answerA, answerB, answerC, answerD, answerRight) VALUES ('$idFolder', '$text', '$A', '$B', '$C', '$D', '$right')");
+                            $result = $db->query("INSERT INTO `test` (idFolder, text, answerA, answerB, answerC, answerRight) VALUES ('$idFolder', '$text', '$A', '$B', '$C', '$right')");
                             if($result) {
                                 return true;
                             }
                             else {
                                 return false;
                             }
-                        }
-                        else {
-                            return false;
-                        }
                     }
                     else {
                         return false;
@@ -78,7 +72,6 @@ class Test {
                 $result[$i]['answerA'] = $row['answerA'];
                 $result[$i]['answerB'] = $row['answerB'];
                 $result[$i]['answerC'] = $row['answerC'];
-                $result[$i]['answerD'] = $row['answerD'];
                 $result[$i]['answerRight'] = $row['answerRight'];
                 $i++;
             }
@@ -118,7 +111,6 @@ class Test {
                     $result[$i]['answerA'] = $row['answerA'];
                     $result[$i]['answerB'] = $row['answerB'];
                     $result[$i]['answerC'] = $row['answerC'];
-                    $result[$i]['answerD'] = $row['answerD'];
                     $result[$i]['answerRight'] = $row['answerRight'];
                     $i++;
                 }
@@ -170,6 +162,33 @@ class Test {
         $arr['answerD'] = 'aaa';
         $arr['answerRight'] = 'g';
         var_dump($this->updateParameter('answerA','aaa', 9));
+    }
+
+
+    public function formatTests($tests) {
+        $newTests = array();
+        $i = 0;
+        foreach($tests as $test) {
+            $arr = array();
+            $newTests[$i]['id'] = $test['id'];
+            $newTests[$i]['idFolder'] = $test['idFolder'];
+            $newTests[$i]['text'] = $test['text'];
+            $arr[] = $test['answerA'];
+            $arr[] = $test['answerB'];
+            $arr[] = $test['answerC'];
+            $arr[] = $test['answerRight'];
+            shuffle($arr);
+            $newTests[$i]['ans1'] = $arr[0];
+            $newTests[$i]['ans2'] = $arr[1];
+            $newTests[$i]['ans3'] = $arr[2];
+            $newTests[$i]['ans4'] = $arr[3];
+            $i++;
+        }
+        return $newTests;
+    }
+
+    private function mixAnswers($arr) {
+
     }
 
     public function checkUserAnswer($idFolder, $data) {

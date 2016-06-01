@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="/template/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/template/css/animate.css"/>
+    <link rel="stylesheet" href="/template/css/magnific-popup.css"/>
     <link rel="stylesheet" href="/template/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="/template/css/owl.carousel.css"/>
     <link rel="stylesheet" href="/template/css/styles.css"/>
@@ -88,10 +89,10 @@
                     <li class="active"><a href="#">Головна</a></li>
                     <li><a href="/schedule">Розклад</a></li>
                     <li><a href="/library">Біблиотека</a></li>
-                    <li><a href="#">Завдання</a></li>
+                    <li><a href="/exercise">Завдання</a></li>
                     <li><a href="/news">Новини</a></li>
                     <li><a href="/elective">Факультативи</a></li>
-                    <li><a href="#">Медіа</a></li>
+                    <li><a href="/gallery">Медіа</a></li>
                     <li><a href="#">Про кафедру</a></li>
                 </ul>
             </div>

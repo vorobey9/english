@@ -23,7 +23,6 @@ $(document).ready(function(){
 
     $(window).scroll(function () {
         var fix = ($(this).scrollTop() > pos) ? true : false;
-
         nav.toggleClass("navbar-fixed-top", fix);
     });
 
@@ -73,6 +72,10 @@ $(document).ready(function(){
         $('.result-table').slideToggle();
     });
 
+    $('.personal .change-btn').on('click',function(){
+        $('.change-block').slideToggle();
+    });
+
     $('.up').on('click',function(){
         $('html,body').animate({
             scrollTop: 0
@@ -106,7 +109,34 @@ if( $(window).width >800) {
             }
         });
 
+
+/*Puzzle*/
+
+$('.puzzle-block .word-area .word-block',this).on('click',function(){
+    $(this).appendTo($('.phrase-block'));
+    $(this).toggleClass('clicked');
 });
+
+$('.puzzle-block .answer-block .puzzle-btn',this).on('click',function(){
+    $(".puzzle-block .head").fadeToggle();
+    $('.foot .btn-container').fadeToggle('700');
+});
+
+
+
+
+/*Puzzle*/
+
+});
+
+
+
+
+
+
+
+
+
 
 
 

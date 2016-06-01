@@ -1,18 +1,20 @@
 <?php
 
-class Image {
+class Doc
+{
     public function add($array) {
         if(isset($array)) {
             $idNews = $array['idNews'];
             $url = $array['url'];
-                $db = Db::getConnection();
-                $result = $db->query("INSERT INTO `image` (idNews, url) VALUES ('$idNews', '$url')");
-                if($result) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
+            $title = $array['title'];
+            $db = Db::getConnection();
+            $result = $db->query("INSERT INTO `document` (idNews, url, title) VALUES ('$idNews', '$url', '$title')");
+            if($result) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
         else {
             return false;
@@ -22,7 +24,7 @@ class Image {
 
     public function getAll() {
         $db = Db::getConnection();
-        $resQuery = $db->query("SELECT * FROM `image` ORDER BY uploadDate DESC");
+        $resQuery = $db->query("SELECT * FROM `document` ORDER BY uploadDate DESC");
 
         $result = array();
         if($resQuery) {
@@ -31,6 +33,7 @@ class Image {
             while($row = $resQuery->fetch()) {
                 $result[$i]['id'] = $row['id'];
                 $result[$i]['idNews'] = $row['idNews'];
+                $result[$i]['title'] = $row['title'];
                 $result[$i]['url'] = $row['url'];
                 $result[$i]['uploadDate'] = $row['uploadDate'];
                 $i++;
@@ -44,7 +47,7 @@ class Image {
         $id = intval($id);
         if(isset($id)) {
             $db = Db::getConnection();
-            $result = $db->query("SELECT * FROM `image` WHERE id='$id'");
+            $result = $db->query("SELECT * FROM `document` WHERE id='$id'");
             if($result) {
                 $result->setFetchMode(PDO::FETCH_ASSOC);
                 $result = $result->fetch();
@@ -58,7 +61,7 @@ class Image {
         $idNews = intval($idNews);
         if(isset($idNews)) {
             $db = Db::getConnection();
-            $resQuery = $db->query("SELECT * FROM `image` WHERE idNews='$idNews' ORDER BY uploadDate DESC");
+            $resQuery = $db->query("SELECT * FROM `document` WHERE idNews='$idNews' ORDER BY uploadDate DESC");
 
             $result = array();
             if($resQuery) {
@@ -67,6 +70,7 @@ class Image {
                 while($row = $resQuery->fetch()) {
                     $result[$i]['id'] = $row['id'];
                     $result[$i]['idNews'] = $row['idNews'];
+                    $result[$i]['title'] = $row['title'];
                     $result[$i]['url'] = $row['url'];
                     $result[$i]['uploadDate'] = $row['uploadDate'];
                     $i++;
@@ -78,37 +82,11 @@ class Image {
         return false;
     }
 
-//    public function getLastImage($limit) {
-//        $limit = intval($limit);
-//        if(isset($limit) && $limit > 0) {
-//            $db = Db::getConnection();
-//            $resQuery = $db->query("SELECT * FROM `image` ORDER BY uploadDate DESC LIMIT 0, '$limit'");
-//
-//            $result = array();
-//            if($resQuery) {
-//                $resQuery->setFetchMode(PDO::FETCH_ASSOC);
-//                $i = 0;
-//                while($row = $resQuery->fetch()) {
-//                    $result[$i]['id'] = $row['id'];
-//                    $result[$i]['idNews'] = $row['idNews'];
-//                    $result[$i]['url'] = $row['url'];
-//                    $result[$i]['uploadDate'] = $row['uploadDate'];
-//                    $i++;
-//                }
-//                return $result;
-//            }
-//            return false;
-//        }
-//        else {
-//            return false;
-//        }
-//    }
-
     public function deleteById($id) {
         $id = intval($id);
         if(isset($id)) {
             $db = Db::getConnection();
-            $resQuery = $db->query('DELETE FROM `image` WHERE id='.$id);
+            $resQuery = $db->query('DELETE FROM `document` WHERE id='.$id);
             if($resQuery) {
                 return true;
             }
@@ -123,7 +101,7 @@ class Image {
                 return false;
             }
             $db = Db::getConnection();
-            $resQuery = $db->query("UPDATE `image` SET $parameterName='$newValue' WHERE id='$id'");
+            $resQuery = $db->query("UPDATE `document` SET $parameterName='$newValue' WHERE id='$id'");
             if($resQuery) {
                 return true;
             }
