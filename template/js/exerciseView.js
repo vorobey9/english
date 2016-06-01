@@ -29,7 +29,6 @@ function pushButtonEx(typeEx) {
             },
             success: function (retData) {
                 var data = JSON.parse(retData);
-                console.log(data);
                 if(data && data.length > 0) {
                     $("#titleArea").text(data[0]['title']);
                     $("#descArea").text(data[0]['description']);

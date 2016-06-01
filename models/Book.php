@@ -172,14 +172,4 @@ class Book {
             return false;
         }
     }
-
-    public function testWTF() {
-        $arr = array();
-        $arr['title'] = 'Sex in the city';
-        $arr['author'] = 'vasiy';
-        $arr['yearBegin'] = '2014';
-        $arr['description'] = 'affaef fg dgd df dg sfb';
-        $arr['url'] = 'ggg/gg/gg';
-        var_dump($this->plusDownloadBook(2));
-    }
 }

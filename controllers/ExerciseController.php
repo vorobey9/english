@@ -12,7 +12,7 @@ class ExerciseController
         $folders = $Folder->getAll('test');
         $idUser = $User->checkLogged();
 
-        require_once(ROOT.'/views/exersice/view.php');
+        require_once(ROOT . '/views/exercise/view.php');
         return true;
     }
 
@@ -27,26 +27,59 @@ class ExerciseController
         $Folder = new Folders();
         $User = new Users();
         $Test = new Test();
+        $StatEx = new StatisticsExercise();
 
         $idUser = $User->checkLogged();
-        if($idUser == false) {
+        if(!$idUser) {
             header("Location: http://www.englishtest.ua/login");
         }
 
         $infoFolder = $Folder->getById($idFolder);
-        $tests = $Test->getAllByIdFolder($idFolder);
+        $defTests = $Test->getAllByIdFolder($idFolder);
 
         //output = [i]{'id', 'idFolder', 'text', 'ans1', 'ans2', 'ans3', 'ans4'}
-        $tests = $Test->formatTests($tests);
+        $tests = $Test->formatTests($defTests);
 
-        require_once(ROOT.'/views/exersice/test.php');
+        $answerStr = '';
+
+        /*Так и нужно, ничего не менять*/
+        $len = count($defTests);
+        for($i = 0; $i < $len-1; $i++) {
+            $answerStr.=$defTests[$i]['answerRight'].'/';
+        }
+        $answerStr.=$defTests[$len-1]['answerRight'];
+
+        $lastExer = $StatEx->getLastForStat($idUser);
+
+        require_once(ROOT . '/views/exercise/test.php');
         return true;
     }
 
-    public function actionAjaxCheckRes() {
-        $arrRes = json_decode($_POST['arrRes']);
-        $idFolder = $_POST['idFolder'];
-        $Test = new Test();
+    public function actionAjaxSaveRes() {
+        $User = new Users();
+        $StatEx = new StatisticsExercise();
 
+        $idUser = $User->checkLogged();
+        $idFolder = $_POST['idFolder'];
+        $mark = $_POST['mark'];
+        $countQuestion = $_POST['countQuestion'];
+        $countRight = $_POST['countRight'];
+
+        $StatEx->add($idFolder, $idUser, $countQuestion, $countRight, $mark);
+    }
+
+    public function actionAjaxShowInfoModal() {
+        $idUser = $_POST['idUser'];
+        $idFolder = $_POST['idFolder'];
+
+        $User = new Users();
+        $StatEx = new StatisticsExercise();
+
+        $bestRes = $StatEx->getBestRes($idUser, $idFolder);
+        $user = $User->getById($idUser);
+        echo json_encode(array(
+            'best' => $bestRes,
+            'user' => $user
+        ));
     }
 }

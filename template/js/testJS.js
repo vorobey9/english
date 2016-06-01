@@ -1,35 +1,65 @@
-function pushCheck(idFolder) {
-    var ansUser = [];
+function pushCheck(_this) {
+    var strAnswer = $(_this).attr("data-answerDB");
+    var idFolder = $(_this).attr("data-idFolder");
+
+    var arrAnswer = strAnswer.split('/');
+    var countQuestion = arrAnswer.length;
+    var countRight = 0;
+    var answerUser = [];
+
     var allInputs = $(".ansClass");
 
     for(var i = 0; i < allInputs.length; i++) {
         if(allInputs[i].checked) {
-            ansUser.push(allInputs[i].dataset['answer']);
+            answerUser.push(allInputs[i].dataset['answer']);
         }
     }
-    ansUser = ansUser.toJSON();
+
+    for(var j = 0; j < countQuestion; j++) {
+        if(answerUser[j] == arrAnswer[j]) {
+            countRight++;
+        }
+    }
+
+    var mark = countRight*100/countQuestion;
+    mark = mark.toFixed(2);
+
+    $("#markRes").html(mark);
+    $("#allRes").html(countQuestion);
+    $("#rightRes").html(countRight);
+
+    $("#tempResTable").html(mark+'%');
+
     $.ajax({
         type: "POST",
-        url: "/exersice/ajaxCheckRes",
+        url: "/exercise/ajaxSaveRes",
         data: {
-            'arrRes': ansUser,
+            'mark': mark,
+            'countQuestion': countQuestion,
+            'countRight': countRight,
+            'idFolder': idFolder,
+        }
+    });
+}
+
+function showInfo() {
+    $(".userNameTable").html('зачекайте...');
+    $("#bestResTable").html('зачекайте...');
+
+    var idUser = $("#check").attr("data-idUser");
+    var idFolder = $("#check").attr("data-idFolder");
+
+    $.ajax({
+        type: "POST",
+        url: "/exercise/ajaxShowInfoModal",
+        data: {
+            'idUser': idUser,
             'idFolder': idFolder,
         },
         success: function (retData) {
-            var img = JSON.parse(retData);
-            if(img && img.length > 0) {
-                var htmlCode = '<div  class="row second" data-columns>';
-                img.forEach(function(item) {
-
-                    htmlCode += '<div class="item box-size ">'+
-                        '<a href="/template/images'+item['url']+'" title="The Cleaner">'+
-                        '<img class="img-responsive" src="/template/images'+item['url']+'"></a>'+
-                        '</div>';
-
-                });
-                htmlCode += '</div>';
-                $("#imgGallery").html(htmlCode);
-            }
+            var data = JSON.parse(retData);
+            $(".userNameTable").html(data['user']['firstName']+' '+data['user']['lastName']);
+            $("#bestResTable").html(data['best']['mark']+'%');
         }
     });
 }

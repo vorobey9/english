@@ -52,7 +52,7 @@
                         endforeach; ?>
 
                         <div class="btn-container col-md-6 col-md-offset-3 text-center">
-                            <input type="button" class="btn news-btn" value="Перевірити" id="check" onclick="pushCheck(<?php echo $infoFolder['id']; ?>);">
+                            <input type="button" class="btn news-btn" value="Перевірити" id="check" data-answerDB="<?php echo $answerStr; ?>" data-idFolder="<?php echo $idFolder; ?>" data-idUser="<?php echo $idUser; ?>" onclick="pushCheck(this);">
                         </div>
 
                     </form>
@@ -77,9 +77,10 @@
                             <div class="modal-body">
 
                                 <div class="result-modal">
-                                    <h5>100%</h5>
-                                    <p>Всьoго завдань: <span>10</span></p>
-                                    <p>Правильних завдань: <span>6</span></p>
+                                    <h5>Ваш результат (%)</h5>
+                                    <h5 id="markRes"></h5>
+                                    <p>Всьoго завдань: <span id="allRes"></span></p>
+                                    <p>Правильних завдань: <span id="rightRes"></span></p>
                                 </div>
 
                                 <div class="result-table">
@@ -88,8 +89,6 @@
                                         <tr>
                                             <th>Результат</th>
                                             <th>Ім'я</th>
-                                            <th>Всього</th>
-                                            <th>Правильних</th>
                                             <th>%</th>
                                         </tr>
                                         </thead>
@@ -97,44 +96,30 @@
                                         <tbody>
                                         <tr>
                                             <th>Поточний</th>
-                                            <td>
-                                                Вася Петров
-                                            </td>
-                                            <td>10</td>
-                                            <td>6</td>
-                                            <td>60%</td>
+                                            <td class="userNameTable">зачекайте...</td>
+                                            <td id="tempResTable">зачекайте...</td>
                                         </tr>
-                                        <tr>
-                                            <th>Попередній</th>
-                                            <td>
-                                                Вася Петров
-                                            </td>
-                                            <td>10</td>
-                                            <td>6</td>
-                                            <td>60%</td>
-                                        </tr>
+
                                         <tr>
                                             <th>Найкращий</th>
-                                            <td>
-                                                Вася Петров
-                                            </td>
-                                            <td>10</td>
-                                            <td>6</td>
-                                            <td>60%</td>
+                                            <td class="userNameTable">зачекайте...</td>
+                                            <td id="bestResTable">зачекайте...</td>
                                         </tr>
 
                                         </tbody>
                                     </table>
                                 </div>
+
+
                             </div>
 
                             <div class="modal-footer text-center">
                                 <div class="btn-container">
-                                    <a href="#" id="result-btn" type="button"
-                                       class="btn news-btn"
-                                    >
+
+                                    <button id="result-btn" type="button" class="btn news-btn" onclick="showInfo();">
                                         Подивитися результати
-                                    </a>
+                                    </button>
+
                                     <button type="button"
                                             class="btn news-btn"
                                             data-dismiss="modal"><i
@@ -154,61 +139,18 @@
 
             <div class="col-md-4 col-xs-12">
                 <div class="important-block result-block radius5px">
-                    <h2>Останні пройдені завдання</h2>
+                    <h2>Останні пройдені Вами завдання</h2>
 
                     <div class="result-grid ">
 
+                        <?php foreach($lastExer as $item): ?>
 
-                        <div class="task">
-                            <h3 class="title">Present Perfect Continious</h3>
-                            <span class="count ok">100%</span>
-                        </div>
+                            <div class="task">
+                                <h3 class="title"><?php echo $item['title']; ?></h3>
+                                <span class="count ok"><?php echo $item['mark'].'%'; ?></span>
+                            </div>
 
-                        <div class="task">
-                            <h3 class="title">Present Perfect Continious</h3>
-                            <span class="count ok ">100%</span>
-                        </div>
-
-                        <div class="task">
-                            <h3 class="title">Present Perfect Continious</h3>
-                            <span class="count middle">100%</span>
-                        </div>
-
-                        <div class="task">
-                            <h3 class="title">Present Perfect Continious</h3>
-                            <span class="count bad">100%</span>
-                        </div>
-
-                        <div class="task">
-                            <h3 class="title">Present Perfect Continious</h3>
-                            <span class="count">100%</span>
-                        </div>
-
-
-                        <div class="task">
-                            <h3 class="title">Present Perfect Continious</h3>
-                            <span class="count">100%</span>
-                        </div>
-                        <div class="task">
-                            <h3 class="title">Present Perfect Continious</h3>
-                            <span class="count">100%</span>
-                        </div>
-
-                        <div class="task">
-                            <h3 class="title">Present Perfect Continious</h3>
-                            <span class="count">100%</span>
-                        </div>
-
-                        <div class="task">
-                            <h3 class="title">Present Perfect Continious</h3>
-                            <span class="count">100%</span>
-                        </div>
-
-                        <div class="task">
-                            <h3 class="title">Present Perfect Continious</h3>
-                            <span class="count">100%</span>
-                        </div>
-
+                        <?php endforeach; ?>
 
                     </div>
 

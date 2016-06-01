@@ -170,15 +170,4 @@ class ClassPoints {
         }
         return false;
     }
-
-    public function test() {
-//        $arr = array();
-//        $arr['idTeacher'] = 9;
-//        $arr['numLesson'] = 2;
-//        $arr['dayStamp'] = 3;
-//        $arr['numeratorGroup'] = "941";
-//        $arr['denominatorGroup'] = "922";
-//        $arr['room'] = "5411";
-        var_dump($this->updateParameter('denominatorGroup', '911', 2));
-    }
 }

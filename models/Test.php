@@ -152,19 +152,6 @@ class Test {
         return false;
     }
 
-    public function testWTF() {
-        $arr = array();
-        $arr['idFolder'] = 1;
-        $arr['text'] = 'andrey lusa ggg aaa';
-        $arr['answerA'] = 'andrey';
-        $arr['answerB'] = 'lusa';
-        $arr['answerC'] = 'ggg';
-        $arr['answerD'] = 'aaa';
-        $arr['answerRight'] = 'g';
-        var_dump($this->updateParameter('answerA','aaa', 9));
-    }
-
-
     public function formatTests($tests) {
         $newTests = array();
         $i = 0;
@@ -187,30 +174,4 @@ class Test {
         return $newTests;
     }
 
-    private function mixAnswers($arr) {
-
-    }
-
-    public function checkUserAnswer($idFolder, $data) {
-        $testData = $this->getAllByIdFolder($idFolder);
-        $countAllTest = count($testData);
-        $rightUserTest = 0;
-        foreach($testData as $test) {
-            $idTest = $test['id'];
-            $rightAns = $test['answerRight'];
-            foreach ($data as $item) {
-                if($item->id == $idTest) {
-                    if($item->value == $rightAns) {
-                        $rightUserTest++;
-                    }
-                }
-            }
-        }
-        $result = $rightUserTest*100/$countAllTest;
-        return array(
-            "res" => $result,
-            "countRight" => $rightUserTest,
-            "countAll" => $countAllTest
-        );
-    }
 }

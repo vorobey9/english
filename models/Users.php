@@ -222,22 +222,6 @@ class Users {
         return false;
     }
 
-//    private function getParameterById($id, $parameterName) {
-//        $id = intval($id);
-//        $db = Db::getConnection();
-//        $result = array();
-//        $resQuery = $db->query("SELECT $parameterName FROM `users` WHERE id='$id'");
-//        if($resQuery) {
-//            $resQuery->setFetchMode(PDO::FETCH_ASSOC);
-//            $resQuery = $resQuery->fetch();
-//            $password = $resQuery['password'];
-//            return $password;
-//        }
-//        else {
-//            return false;
-//        }
-//    }
-
     public function changePassword($id, $oldPassword, $newPassword) {
         $id = intval($id);
         $oldPassword = strtolower($oldPassword);

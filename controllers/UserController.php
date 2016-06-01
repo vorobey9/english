@@ -15,22 +15,6 @@ class UserController {
         echo json_encode($User->getById($idTeacher));
     }
 
-    public function actionTest() {
-        $User = new Users();
-        $arr = array();
-        $arr['firstName'] = "Катерина";
-        $arr['middleName'] = "Михайлівна";
-        $arr['lastName'] = "Перерва";
-        $arr['mail'] = "pererva@gmail.com";
-        $arr['password'] = "pererva";
-        $arr['post'] = "старший викладач";
-        $arr['idPic'] = 4;
-        $arr['description'] = "afwa afesgesg segsgsgs segsg sgse srgsrg srg  sgs gsrg sgs gsrg sg";
-        $res = $User->addTeacher($arr);
-       // var_dump($res);
-        return $res;
-    }
-
     public function actionRegister() {
 
         $User = new Users();
@@ -111,6 +95,15 @@ class UserController {
     }
 
     public function actionLogin() {
+        $urlReq = getenv("HTTP_REFERER");
+
+        /* обрезаем http://englishtest.ua */
+        $urlReq = substr($urlReq, 21);
+
+        if($urlReq != '/login' && $urlReq != '/login#') {
+            $_SESSION['urlReq'] = $urlReq;
+        }
+
         $User = new Users();
         $email = '';
         $password = '';
@@ -126,11 +119,6 @@ class UserController {
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            /*
-            if($User->checkMail($email)) {
-                $errors['email'] = 'Пользователь с такой почтой уже существует';;
-            }
-            */
             if(!$User->checkPassword($password)) {
                 $errors['password'] = 'Слишком короткий пароль';
             }
@@ -150,9 +138,15 @@ class UserController {
                 //User - Auth
                 $User->auth($userId);
 
-                header("Location: /cabinet/");
+                if(isset($_SESSION['urlReq'])) {
+                    $goUrl = $_SESSION['urlReq'];
+                    unset($_SESSION['urlReq']);
+                    header("Location: ".$goUrl);
+                }
+                else {
+                    header("Location: /cabinet");
+                }
             }
-
         }
 
         require_once(ROOT . '/views/users/auth.php');

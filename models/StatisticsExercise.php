@@ -39,52 +39,27 @@ class StatisticsExercise {
         }
     }
 
-    public function add($array) {
-        if(isset($array)) {
-            $idFolder = intval($array['idFolder']);
-            $idUser = intval($array['idUser']);
-            if($this->checkIdFolder($idFolder)) {
-                if($this->checkIdUser($idUser)) {
-                    $allItem = intval($array['allItem']);
-                    $sucItem = intval($array['sucItem']);
-                    if(isset($allItem) && isset($sucItem) && $allItem > 0) {
-                        if($allItem >= $sucItem) {
-                            $mark = $array['mark'];
-                            $mark = floatval($mark);
-                            $mark = round($mark, 2);
-                            $db = Db::getConnection();
-                            $result = $db->query("INSERT INTO `statisticsexercise` (idUser, idFolder, mark, allItem, sucItem) VALUES ('$idUser', '$idFolder', '$mark', '$allItem', '$sucItem')");
-                            if($result) {
-                                return true;
-                            }
-                            else {
-                                return false;
-                            }
-                        }
-                        else {
-                            return false;
-                        }
-                    }
-                    else {
-                        return false;
-                    }
-                }
-                else {
-                    return false;
-                }
-            }
-            else {
-                return false;
+    public function add($idFolder, $idUser, $allItem, $sucItem, $mark) {
+        $mark = round($mark, 2);
+        if($allItem >= $sucItem) {
+            $db = Db::getConnection();
+            $result = $db->query("INSERT INTO `statisticsexercise` (idUser, idFolder, mark, allItem, sucItem) VALUES ('$idUser', '$idFolder', '$mark', '$allItem', '$sucItem')");
+            if($result) {
+                return true;
             }
         }
-        else {
-            return false;
-        }
+        return false;
     }
 
-    public function getAll() {
-        $db = Db::getConnection();
-        $resQuery = $db->query("SELECT * FROM `statisticsexercise`");
+    public function getAll($idUser, $idFolder) {
+        if($idUser != false && $idFolder != false) {
+            $db = Db::getConnection();
+            $resQuery = $db->query("SELECT * FROM `statisticsexercise` WHERE idUser='$idUser' AND idFolder='$idFolder'");
+        }
+        else {
+            $db = Db::getConnection();
+            $resQuery = $db->query("SELECT * FROM `statisticsexercise` ORDER BY thisDate DESC");
+        }
 
         $result = array();
         if($resQuery) {
@@ -131,12 +106,33 @@ class StatisticsExercise {
         return false;
     }
 
-    public function testWTF() {
-        $arr = array();
-        $arr['idUser'] = 13;
-        $arr['idFolder'] = 1;
-        $arr['allItem'] = '10';
-        $arr['sucItem'] = '3';
-        var_dump($this->getAll());
+    public function getBestRes($idUser, $idFolder) {
+        $db = Db::getConnection();
+        $result = $db->query("SELECT * FROM `statisticsexercise` WHERE idUser='$idUser' AND idFolder='$idFolder' ORDER BY mark DESC limit 0, 1");
+        if($result) {
+            $result->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $result->fetch();
+            return $result;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function getLastForStat($idUser) {
+        $db = Db::getConnection();
+        $resQuery = $db->query("SELECT `statisticsexercise`.`mark`, `folders`.`title` FROM `statisticsexercise` INNER JOIN `folders` ON `statisticsexercise`.`idFolder` = `folders`.`id` WHERE `statisticsexercise`.`idUser`='$idUser' ORDER BY `statisticsexercise`.`thisDate` DESC limit 0, 10");
+        $result = array();
+        if($resQuery) {
+            $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+            $i = 0;
+            while($row = $resQuery->fetch()) {
+                $result[$i]['mark'] = $row['mark'];
+                $result[$i]['title'] = $row['title'];
+                $i++;
+            }
+            return $result;
+        }
+        return false;
     }
 }
