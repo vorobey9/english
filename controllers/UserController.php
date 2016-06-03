@@ -97,8 +97,14 @@ class UserController {
     public function actionLogin() {
         $urlReq = getenv("HTTP_REFERER");
 
-        /* обрезаем http://englishtest.ua */
-        $urlReq = substr($urlReq, 21);
+        if($urlReq[7] == 'w') {
+            /* обрезаем http://www.englishtest.ua */
+            $urlReq = substr($urlReq, 25);
+        }
+        else {
+            /* обрезаем http://englishtest.ua */
+            $urlReq = substr($urlReq, 21);
+        }
 
         if($urlReq != '/login' && $urlReq != '/login#') {
             $_SESSION['urlReq'] = $urlReq;
