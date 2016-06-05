@@ -90,7 +90,6 @@ if( $(window).width >800) {
 }
 
 
-
         $('.popup-gallery').magnificPopup({
             delegate: 'a',
             type: 'image',
@@ -112,7 +111,6 @@ if( $(window).width >800) {
 
 /*Puzzle*/
 
-    /*
 $('.puzzle-block .word-area .word-block',this).on('click',function(){
     $(this).appendTo($('.phrase-block'));
     $(this).toggleClass('clicked');
@@ -122,17 +120,20 @@ $('.puzzle-block .answer-block .puzzle-btn',this).on('click',function(){
     $(".puzzle-block .head").fadeToggle();
     $('.foot .btn-container').fadeToggle('700');
 });
-*/
 
 
 
+
+    $('.progress .progress-bar').progressbar({display_text: 'fill', use_percentage: true});
 
 /*Puzzle*/
 
 });
 
 
-
+$('.progress-task .result-block').mCustomScrollbar({
+    theme:"minimal-dark"
+});
 
 
 

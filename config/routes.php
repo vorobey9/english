@@ -35,7 +35,10 @@ return array(
     'news' => 'news/news/view',
 
     'registration' => 'user/user/register',
-    'cabinet' => 'cabinet/cabinet/index',
+
+    'cabinet/ajaxChangeInfo' => 'cabinet/cabinet/ajaxChangeInfo',
+    'cabinet' => 'cabinet/cabinet/view',
+
     'login' => 'user/user/login',
     'logout' => 'user/user/logout',
 

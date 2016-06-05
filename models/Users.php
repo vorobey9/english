@@ -204,7 +204,7 @@ class Users {
         return false;
     }
 
-    private function updateParameter($parameterName, $newValue, $id) {
+    public function updateParameter($parameterName, $newValue, $id) {
         $id = intval($id);
         if($this->checkIdForAdmin($id)) {
             return false;

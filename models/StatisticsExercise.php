@@ -94,6 +94,31 @@ class StatisticsExercise {
         return false;
     }
 
+    public function getByType($type, $idUser) {
+        if(isset($type) && isset($idUser)) {
+
+            $db = Db::getConnection();
+            $resQuery = $db->query("SELECT `statisticsexercise`.`mark`, `folders`.`title` FROM `statisticsexercise` INNER JOIN `folders` ON `statisticsexercise`.`idFolder` = `folders`.`id` WHERE `statisticsexercise`.`idUser`='$idUser' AND `folders`.`typeExercise` = '$type' ORDER BY `statisticsexercise`.`thisDate` DESC");
+            $result = array();
+            if($resQuery) {
+                $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+                $i = 0;
+                while($row = $resQuery->fetch()) {
+                    $result[$i]['mark'] = $row['mark'];
+                    $result[$i]['title'] = $row['title'];
+                    $i++;
+                }
+                return $result;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
     public function deleteById($id) {
         $id = intval($id);
         if(isset($id)) {
