@@ -82,4 +82,69 @@ class ExerciseController
             'user' => $user
         ));
     }
+
+    public function actionViewInscribe($idFolder) {
+        $Folder = new Folders();
+        $User = new Users();
+        $Inscribe = new Inscribe();
+        $StatEx = new StatisticsExercise();
+
+        $idUser = $User->checkLogged();
+        if(!$idUser) {
+            header("Location: http://www.englishtest.ua/login");
+        }
+
+        $infoFolder = $Folder->getById($idFolder);
+        $defInscribe = $Inscribe->getAllByIdFolder($idFolder);
+
+        $arrStr = array();
+
+        $i = 0;
+        foreach($defInscribe as $item) {
+            $arrStr[$i]['words'] = explode(' ', $item['text']);
+            $arrStr[$i]['skipWord'] = $item['skipWord'];
+            $arrStr[$i]['id'] = $item['id'];
+            $arrStr[$i]['idFolder'] = $item['idFolder'];
+            $i++;
+        }
+
+        $lastExer = $StatEx->getLastForStat($idUser);
+
+        require_once(ROOT . '/views/exercise/inscribe.php');
+        return true;
+    }
+
+    public function actionViewPuzzle($idFolder) {
+        $Folder = new Folders();
+        $User = new Users();
+        $Puzzle = new Puzzles();
+        $StatEx = new StatisticsExercise();
+
+        $idUser = $User->checkLogged();
+        if(!$idUser) {
+            header("Location: http://www.englishtest.ua/login");
+        }
+
+        $infoFolder = $Folder->getById($idFolder);
+        $defPuzzle = $Puzzle->getAllByIdFolder($idFolder);
+
+        $arrStr = array();
+        $i = 0;
+        foreach($defPuzzle as $item) {
+            $tempText = explode(' ', $item['textEnglish']);
+            shuffle($tempText);
+            $arrStr[$i]['words'] = $tempText;
+            $arrStr[$i]['textEnglish'] = explode(' ', $item['textEnglish']);
+            $arrStr[$i]['textPuzzle'] = $item['textPuzzle'];
+            $arrStr[$i]['textInfo'] = $item['textEnglish'];
+            $arrStr[$i]['id'] = $item['id'];
+            $arrStr[$i]['idFolder'] = $item['idFolder'];
+            $i++;
+        }
+
+        $lastExer = $StatEx->getLastForStat($idUser);
+
+        require_once(ROOT . '/views/exercise/puzzle.php');
+        return true;
+    }
 }

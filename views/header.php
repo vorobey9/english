@@ -86,7 +86,7 @@
 
             <div id="main-nav">
                 <ul class="nav navbar-nav transition3s">
-                    <li class="active"><a href="#">Головна</a></li>
+                    <li class="active"><a href="/">Головна</a></li>
                     <li><a href="/schedule">Розклад</a></li>
                     <li><a href="/library">Біблиотека</a></li>
                     <li><a href="/exercise">Завдання</a></li>

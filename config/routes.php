@@ -2,7 +2,8 @@
 return array(
     'user/ajaxGetById' => 'user/user/ajaxGetById',
 
-    'schedule/ajaxGetConsultPoint' => 'schedule/schedule/ajaxGetConsult',
+    'schedule/ajaxGetClassPoint' => 'schedule/schedule/ajaxGetClassPoint',
+    'schedule/ajaxGetConsultPoint' => 'schedule/schedule/ajaxGetConsultPoint',
     'schedule' => 'schedule/schedule/view',
 
     'exercise/ajaxSaveRes' => 'exercise/exercise/ajaxSaveRes',
@@ -11,6 +12,8 @@ return array(
     'exercise' => 'exercise/exercise/view',
 
     'test/([0-9]+)' => 'exercise/exercise/viewTest/$1',
+    'inscribe/([0-9]+)' => 'exercise/exercise/viewInscribe/$1',
+    'puzzle/([0-9]+)' => 'exercise/exercise/viewPuzzle/$1',
 
     'gallery/ajaxGetVideo' => 'gallery/gallery/ajaxGetVideo',
     'gallery/ajaxGetImage' => 'gallery/gallery/ajaxGetImage',

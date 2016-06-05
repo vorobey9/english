@@ -46,10 +46,6 @@
 
                 <div class="block transition3s radius5px">
 
-
-
-
-
                     <div class="main-block">
                         <div class="col-md-8 col-md-offset-2">
                             <h2 id="titleArea"><?php echo $folders[0]['title']; ?></h2>
@@ -76,24 +72,6 @@
                         <?php foreach($folders as $item): ?>
                             <a onclick="pushOnFolder(this);" data-description="<?php echo $item['description'];?>" data-id="<?php echo $item['id'];?>" data-title="<?php echo $item['title'];?>"><h4><?php echo $item['title']; ?></h4></a>
                         <?php endforeach; ?>
-
-                        <!--
-                        <a href="#"><h4>Present Perfect Continious Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present  Perfect Continious Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        -->
                     </div>
 
                 </div>
@@ -109,22 +87,7 @@
                         <?php foreach($folders as $item): ?>
                         <a href="#"><h4><?php echo $item['title']; ?></h4></a>
                         <?php endforeach; ?>
-                        <!--
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present  Perfect Continious Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious Perfect Continious</h4></a>
-                        <a href="#"><h4>Present Perfect Continious</h4></a>
-                        -->
+
                     </div>
 
                 </div>

@@ -18,6 +18,10 @@ function pushButtonEx(typeEx) {
                 break;
         }
 
+
+        $("#startBut").attr("data-typeEx",typeEx);
+
+
         $("#titleArea").text('Зачекайте...');
         $("#descArea").text('Зачекайте...');
 
@@ -30,6 +34,7 @@ function pushButtonEx(typeEx) {
             success: function (retData) {
                 var data = JSON.parse(retData);
                 if(data && data.length > 0) {
+                    $("#startBut").attr("href", "/"+typeEx+"/"+data[0]['id']);
                     $("#titleArea").text(data[0]['title']);
                     $("#descArea").text(data[0]['description']);
 
@@ -54,7 +59,7 @@ function pushOnFolder(_this) {
     var title = $(_this).attr("data-title");
     var description = $(_this).attr("data-description");
     var id = $(_this).attr("data-id");
-    var typeEx = $(_this).attr("data-typeEx");
+    var typeEx = $("#startBut").attr("data-typeEx");
     $("#titleArea").text(title);
     $("#descArea").text(description);
     ///ССЫЛКУ СДЕЛАЙ!!!

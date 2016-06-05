@@ -29,10 +29,15 @@ class Puzzles {
         if(isset($array)) {
             $idFolder = intval($array['idFolder']);
             if($this->checkIdFolder($idFolder)) {
-                if(isset($array['textPuzzle'])) {
+                if(isset($array['textPuzzle']) && isset($array['textEnglish'])) {
                     $textPuzzle = $array['textPuzzle'];
+                    $textPuzzle = strtoupper($textPuzzle);
+
+                    $textEnglish = $array['textEnglish'];
+                    $textEnglish = strtoupper($textEnglish);
+
                     $db = Db::getConnection();
-                    $result = $db->query("INSERT INTO `puzzles` (idFolder, textPuzzle) VALUES ('$idFolder', '$textPuzzle')");
+                    $result = $db->query("INSERT INTO `puzzles` (idFolder, textPuzzle, textEnglish) VALUES ('$idFolder', '$textPuzzle', '$textEnglish')");
                     if($result) {
                         return true;
                     }
@@ -65,6 +70,7 @@ class Puzzles {
                 $result[$i]['id'] = $row['id'];
                 $result[$i]['idFolder'] = $row['idFolder'];
                 $result[$i]['textPuzzle'] = $row['textPuzzle'];
+                $result[$i]['textEnglish'] = $row['textEnglish'];
                 $i++;
             }
             return $result;
@@ -86,6 +92,7 @@ class Puzzles {
                     $result[$i]['id'] = $row['id'];
                     $result[$i]['idFolder'] = $row['idFolder'];
                     $result[$i]['textPuzzle'] = $row['textPuzzle'];
+                    $result[$i]['textEnglish'] = $row['textEnglish'];
                     $i++;
                 }
                 return $result;
@@ -138,18 +145,5 @@ class Puzzles {
             }
         }
         return false;
-    }
-
-    public function cutText($text) {
-        $arr = explode(" ", $text);
-        return $arr;
-    }
-
-    public function test() {
-//        $arr = array();
-//        $arr['idFolder'] = 1;
-//        $arr['textPuzzle'] = '123abc';
-
-        var_dump($this->updateParameter('textPuzzle','testtext',5));
     }
 }
