@@ -111,52 +111,14 @@ leftNav.on('click',function(){
 
  //Scrollbar for left panel
 
-/*
-*
-* The script for time picker for modal of the schedule
-*
-* */
- $('#start').timepicker({
-  minuteStep:15,
-  showSeconds: false ,
-  showMeridian: false
- });
- $('#end').timepicker({
-  minuteStep: 15,
-  showSeconds: false ,
-  showMeridian: false
- });
- /*
-  *
-  * The script for time picker for modal of the schedule
-  *
-  * */
-
- //CKEDITOR
-
- var ckeditor1 = CKEDITOR.replace( 'editor1' );
- AjexFileManager.init({
-  returnTo: 'ckeditor',
-  editor: ckeditor1
- });
-
- var ckeditor2 = CKEDITOR.replace( 'editor2' );
- AjexFileManager.init({
-  returnTo: 'ckeditor',
-  editor: ckeditor2
- });
-
- //CKEDITOR
 
 
-});
 
 $('#next-step').on('click',function(){
  $('.answer-block').slideToggle();
-
 });
 
-
+});
 'use strict';
 
 ;( function( $, window, document, undefined )

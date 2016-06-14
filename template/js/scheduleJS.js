@@ -80,7 +80,7 @@ function createClassPoint(idTeacher) {
                 var codeHTML = '<div class="row schedule-box" data-columns>';
 
                 data.forEach(function(item){
-                    codeHTML += '<div class="block item transition3s radius5px">'+
+                    codeHTML += '<div class="col-lg-4"><div class="block item transition3s radius5px">'+
                         '<div class="pic radius5px">'+
                         '<h3>'+item['dayStamp']+'</h3>'+
                         '</div>'+
@@ -134,7 +134,7 @@ function createClassPoint(idTeacher) {
                     codeHTML += '</tbody>'+
                         '</table>'+
                         '</div>'+
-                        '</div>';
+                        '</div></div>';
 
                 });
 
@@ -213,7 +213,7 @@ function createConsultPoint(idTeacher) {
                 var codeHTML = '<div class="row schedule-box" data-columns>';
 
                 data.forEach(function(item){
-                    codeHTML += '<div class="block">'+
+                    codeHTML += '<div class="col-lg-4"><div class="block">'+
                         '<div class="pic radius5px">'+
                         '<h3>'+item['dayStamp']+'</h3>'+
                         '</div>'+
@@ -224,6 +224,7 @@ function createConsultPoint(idTeacher) {
                         '<div class="small-post">'+
                         '<span>Замітка:</span>'+
                         '<p>'+item['description']+'</p>'+
+                        '</div>'+
                         '</div>'+
                         '</div>'+
                         '</div>'+

@@ -93,7 +93,7 @@
                     <li><a href="/news">Новини</a></li>
                     <li><a href="/elective">Факультативи</a></li>
                     <li><a href="/gallery">Медіа</a></li>
-                    <li><a href="#">Про кафедру</a></li>
+                    <li><a href="/cathedra">Про кафедру</a></li>
                 </ul>
             </div>
         </div>

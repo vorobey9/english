@@ -1,16 +1,4 @@
 <?php
-/*
-    $string = '21-11-2015';
-
-    $pattern = '/([0-9]{2})-([0-9]{2})-([0-9]{4})/';
-
-    $replacement = 'Month: $2, Day: $1, Year: $3!';
-
-    echo preg_replace($pattern, $replacement, $string);
-
-    die;
-*/
-
     //FRONT CONTROLLER
 
     //1. Общие настройки

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 20.03.2016
- * Time: 14:56
- */
 
 class Folders {
     public function add($array) {
@@ -90,14 +84,5 @@ class Folders {
             }
         }
         return false;
-    }
-
-    public function test() {
-        $arr = array();
-        $arr['title'] = 'theeee';
-        $arr['description'] = 'abc';
-        $arr['typeExercise'] = 'test';
-        $arr['countInBlank'] = 9;
-        var_dump($this->add($arr));
     }
 }

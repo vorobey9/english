@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 27.03.2016
- * Time: 16:01
- */
-
 
 class Book {
     public function add($array) {

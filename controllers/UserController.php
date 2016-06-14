@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 09.03.2016
- * Time: 20:52
- */
+
 include_once ROOT . '/models/Users.php';
 
 class UserController {

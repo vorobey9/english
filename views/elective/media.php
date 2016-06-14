@@ -212,6 +212,8 @@
 -->
             </div>
         </div>
+
+        <!--
         <div class="paginator">
             <div class="row">
                 <div class="text-center animated fadeInUp wow col-md-6 col-md-offset-3" >
@@ -248,6 +250,7 @@
                 </div>
             </div>
         </div>
+        -->
 
     </div>
 </section>

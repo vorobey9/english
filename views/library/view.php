@@ -62,6 +62,7 @@
             <?php endforeach; ?>
         </div>
 
+        <!--
         <div class="paginator">
             <div class="row">
                 <div class="text-center animated fadeInUp wow col-md-6 col-md-offset-3" >
@@ -98,6 +99,7 @@
                 </div>
             </div>
         </div>
+        -->
 
         <!--Модальные окна форматировать тут!!-->
         <div class="modal fade " id="book1" tabindex="-1"

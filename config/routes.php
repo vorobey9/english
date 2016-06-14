@@ -1,5 +1,8 @@
 <?php
 return array(
+
+    'adminCabinet' => 'admCab/admCab/view',
+
     'user/ajaxGetById' => 'user/user/ajaxGetById',
 
     'schedule/ajaxGetClassPoint' => 'schedule/schedule/ajaxGetClassPoint',
@@ -38,6 +41,8 @@ return array(
 
     'cabinet/ajaxChangeInfo' => 'cabinet/cabinet/ajaxChangeInfo',
     'cabinet' => 'cabinet/cabinet/view',
+
+    'cathedra' => 'cathedra/cathedra/view',
 
     'login' => 'user/user/login',
     'logout' => 'user/user/logout',

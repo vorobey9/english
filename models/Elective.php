@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 27.03.2016
- * Time: 20:00
- */
 
 class Elective {
 
@@ -140,11 +134,4 @@ class Elective {
         return false;
     }
 
-    public function testWTF() {
-        $arr = array();
-        $arr['title'] = 'Sex111';
-        $arr['description'] = 'vasiy afaeg gsrgs sgrs ggfh';
-
-        var_dump($this->updateParameter('title', 'FUCK', 1));
-    }
 }

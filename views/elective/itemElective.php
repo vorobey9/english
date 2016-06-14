@@ -24,7 +24,7 @@
 
                         <div class="media-links">
                             <ul class="list-unstyled text-center">
-                                <li><a href="#" class="transition5s"><span><i class="fa fa-camera-retro" aria-hidden="true"></i></span></a></li>
+                                <li><a href="<?php echo '/elective/news/'.$item['id'].'/media' ?>" class="transition5s"><span><i class="fa fa-camera-retro" aria-hidden="true"></i></span></a></li>
                                 <li><a href="#" class="transition5s"><span><i class="fa fa-video-camera" aria-hidden="true"></i></span></a></li>
                                 <li><a href="#" class="transition5s"><span><i class="fa fa-file-text" aria-hidden="true"></i></span></a></li>
                             </ul>
@@ -54,6 +54,7 @@
             <?php endforeach; ?>
         </div>
 
+        <!--
         <div class="paginator">
             <div class="row">
                 <div class="text-center animated fadeInUp wow col-md-6 col-md-offset-3" >
@@ -90,6 +91,7 @@
                 </div>
             </div>
         </div>
+        -->
     </div>
 </section>
 

@@ -1,0 +1,505 @@
+<html>
+<head>
+    <title>Админ панель главная</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/template/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/template/css/jasny-bootstrap.min.css"/>
+    <link rel="stylesheet" href="/template/css/animate.css"/>
+    <link rel="stylesheet" href="/template/css/magnific-popup.css"/>
+    <link rel="stylesheet" href="/template/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/template/css/jquery.mCustomScrollbar.css"/>
+    <link rel="stylesheet" href="/template/css/styles.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab&subset=latin,cyrillic' rel='stylesheet'
+          type='text/css'>
+</head>
+
+<body>
+<!--
+
+ Админ панель главная
+
+ !-->
+<div class="wrapper transition3s">
+
+    <div class="up transition3s animated bounce">
+        <i class="fa-angle-up  fa"></i>
+    </div>
+
+    <section class="left-nav-section box-size transition3s">
+        <div class="inside-block transition3s">
+
+            <div class="header">
+
+                <div class="user-info">
+                    <h4><?php echo $teacher['firstName'].' '.$teacher['middleName']; ?></h4>
+                    <span class="post"><?php echo $teacher['post']; ?></span>
+
+                </div>
+            </div>
+
+            <div class="navbar-block">
+                <ul class="nav navbar-nav upper-text transition3s">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Новини</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Факультативи</a>
+
+                    </li>
+
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Завдання</a>
+
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Бібліотека</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Розклад</a>
+
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Медіа галерея</a>
+
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Успішність студентів </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="top-nav-block" class="transition3s">
+        <header class="cathedra-block box-size">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-7 col-xs-12">
+                        <div class="ico">
+                            <a href="main.html"> <i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="title"><h1>Кафедра Іноземної Мови</h1>
+                <span>Дніпропетровський Національний Університет імені академіка В.А.Лазаряна
+                </span>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-xs-12">
+                        <div class="number">
+                            <span>тел: +38092123456</span>
+                        </div>
+                        <div class="btn-container pull-right">
+                            <a href="auth.html" class="btn btn-default login-btn transition3s">Войти</a>
+                            <a href="register.html" class="btn btn-default login-btn transition3s">Регистрация</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </header>
+
+        <nav class="nav-block navbar navbar-default ">
+            <div class="container">
+                <div class="row">
+                    <div class="navbar-header visible-xs">
+                        <div id="smallBtn">Бокове меню</div>
+
+                        <button type="button" class="navbar-toggle "
+                                data-target="#main-nav" aria-expanded="false">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div id="main-nav">
+                        <ul class="nav navbar-nav transition3s">
+                            <li class="active"><a href="#">Головна</a></li>
+                            <li><a href="#">Розклад</a></li>
+                            <li><a href="#">Біблиотека</a></li>
+                            <li><a href="#">Завдання</a></li>
+                            <li><a href="#">Новини</a></li>
+                            <li><a href="facultList.html">Факультативи</a></li>
+                            <li><a href="#">Медіа</a></li>
+                            <li><a href="#">Про кафедру</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <section class="admin-panel box-size">
+
+        <div class="full-container">
+            <div class="row">
+                <section class="panel-info-block">
+
+
+                    <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
+                        <div class="block box-size transition3s radius5px ">
+
+                            <div class="col-md-4">
+                                <div class="pic">
+                                    <img src="images/teacher/13.jpg" class="img-responsive radius5px " alt="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="student-data">
+                                    <h2>Мунтян Антоніна Олександрівна</h2>
+                                    <h4>ст. викладач</h4>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                        labore et
+                                        dolore magna aliqua. Ut magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                        laboris nisi ut aliquip
+                                        ex ea commodo con magna aliqua. occaecat cupidatat non proident, sunt in culpa qui officia
+                                        deserunt mollit.
+                                    </p>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="test-statistic box-size ">
+
+                            <div class="block col-md-5  radius5px">
+
+
+                                <div class="title-result">
+                                    <h2>Статистика проходження завдань студентів :</h2>
+                                    <h4>Present Perfect Continious</h4>
+                                </div>
+                                <div class="front-side">
+                                    <form action="#">
+
+                                        <div class="upper-text test-block">
+                                            <label for="test-type">Виберіть тип завдання:</label>
+                                            <select name="test-type" id="test-type">
+                                                <option value="Тести">Тести</option>
+                                                <option value="Пропущене слово">Пропущене слово</option>
+                                                <option value="Пазли">Пазли</option>
+                                            </select>
+
+
+                                            <label for="folder-type">Виберіть папку з завданням:</label>
+                                            <select name="folder-type" id="folder-type">
+                                                <option value="Present Perfect Continious">Present Perfect Continious</option>
+                                                <option value="Present Simple">Present Simple</option>
+                                                <option value="Past Simple">Past Simple</option>
+                                                <option value="Past Perfect Continious">Past Perfect Continious</option>
+                                            </select>
+
+                                            <div class="radio-block">
+                                                <input id='best' type="radio" name='best' checked='checked' />
+                                                <label for="best">Кращі</label>
+
+                                                <input id='worse' type="radio" name='worse'  />
+                                                <label for="worse">Гірщі</label>
+
+                                                <input id='last' type="radio" name='last'  />
+                                                <label for="last">Останні</label>
+                                            </div>
+
+                                            <input type="button" class="news-btn btn text-center" id="test-btn" value="Вибрати">
+
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="back-side result-block">
+
+                                    <div class="result-grid ">
+
+                                        <div class="task">
+                                            <h3 class="title">Валентин Вялых</h3>
+                                            <span class="count ok">100%</span>
+                                        </div>
+
+                                        <div class="task">
+                                            <h3 class="title">Валентин Вялых</h3>
+                                            <span class="count ok ">100%</span>
+                                        </div>
+
+                                        <div class="task">
+                                            <h3 class="title">Валентин Вялых</h3>
+                                            <span class="count middle">100%</span>
+                                        </div>
+
+                                        <div class="task">
+                                            <h3 class="title">Валентин Вялых</h3>
+                                            <span class="count bad">100%</span>
+                                        </div>
+
+                                        <div class="task">
+                                            <h3 class="title">Валентин Вялых</h3>
+                                            <span class="count">100%</span>
+                                        </div>
+
+
+                                        <div class="task">
+                                            <h3 class="title">Валентин Вялых</h3>
+                                            <span class="count">100%</span>
+                                        </div>
+                                        <div class="task">
+                                            <h3 class="title">Валентин Вялых</h3>
+                                            <span class="count">100%</span>
+                                        </div>
+
+                                        <div class="task">
+                                            <h3 class="title">Валентин Вялых</h3>
+                                            <span class="count">100%</span>
+                                        </div>
+
+                                        <div class="task">
+                                            <h3 class="title">Валентин Вялых</h3>
+                                            <span class="count">100%</span>
+                                        </div>
+
+                                        <div class="task">
+                                            <h3 class="title">Валентин Вялых</h3>
+                                            <span class="count">100%</span>
+                                        </div>
+                                        <div class="btn-container">
+                                            <div class="btn news-btn" id="back">Назад до списку</div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="block col-md-5  radius5px ">
+                                <div class="title-result">
+                                    <h2>Статистика проходження завдань :</h2>
+                                    <h5>Сапожников Андрей Олександрович</h5>
+                                </div>
+
+                                <div class="front-side">
+                                    <form action="#">
+
+                                        <div class="upper-text test-block">
+                                            <label for="test-type">Виберіть тип завдання:</label>
+                                            <select name="test-type" >
+                                                <option value="Тести">Тести</option>
+                                                <option value="Пропущене слово">Пропущене слово</option>
+                                                <option value="Пазли">Пазли</option>
+                                            </select>
+
+                                            <input type="text" id="name-student"  class="form-control" placeholder="Ім'я">
+                                            <input type="text" id="surname-student"  class="form-control" placeholder="Призвіще">
+                                            <input type="text" id="fullname-student"  class="form-control" placeholder="По-батькові">
+                                            <div class="errors-block">
+                                                <label for="name-student">Неверно введено имя </label>
+                                                <label for="surname-student">Неверно введена фамилия </label>
+                                                <label for="fullname-student">Неверно введено отчество </label>
+                                            </div>
+                                            <input type="button" class="news-btn btn text-center" id="test-btn" value="Вибрати">
+
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="back-side result-block">
+
+                                    <div class="result-grid ">
+
+
+                                        <div class="task">
+
+                                            <div class="left pull-left">
+                                                <h3 class="title">Present Perfect Continious</h3>
+                                                <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>28.02.16</span>
+                                            </div>
+                                            <div class="right pull-right">
+                                                <span class="count ok">100%</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="task">
+
+                                            <div class="left pull-left">
+                                                <h3 class="title">Present Perfect Continious</h3>
+                                                <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>28.02.16</span>
+                                            </div>
+                                            <div class="right pull-right">
+                                                <span class="count ok">100%</span>
+                                            </div>
+                                        </div>
+                                        <div class="task">
+
+                                            <div class="left pull-left">
+                                                <h3 class="title">Present Perfect Continious</h3>
+                                                <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>28.02.16</span>
+                                            </div>
+                                            <div class="right pull-right">
+                                                <span class="count ok">100%</span>
+                                            </div>
+                                        </div>
+                                        <div class="task">
+
+                                            <div class="left pull-left">
+                                                <h3 class="title">Present Perfect Continious</h3>
+                                                <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>28.02.16</span>
+                                            </div>
+                                            <div class="right pull-right">
+                                                <span class="count ok">100%</span>
+                                            </div>
+                                        </div><div class="task">
+
+                                            <div class="left pull-left">
+                                                <h3 class="title">Present Perfect Continious</h3>
+                                                <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>28.02.16</span>
+                                            </div>
+                                            <div class="right pull-right">
+                                                <span class="count ok">100%</span>
+                                            </div>
+                                        </div>
+                                        <div class="task">
+
+                                            <div class="left pull-left">
+                                                <h3 class="title">Present Perfect Continious</h3>
+                                                <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>28.02.16</span>
+                                            </div>
+                                            <div class="right pull-right">
+                                                <span class="count ok">100%</span>
+                                            </div>
+                                        </div>
+                                        <div class="task">
+
+                                            <div class="left pull-left">
+                                                <h3 class="title">Present Perfect Continious</h3>
+                                                <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>28.02.16</span>
+                                            </div>
+                                            <div class="right pull-right">
+                                                <span class="count bad">10%</span>
+                                            </div>
+                                        </div>
+                                        <div class="task">
+
+                                            <div class="left pull-left">
+                                                <h3 class="title">Present Perfect Continious</h3>
+                                                <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>28.02.16</span>
+                                            </div>
+                                            <div class="right pull-right">
+                                                <span class="count middle">60%</span>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="btn-container">
+                                            <div class="btn news-btn" id="back">Назад до списку</div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                            <div class="block col-md-12  radius5px teacher">
+                                <h2>Редагування даних викладача</h2>
+                                <div class="change-form col-md-6">
+                                    <form action="#">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="fileinput-filename fileinput-exists " ></div>
+                                            <div>
+                                                <span class="btn btn-default btn-file"><span class="fileinput-new">Змінити фотографію</span><span class="fileinput-exists">Вибрати іншу</span><input type="file" name="..."></span>
+                                                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Очистити</a>
+                                            </div>
+                                        </div>
+                                        <input type="text" id="name"  class="form-control" placeholder="Ім'я">
+                                        <input type="text" id="surname"  class="form-control" placeholder="Призвіще">
+                                        <input type="text" id="fullname"  class="form-control" placeholder="По-батькові">
+                                        <input type="text" id="post"  class="form-control" placeholder="Посада">
+                                        <input type="text" id="old-pass"  class="form-control" placeholder="Старий пароль">
+                                        <input type="text"id="new-pass"   class="form-control" placeholder="Новий пароль">
+                                        <input type="text"id="repeat-pass"   class="form-control" placeholder="Повторити пароль">
+                                        <textarea name="info" id="teacher-info" cols="30" rows="6" placeholder="Введіть інформацію про викладача"></textarea>
+                                        <input type="submit" class="news-btn btn text-center" value="Змінити дані">
+                                    </form>
+                                </div>
+
+                                <div class="errors-block col-md-6">
+                                    <label for="name">Неверно введен email </label>
+                                    <label for="surname">Неверно введен пароль </label>
+                                    <label for="fullname">Неверно введено отчество </label>
+                                    <label for="old-pass">Неверно введено имя </label>
+                                    <label for="new-pass">Неверно введена фамилия </label>
+                                    <label for="new-pass">Неверно введена должность преподователя </label>
+                                    <label for="new-pass">Пустое поле информации про учителя</label>
+                                    <label for="repeat-pass">Пароли не совпадают </label>
+                                </div>
+                            </div>
+
+
+                    </div>
+
+
+
+
+                </section>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <footer class="cathedra-block footer-nav-block black box-size">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-xs-12">
+                    <div class="ico">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    </div>
+                    <div class="title"><h1>Кафедра Іноземної Мови</h1>
+                 <span>Дніпропетровський Національний Університет імені академіка В.А.Лазаряна
+                </span></div>
+                </div>
+                <div class="col-md-3 col-xs-12  pull-right">
+                    <div class="number">
+                        <span>тел: +38092123456</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/salvattore.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jasny-bootstrap.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.min.js"></script>
+<script src="js/admin-js.js"></script>
+</body>
+</html>

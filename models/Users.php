@@ -124,6 +124,23 @@ class Users {
         return false;
     }
 
+    public function checkIdForTeacher($id) {
+        $id = intval($id);
+        if(isset($id)) {
+            $db = Db::getConnection();
+            $resQuery = $db->query("SELECT role FROM `users` WHERE id='$id'");
+            $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+            $res = $resQuery->fetch();
+            if($res['role'] == 'teacher') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        return false;
+    }
+
     public function deleteById($id) {
         $id = intval($id);
         if($this->checkIdForAdmin($id)) {

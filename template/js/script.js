@@ -110,7 +110,7 @@ if( $(window).width >800) {
 
 
 /*Puzzle*/
-
+/*
 $('.puzzle-block .word-area .word-block',this).on('click',function(){
     $(this).appendTo($('.phrase-block'));
     $(this).toggleClass('clicked');
@@ -120,6 +120,7 @@ $('.puzzle-block .answer-block .puzzle-btn',this).on('click',function(){
     $(".puzzle-block .head").fadeToggle();
     $('.foot .btn-container').fadeToggle('700');
 });
+*/
 
 
 
