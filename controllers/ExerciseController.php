@@ -55,6 +55,24 @@ class ExerciseController
         return true;
     }
 
+    public function actionAjaxGetFolderByType() {
+        $idFolder = $_POST['idFolder'];
+        $typeEx = $_POST['typeBest'];
+        $StatEx = new StatisticsExercise();
+        $res = $StatEx->getAllByParam($idFolder, $typeEx);
+        echo json_encode($res);
+    }
+
+    public function actionAjaxGetByNameUser() {
+        $firstName = $_POST['firstName'];
+        $middleName = $_POST['middleName'];
+        $lastName = $_POST['lastName'];
+        $typeEx = $_POST['typeEx'];
+        $StatEx = new StatisticsExercise();
+        $res = $StatEx->getByNameByTypeEx($firstName, $middleName, $lastName,$typeEx);
+        echo json_encode($res);
+    }
+
     public function actionAjaxSaveRes() {
         $User = new Users();
         $StatEx = new StatisticsExercise();

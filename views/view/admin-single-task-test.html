@@ -1,0 +1,446 @@
+<!Doctype html>
+<html>
+<head>
+    <title>Админ панель додавання завдання: Тест</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/template/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/template/css/jasny-bootstrap.min.css"/>
+    <link rel="stylesheet" href="/template/css/animate.css"/>
+    <link rel="stylesheet" href="/template/css/bootstrap-timepicker.min.css"/>
+    <link rel="stylesheet" href="/template/css/magnific-popup.css"/>
+    <link rel="stylesheet" href="/template/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/template/css/jquery.mCustomScrollbar.css"/>
+    <link rel="stylesheet" href="/template/css/styles.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab&subset=latin,cyrillic' rel='stylesheet'
+          type='text/css'>
+</head>
+
+<body>
+<!--
+
+ Админпанель додавання завдання:Тест
+
+ !-->
+<div class="wrapper transition3s">
+
+    <div class="up transition3s animated bounce">
+        <i class="fa-angle-up  fa"></i>
+    </div>
+
+    <section class="left-nav-section box-size transition3s">
+        <div class="inside-block transition3s">
+
+            <div class="header">
+
+                <div class="user-info">
+                    <h4>Мунтян Антоніна Олександрівна</h4>
+                    <span class="post">ст. викладач</span>
+
+                </div>
+            </div>
+
+            <div class="navbar-block">
+                <ul class="nav navbar-nav upper-text transition3s">
+
+                    <li>
+                        <a href="/admin/admin-news-list"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Новини</a>
+                    </li>
+
+                    <li >
+                        <a href="/admin/admin-facultative-list"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Факультативи</a>
+
+                    </li>
+
+
+                    <li>
+                        <a href="/admin/admin-task-folders-grid" role="button"
+                           aria-haspopup="true" aria-expanded="false">Завдання</a>
+
+                    </li>
+
+                    <li>
+                        <a href="/admin/admin-library-grid"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Бібліотека</a>
+                    </li>
+
+                    <li >
+                        <a href="/admin/admin-schedule-page" role="button"
+                           aria-haspopup="true" aria-expanded="false">Розклад</a>
+
+                    </li>
+
+                    <li>
+                        <a href="/admin/admin-media-gallery"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Медіа галерея</a>
+
+                    </li>
+                    <li>
+                        <a href="/admin/admin-cathedra"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Сторінка про кафедру</a>
+                    </li>
+
+                    <li>
+                        <a href="/admin/admin-pages-description"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Редагування опису сторінок</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="top-nav-block" class="transition3s">
+        <header class="cathedra-block box-size">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-7 col-xs-12">
+                        <div class="ico">
+                            <a href="main.html"> <i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="title"><h1>Кафедра Іноземної Мови</h1>
+                <span>Дніпропетровський Національний Університет імені академіка В.А.Лазаряна
+                </span>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-xs-12">
+                        <div class="number">
+                            <span>тел: +38092123456</span>
+                        </div>
+                        <div class="btn-container pull-right">
+                            <a href="auth.html" class="btn btn-default login-btn transition3s">Увійти</a>
+                            <a href="register.html" class="btn btn-default login-btn transition3s">Реєстрація</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </header>
+
+        <nav class="nav-block navbar navbar-default ">
+            <div class="container">
+                <div class="row">
+                    <div class="navbar-header visible-xs">
+                        <div id="smallBtn">Бокове меню</div>
+                        <button type="button" class="navbar-toggle "
+                                data-target="#main-nav" aria-expanded="false">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div id="main-nav">
+                        <ul class="nav navbar-nav transition3s">
+                            <li class="active"><a href="#">Головна</a></li>
+                            <li><a href="#">Розклад</a></li>
+                            <li><a href="#">Біблиотека</a></li>
+                            <li><a href="#">Завдання</a></li>
+                            <li><a href="#">Новини</a></li>
+                            <li><a href="facultList.html">Факультативи</a></li>
+                            <li><a href="#">Медіа</a></li>
+                            <li><a href="#">Про кафедру</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <section class="admin-panel box-size">
+
+        <div class="full-container">
+            <div class="row">
+                <section class="panel-info-block">
+
+                    <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
+                        <div class="block box-size transition3s radius5px admin-container">
+
+                            <div class="news-panel">
+
+                                <div class="add-block">
+                                    <h3 class="text-center">Додавання завдання кафедри: Тест</h3>
+
+
+                                    <div class="task-edit hidden">
+
+                                        <div class="btn-container ">
+                                            <a href="#" class="btn admin-btn pull-right">Нове завдання</a>
+                                        </div>
+                                        <div class="news-table">
+                                            <table class="table table-responsive  admin-table">
+                                                <thead>
+                                                <tr>
+                                                    <th>Номер</th>
+                                                    <th>Назва завдання</th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                <tr>
+                                                    <th>1</th>
+                                                    <td>
+                                                        Present Simple
+                                                    </td>
+
+
+
+                                                    <td>
+            <span class="correct-item">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            </span>
+
+                                                    </td>
+                                                    <td>
+                                                        <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>2</th>
+                                                    <td>
+                                                        Present Simple
+                                                    </td>
+
+
+
+                                                    <td>
+            <span class="correct-item">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            </span>
+
+                                                    </td>
+                                                    <td>
+                                                        <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>3</th>
+                                                    <td>
+                                                        Past  Simple
+                                                    </td>
+
+
+
+                                                    <td>
+            <span class="correct-item">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            </span>
+
+                                                    </td>
+                                                    <td>
+                                                        <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>4</th>
+                                                    <td>
+                                                        Past Perfect Continious                                                    </td>
+
+
+
+                                                    <td>
+            <span class="correct-item">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            </span>
+
+                                                    </td>
+                                                    <td>
+                                                        <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>5</th>
+                                                    <td>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                                        labore et dolore magna aliqua
+                                                    </td>
+
+
+
+                                                    <td>
+            <span class="correct-item">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            </span>
+
+                                                    </td>
+                                                    <td>
+                                                        <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                                    </td>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <th>6</th>
+                                                    <td>
+                                                        Movie Club - Important meeting of video movies
+                                                    </td>
+
+
+                                                    <td>
+            <span class="correct-item">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            </span>
+
+                                                    </td>
+                                                    <td>
+                                                        <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>7</th>
+                                                    <td>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                                        labore et dolore magna aliqua
+                                                    </td>
+
+
+                                                    <td>
+            <span class="correct-item">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            </span>
+
+                                                    </td>
+                                                    <td>
+                                                        <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                                    </td>
+                                                </tr>
+
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="task-edit">
+
+                                        <div class="explain-block">
+                                            <p>Крок 1: Впишіть речення на іноземній мові. Натисніть на копку "Продовжити".</p>
+                                        </div>
+                                        <div class="form-task">
+                                            <label for="test-sentense">Впишіть речення:</label>
+                                            <input type="text" class="form-control" id="test-sentense" value="The sentence of this task is hidden. It is Great!">
+
+                                            <input type="button"  class="btn btn-primary" value="Продовжити" id="next-step">
+                                        </div>
+
+                                        <div class="answer-block transition3s">
+
+                                        <div class="explain-block">
+                                            <p>Крок 2: Виберіть одну привильну відповідь зі списку нижче. Впишіть три неправильні відповіді. Натисніть на кнопку "Підтвердити".</p>
+                                        </div>
+                                        <div class="answer-form col-md-6">
+                                            <div class="answer">
+                                                <select id="right-answer" class="form-control">
+                                                    <option value="sentence">sentence</option>
+                                                    <option value="The">The</option>
+                                                    <option value="hidden">hidden</option>
+                                                    <option value="Great">Great</option>
+                                                    <option value="sentence">sentence</option>
+                                                </select>
+                                                <div class="alert-success text-center alert"> <i class="fa fa-check" aria-hidden="true"></i>
+                                                    Правильна відповідь</div>
+
+                                            </div>
+
+                                            <div class="answer">
+                                                <input type="text" class="form-control" id="wrong1" value="hidden">
+                                                <div class="alert-danger text-center alert"><i class="fa fa-times" aria-hidden="true"></i>
+                                                    Неправильна відповідь</div>
+                                            </div>
+
+                                            <div class="answer">
+                                                <input type="text" class="form-control" id="wrong2" value="hidden">
+                                                <div class="alert-danger text-center alert"><i class="fa fa-times" aria-hidden="true"></i>
+                                                    Неправильна відповідь</div>
+                                            </div>
+
+                                            <div class="answer">
+                                                <input type="text" class="form-control" id="wrong3" value="hidden">
+                                                <div class="alert-danger text-center alert"><i class="fa fa-times" aria-hidden="true"></i>
+                                                    Неправильна відповідь</div>
+                                            </div>
+
+                                            <label for="accept-btn" class="alert alert-info alert-single" id="alert-ok">Завдання успішно додано</label>
+
+
+                                            <input type="button"  class="btn btn-primary" value="Підтвердити" id="accept">
+
+                                        </div>
+
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                </div>
+
+
+
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+            </div>
+        </div>
+
+    </section>
+
+
+    <footer class="cathedra-block footer-nav-block black box-size">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-xs-12">
+                    <div class="ico">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    </div>
+                    <div class="title"><h1>Кафедра Іноземної Мови</h1>
+                 <span>Дніпропетровський Національний Університет імені академіка В.А.Лазаряна
+                </span></div>
+                </div>
+                <div class="col-md-3 col-xs-12  pull-right">
+                    <div class="number">
+                        <span>тел: +38092123456</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+</div>
+<script src="/template/js/jquery.min.js"></script>
+<script src="/template/js/bootstrap.min.js"></script>
+<script src="/template/js/bootstrap-timepicker.js"></script>
+
+<script src="/template/js/waypoints.min.js"></script>
+<script src="/template/js/wow.min.js"></script>
+<script src="/template/js/salvattore.min.js"></script>
+<script src="/template/js/jquery.magnific-popup.min.js"></script>
+<script src="/template/js/jasny-bootstrap.min.js"></script>
+<script src="/template/js/jquery.mCustomScrollbar.min.js"></script>
+<script src="/template/js/admin-js.js"></script>
+
+</body>
+</html>

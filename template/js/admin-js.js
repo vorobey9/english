@@ -72,8 +72,15 @@ leftNav.on('click',function(){
   $('.test-statistic .front-side').slideToggle();
   $(".test-statistic .back-side").slideToggle();
  });
-
+ $('.test-statistic .front-side #test-btn2').on('click',function(){
+  $('.test-statistic .front-side').slideToggle();
+  $(".test-statistic .back-side").slideToggle();
+ });
  $('.test-statistic .back-side #back').on('click',function(){
+  $('.test-statistic .front-side').slideToggle();
+  $(".test-statistic .back-side").slideToggle();
+ });
+ $('.test-statistic .back-side #back2').on('click',function(){
   $('.test-statistic .front-side').slideToggle();
   $(".test-statistic .back-side").slideToggle();
  });
@@ -94,6 +101,8 @@ leftNav.on('click',function(){
  $('#add-facult').on('click',function(){
   $('.add-facultative-block').slideToggle('middle')
  });
+
+
  //Event of the add-facult button
 
 
@@ -117,6 +126,60 @@ leftNav.on('click',function(){
 $('#next-step').on('click',function(){
  $('.answer-block').slideToggle();
 });
+
+
+
+ /*Manipulation with admin panel Andrey*/
+
+ $('#add-facult-btn').on('click',function(){
+  var title = $('#title-facultative').val();
+  $('#alert-ok').show().delay(700).slideUp(500);
+  var html = '<tr><th>1</th><td>'+ title+'</td> <th> <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>20.06.16</span></th> <th> <span class="correct-item"> <i class="fa fa-pencil" aria-hidden="true"></i> </span> </th> <th> <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span> </th> </tr> </tr>';
+$(".news-table tbody").prepend(html);
+
+ });
+
+ $('#accept').on('click',function(){
+  var title = $('#theme-title').val();
+  $('#alert-ok').show();
+  var html = '<tr><th>1</th><td>'+ title+'</td>  <th> <span class="correct-item"> <i class="fa fa-pencil" aria-hidden="true"></i> </span> </th> <th> <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span> </th> </tr> </tr>';
+  $(".news-table tbody").prepend(html);
+
+ });
+
+ $('.admin-table tbody .delete-item').on('click',function(){
+  $(this).closest("tr").hide('middle');
+ });
+
+ $('#accept').on('click',function(){
+  $('#alert-ok').show().delay(700).slideUp(500);
+ });
+ $('#denumer').on('click',function(){
+  $(this).toggleClass('active');
+ });
+ $('#numer').on('click',function(){
+  $(this).toggleClass('active');
+ });
+ $('.test',this).on('click',function(){
+  $(this).toggleClass('active');
+ });
+ $('.pagination li a',this).on('click',function(){
+  $(this).closest('li').toggleClass('active');
+ });
+ /*Manipulation with admin panel Andrey*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
 'use strict';

@@ -1,0 +1,401 @@
+<!Doctype html>
+<html>
+<head>
+    <title>Админ панель медіа галереї</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/template/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/template/css/jasny-bootstrap.min.css"/>
+    <link rel="stylesheet" href="/template/css/animate.css"/>
+    <link rel="stylesheet" href="/template/css/magnific-popup.css"/>
+    <link rel="stylesheet" href="/template/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/template/css/jquery.mCustomScrollbar.css"/>
+
+    <link rel="stylesheet" href="/template/css/styles.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab&subset=latin,cyrillic' rel='stylesheet'
+          type='text/css'>
+</head>
+
+<body>
+<!--
+
+ Админ панель медіа галереї
+
+ !-->
+<div class="wrapper transition3s">
+
+    <div class="up transition3s animated bounce">
+        <i class="fa-angle-up  fa"></i>
+    </div>
+
+
+    <section class="left-nav-section box-size transition3s">
+        <div class="inside-block transition3s">
+
+            <div class="header">
+
+                <div class="user-info">
+                    <h4>Мунтян Антоніна Олександрівна</h4>
+                    <span class="post">ст. викладач</span>
+
+                </div>
+            </div>
+
+            <div class="navbar-block">
+                <ul class="nav navbar-nav upper-text transition3s">
+
+                    <li>
+                        <a href="/admin/admin-news-list"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Новини</a>
+                    </li>
+
+                    <li >
+                        <a href="/admin/admin-facultative-list"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Факультативи</a>
+
+                    </li>
+
+
+                    <li>
+                        <a href="/admin/admin-task-folders-grid" role="button"
+                           aria-haspopup="true" aria-expanded="false">Завдання</a>
+
+                    </li>
+
+                    <li>
+                        <a href="/admin/admin-library-grid"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Бібліотека</a>
+                    </li>
+
+                    <li >
+                        <a href="/admin/admin-schedule-page" role="button"
+                           aria-haspopup="true" aria-expanded="false">Розклад</a>
+
+                    </li>
+
+                    <li>
+                        <a href="/admin/admin-media-gallery"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Медіа галерея</a>
+
+                    </li>
+                    <li>
+                        <a href="/admin/admin-cathedra"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Сторінка про кафедру</a>
+                    </li>
+
+                    <li>
+                        <a href="/admin/admin-pages-description"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Редагування опису сторінок</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="top-nav-block" class="transition3s">
+        <header class="cathedra-block box-size">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-7 col-xs-12">
+                        <div class="ico">
+                            <a href="main.html"> <i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="title"><h1>Кафедра Іноземної Мови</h1>
+                <span>Дніпропетровський Національний Університет імені академіка В.А.Лазаряна
+                </span>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-xs-12">
+                        <div class="number">
+                            <span>тел: +38092123456</span>
+                        </div>
+                        <div class="btn-container pull-right">
+                            <a href="auth.html" class="btn btn-default login-btn transition3s">Увійти</a>
+                            <a href="register.html" class="btn btn-default login-btn transition3s">Реєстрація</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </header>
+
+        <nav class="nav-block navbar navbar-default ">
+            <div class="container">
+                <div class="row">
+                    <div class="navbar-header visible-xs">
+                        <div id="smallBtn">Бокове меню</div>
+                        <button type="button" class="navbar-toggle "
+                                data-target="#main-nav" aria-expanded="false">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div id="main-nav">
+                        <ul class="nav navbar-nav transition3s">
+                            <li class="active"><a href="#">Головна</a></li>
+                            <li><a href="#">Розклад</a></li>
+                            <li><a href="#">Біблиотека</a></li>
+                            <li><a href="#">Завдання</a></li>
+                            <li><a href="#">Новини</a></li>
+                            <li><a href="facultList.html">Факультативи</a></li>
+                            <li><a href="#">Медіа</a></li>
+                            <li><a href="#">Про кафедру</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <section class="admin-panel box-size">
+
+        <div class="full-container">
+            <div class="row">
+                <section class="panel-info-block">
+
+                    <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
+                        <div class="block box-size transition3s radius5px admin-container">
+                            <h3 class="title-admin upper-text">Медіа галерея кафедри</h3>
+
+                            <div class="news-panel">
+
+                                <div class="media-panel">
+                                    <div class="col-md-5 select-block">
+                                        <h4 class="text-center">Завантаженя фото матеріалів </h4>
+
+                                        <label for="photo">Виберіть фото:</label>
+                                        <div class="box">
+                                            <input type="file" name="file-6[]" id="photo" class="inputfile inputfile-5"
+                                                   data-multiple-caption=" Обрано файлів {count}" multiple/>
+                                            <label for="photo">
+                                                <figure>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
+                                                         viewBox="0 0 20 17">
+                                                        <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                                                    </svg>
+                                                </figure>
+                                                <span>Виберіть файл&hellip;</span></label>
+                                        </div>
+                                        <div class="btn-container text-center">
+                                            <a href="#" class="btn admin-btn">Завантажити</a>
+                                            <a href="#" class="btn  btn-danger ">Очистити</a>
+
+                                        </div>
+                                        <h6 class="alert-info text-center alert">Файл успішно завантажений</h6>
+                                    </div>
+
+                                    <div class=" select-block  col-md-5 video text-left">
+                                        <h4 class="text-center">Завантаження відео</h4>
+                                        <label for="video-title">Введіть назву відео:</label>
+                                        <input type="text" id="video-title" class="form-control">
+                                        <label for="video">Введіть URL відео:</label>
+                                        <input type="text" id="video" class="form-control">
+                                        <h6>Приклади можливих URL:</h6>
+                                        <ul>
+                                            <li>http://www.youtube.com/watch?v=UzifCbU_gJU</li>
+                                            <li>http://www.youtube.com/watch?v=UzifCbU_gJU&feature=related</li>
+                                            <li>http://youtu.be/UzifCbU_gJU</li>
+                                        </ul>
+                                        <div class="btn-container ">
+                                            <a href="#" class="btn admin-btn">Завантажити</a>
+                                        </div>
+                                        <h6 class="alert-info  alert">Файл успішно завантажений</h6>
+                                    </div>
+
+
+
+
+
+
+                                </div>
+
+                                <div class="news-table ">
+                                    <h4 class="text-center">Редагування медіа матеріалів</h4>
+
+                                    <div class="control-block transition3s col-md-3  col-sm-5">
+                                        <a href="#">
+                                            <h4>Фото матеріали</h4>
+                                        </a>
+                                    </div>
+
+                                    <div class="control-block transition3s active col-md-3  col-sm-5">
+                                        <a href="#">
+                                            <h4>Відео матеріали</h4>
+                                        </a>
+                                    </div>
+
+                                    <table class="table table-responsive  admin-table">
+                                        <thead>
+                                        <tr>
+                                            <th>Номер</th>
+                                            <th>Назва медіа файлу</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        <tr>
+                                            <th>1</th>
+                                            <td>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                                labore et dolore magna aliqua
+                                            </td>
+
+
+
+
+                                            <th>
+                                                <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                            </th>
+                                        </tr>
+
+                                        <tr>
+                                            <th>2</th>
+                                            <td>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididun
+                                            </td>
+
+
+
+
+                                            <th>
+                                                <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                            </th>
+                                        </tr>
+
+                                        <tr>
+                                            <th>3</th>
+                                            <td>
+                                                Important events of cathedra
+                                            </td>
+
+
+
+
+                                            <th>
+                                                <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                            </th>
+                                        </tr>
+
+                                        <tr>
+                                            <th>4</th>
+                                            <td>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                                labore et dolore magna aliqua
+                                            </td>
+
+
+
+
+                                            <th>
+                                                <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                            </th>
+                                        </tr>
+
+                                        <tr>
+                                            <th>5</th>
+                                            <td>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                                labore et dolore magna aliqua
+                                            </td>
+
+
+                                            <th>
+                                                <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                            </th>
+                                        </tr>
+
+
+                                        <tr>
+                                            <th>6</th>
+                                            <td>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                                labore et dolore magna aliqua
+                                            </td>
+
+
+
+                                            <th>
+                                                <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                            </th>
+                                        </tr>
+
+                                        <tr>
+                                            <th>7</th>
+                                            <td>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                                labore et dolore magna aliqua
+                                            </td>
+
+
+
+
+                                            <th>
+                                                <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                            </th>
+                                        </tr>
+
+
+                                        </tbody>
+                                    </table>
+
+
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+            </div>
+        </div>
+
+    </section>
+
+
+    <footer class="cathedra-block footer-nav-block black box-size">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-xs-12">
+                    <div class="ico">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    </div>
+                    <div class="title"><h1>Кафедра Іноземної Мови</h1>
+                 <span>Дніпропетровський Національний Університет імені академіка В.А.Лазаряна
+                </span></div>
+                </div>
+                <div class="col-md-3 col-xs-12  pull-right">
+                    <div class="number">
+                        <span>тел: +38092123456</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+</div>
+<script src="/template/js/jquery.min.js"></script>
+<script src="/template/js/bootstrap.min.js"></script>
+<script src="/template/js/waypoints.min.js"></script>
+<script src="/template/js/wow.min.js"></script>
+<script src="/template/js/salvattore.min.js"></script>
+<script src="/template/js/jquery.magnific-popup.min.js"></script>
+<script src="/template/js/jasny-bootstrap.min.js"></script>
+<script src="/template/js/jquery.mCustomScrollbar.min.js"></script>
+<script src="/template/js/admin-js.js"></script>
+</body>
+</html>

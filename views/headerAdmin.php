@@ -41,6 +41,53 @@
             <div class="navbar-block">
                 <ul class="nav navbar-nav upper-text transition3s">
 
+                    <li>
+                        <a href="/admin/admin-news-list"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Новини</a>
+                    </li>
+
+                    <li >
+                        <a href="/admin/admin-facultative-list"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Факультативи</a>
+
+                    </li>
+
+
+                    <li>
+                        <a href="/admin/admin-task-folders-grid" role="button"
+                           aria-haspopup="true" aria-expanded="false">Завдання</a>
+
+                    </li>
+
+                    <li>
+                        <a href="/admin/admin-library-grid"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Бібліотека</a>
+                    </li>
+
+                    <li >
+                        <a href="/admin/admin-schedule-page" role="button"
+                           aria-haspopup="true" aria-expanded="false">Розклад</a>
+
+                    </li>
+
+                    <li>
+                        <a href="/admin/admin-media-gallery"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Медіа галерея</a>
+
+                    </li>
+                    <li>
+                        <a href="/admin/admin-cathedra"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Сторінка про кафедру</a>
+                    </li>
+
+                    <li>
+                        <a href="/admin/admin-pages-description"  role="button"
+                           aria-haspopup="true" aria-expanded="false">Редагування опису сторінок</a>
+                    </li>
+                </ul>
+                <!--
+                <ul class="nav navbar-nav upper-text transition3s">
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-haspopup="true" aria-expanded="false">Новини</a>
@@ -82,6 +129,7 @@
                     </li>
 
                 </ul>
+                -->
             </div>
         </div>
     </section>

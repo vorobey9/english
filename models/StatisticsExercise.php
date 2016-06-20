@@ -54,7 +54,7 @@ class StatisticsExercise {
     public function getAll($idUser, $idFolder) {
         if($idUser != false && $idFolder != false) {
             $db = Db::getConnection();
-            $resQuery = $db->query("SELECT * FROM `statisticsexercise` WHERE idUser='$idUser' AND idFolder='$idFolder'");
+            $resQuery = $db->query("SELECT * FROM `statisticsexercise` WHERE idUser='$idUser' AND idFolder='$idFolder' ORDER BY thisDate DESC");
         }
         else {
             $db = Db::getConnection();
@@ -137,6 +137,58 @@ class StatisticsExercise {
         if($result) {
             $result->setFetchMode(PDO::FETCH_ASSOC);
             $result = $result->fetch();
+            return $result;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function getAllByParam($idFolder, $byType) {
+        switch ($byType) {
+            case 'best':
+                $db = Db::getConnection();
+                $resQuery = $db->query("SELECT `statisticsexercise`.`mark`, `users`.`lastName`, `users`.`firstName` FROM `statisticsexercise` INNER JOIN `users` ON `statisticsexercise`.`idUser` = `users`.`id` WHERE idFolder='$idFolder' ORDER BY mark DESC limit 0, 10");
+                break;
+            case 'loser':
+                $db = Db::getConnection();
+                $resQuery = $db->query("SELECT `statisticsexercise`.`mark`, `users`.`lastName`, `users`.`firstName` FROM `statisticsexercise` INNER JOIN `users` ON `statisticsexercise`.`idUser` = `users`.`id` WHERE idFolder='$idFolder' ORDER BY mark ASC limit 0, 10");
+                break;
+            case 'last':
+                $db = Db::getConnection();
+                $resQuery = $db->query("SELECT `statisticsexercise`.`mark`, `users`.`lastName`, `users`.`firstName` FROM `statisticsexercise` INNER JOIN `users` ON `statisticsexercise`.`idUser` = `users`.`id` WHERE idFolder='$idFolder' ORDER BY thisDate DESC limit 0, 10");
+                break;
+        }
+        $result = array();
+        if($resQuery) {
+            $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+            $i = 0;
+            while($row = $resQuery->fetch()) {
+                $result[$i]['mark'] = $row['mark'];
+                $result[$i]['firstName'] = $row['firstName'];
+                $result[$i]['lastName'] = $row['lastName'];
+                $i++;
+            }
+            return $result;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function getByNameByTypeEx($firstName, $middleName, $lastName, $typeEx) {
+                $db = Db::getConnection();
+                $resQuery = $db->query("SELECT `statisticsexercise`.`mark`, `folders`.`title`, `statisticsexercise`.`thisDate` FROM (`folders` INNER JOIN `statisticsexercise` ON `statisticsexercise`.`idFolder` = `folders`.`id`) INNER JOIN `users` ON `statisticsexercise`.`idUser` = `users`.`id` WHERE `users`.`firstName`='$firstName' AND `users`.`middleName`='$middleName' AND `users`.`lastName`='$lastName' AND `folders`.`typeExercise` = `$typeEx` ORDER BY mark DESC limit 0, 10");
+        $result = array();
+        if($resQuery) {
+            $resQuery->setFetchMode(PDO::FETCH_ASSOC);
+            $i = 0;
+            while($row = $resQuery->fetch()) {
+                $result[$i]['mark'] = $row['mark'];
+                $result[$i]['title'] = $row['title'];
+                $result[$i]['thisDate'] = $row['thisDate'];
+                $i++;
+            }
             return $result;
         }
         else {

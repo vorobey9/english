@@ -1,7 +1,10 @@
 <?php
 return array(
 
-    'adminCabinet' => 'admCab/admCab/view',
+    'admin/cabinet' => 'admCab/admCab/view',
+    'admin/schedule' => 'adminSchedule/adminSchedule/view',
+
+    'admin/([a-z,-]+)' => 'admin/admin/openPage/$1',
 
     'user/ajaxGetById' => 'user/user/ajaxGetById',
 
@@ -9,9 +12,13 @@ return array(
     'schedule/ajaxGetConsultPoint' => 'schedule/schedule/ajaxGetConsultPoint',
     'schedule' => 'schedule/schedule/view',
 
+    '/exercise/ajaxGetFolderByType' => 'exercise/exercise/ajaxGetFolderByType',
+    '/exercise/ajaxGetByNameUser' => 'exercise/exercise/ajaxGetGetByNameUser',
+
     'exercise/ajaxSaveRes' => 'exercise/exercise/ajaxSaveRes',
     'exercise/ajaxShowInfoModal' => 'exercise/exercise/ajaxShowInfoModal',
     'exercise/ajaxGetFolder' => 'exercise/exercise/ajaxGetFolder',
+
     'exercise' => 'exercise/exercise/view',
 
     'test/([0-9]+)' => 'exercise/exercise/viewTest/$1',
