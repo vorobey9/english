@@ -281,6 +281,7 @@
 <script src="/template/js/bootstrap.min.js"></script>
 <script src="/template/js/waypoints.min.js"></script>
 <script src="/template/js/wow.min.js"></script>
+<script src="/template/js/masonry.js"></script>
 <script src="/template/js/salvattore.min.js"></script>
 <script src="/template/js/jquery.magnific-popup.min.js"></script>
 <script src="/template/js/script.js"></script>

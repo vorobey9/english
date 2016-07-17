@@ -62,6 +62,7 @@ function pushSearch() {
                                 '</div>'+
                             '</div>';
                     $("#booksArea").append(htmlCode);
+                    $("#booksArea .document").masonry('reloadImages');
                 }
             }
             else {

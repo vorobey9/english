@@ -139,7 +139,9 @@ $(".news-table tbody").prepend(html);
 
  });
 
- $('#accept').on('click',function(){
+ $('#accept').on('click',function(e){
+    e.preventDefault();
+
   var title = $('#theme-title').val();
   $('#alert-ok').show();
   var html = '<tr><th>1</th><td>'+ title+'</td>  <th> <span class="correct-item"> <i class="fa fa-pencil" aria-hidden="true"></i> </span> </th> <th> <span class="delete-item"><i class="fa fa-times" aria-hidden="true"></i></span> </th> </tr> </tr>';
@@ -151,8 +153,14 @@ $(".news-table tbody").prepend(html);
   $(this).closest("tr").hide('middle');
  });
 
- $('#accept').on('click',function(){
+ $('#accept').on('click',function(e){
+    e.preventDefault();
+
   $('#alert-ok').show().delay(700).slideUp(500);
+ });
+ $('#accept2').on('click',function(e){
+   e.preventDefault();
+  $('#alert-ok2').show().delay(700).slideUp(500);
  });
  $('#denumer').on('click',function(){
   $(this).toggleClass('active');
@@ -165,6 +173,11 @@ $(".news-table tbody").prepend(html);
  });
  $('.pagination li a',this).on('click',function(){
   $(this).closest('li').toggleClass('active');
+ });
+  $('.control-block').on('click',function(e){
+      e.preventDefault();
+
+  $(this).toggleClass('active');
  });
  /*Manipulation with admin panel Andrey*/
 

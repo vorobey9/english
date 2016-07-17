@@ -1468,7 +1468,7 @@ a.title, a:hover, a:focus, a:active, .title:hover, .title:focus, .title:active,.
     max-height: 500px;
 }
 
-#alert-ok{
+#alert-ok, #alert-ok2{
     display: none;
 }
 
@@ -1547,7 +1547,7 @@ a.title, a:hover, a:focus, a:active, .title:hover, .title:focus, .title:active,.
     position: relative;
 }
 
-.search input {
+.library-block input {
     border: none;
 }
 
@@ -1560,8 +1560,8 @@ a.title, a:hover, a:focus, a:active, .title:hover, .title:focus, .title:active,.
     margin: 10px 0;
 }
 
-.search .input {
-    width: 70%;
+.library-block .input {
+    width: 65%;
     position: relative;
     padding: 10px 14px;
     background: #EEE;
@@ -1572,12 +1572,12 @@ a.title, a:hover, a:focus, a:active, .title:hover, .title:focus, .title:active,.
     margin: 10px 0;
 }
 
-.search input:focus {
+.library-block input:focus {
     box-shadow: 0 0 8px rgba(110, 109, 117, 0.5);
 }
 
-.search button {
-    padding: 11px 14px 10px 14px;
+.library-block button {
+    padding: 13px 14px 12px 14px;
     float: left;
     border-radius: 0;
     outline: none !important;
@@ -1586,7 +1586,7 @@ a.title, a:hover, a:focus, a:active, .title:hover, .title:focus, .title:active,.
 
 }
 
-.search button i {
+.library-block button i {
     font-size: 1.2em;
     color: #aeaeae;
 }
@@ -2521,6 +2521,7 @@ input[type="search"] {
     position: relative;
     float: left;
     margin: 10px 0;
+    width: 100%;
 }
 .task-area .block .gap-block .task label,.task-area .test .task .question-block label {
     font-size: 1.3em;
@@ -4876,3 +4877,7 @@ padding: 10px 0;
 
 /*Preloader*/
 
+#facultative .block .answer-block {
+    width: 100%;
+    float: left;
+}
